@@ -18,7 +18,7 @@ SELECT
 	 AD.Date AS AddedDate
 	 ,AD.Year AS AddedYear
 	 ,AD.Month AS AddedMonth
-	 ,LEFT(AD.DayName,3) as [DayOfWeek]
+	 ,AD.DayName as [DayOfWeek]
 	,COUNT(*) AS RecordCount
     
   FROM dbo.FactEvent F
@@ -28,7 +28,7 @@ GROUP BY
 	 AD.Date
 	 ,AD.Year
 	 ,Ad.Month
-	 ,LEFT(AD.DayName,3)
+	 ,AD.DayName
 
 
 
