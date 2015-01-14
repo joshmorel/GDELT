@@ -1,0 +1,27 @@
+USE [GDELT]
+GO
+
+/****** Object:  Table [dbo].[DimReligion]    Script Date: 13/01/2015 6:55:10 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[DimReligion](
+	[ReligionKey] [varchar](50) NOT NULL,
+	[ReligionDescription] [varchar](255) NOT NULL,
+ CONSTRAINT [PK_DimReligion] PRIMARY KEY CLUSTERED 
+(
+	[ReligionKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
