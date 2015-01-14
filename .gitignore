@@ -1,0 +1,8 @@
+*.ldf
+*.mdf
+Backup/
+Log/
+NetworkGraphs/
+Programs/
+References/
+SourceFiles/
