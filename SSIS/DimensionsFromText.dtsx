@@ -1,0 +1,3071 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="Josh-PC\Josh"
+  DTS:CreatorComputerName="JOSH-PC"
+  DTS:CreationDate="11/30/2014 5:49:31 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{95F5A93F-FAD3-4156-A62B-7AB7056D5E66}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="4105"
+  DTS:ObjectName="DimensionsFromText"
+  DTS:DTSID="{9DDEFD1C-DFCF-4AC7-A74B-1A337A15171F}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAMEO.country]"
+      DTS:ObjectName="CAMEO.country"
+      DTS:DTSID="{87CAA46A-5D94-457C-91D6-EF8361B43752}"
+      DTS:CreationName="FLATFILE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\GDELT\References\Text\CAMEO.country.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CODE"
+              DTS:DTSID="{80B87CC5-800C-4725-A171-EE6F9B194E27}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LABEL"
+              DTS:DTSID="{BE885544-E076-43BB-BEC6-81642016C6A2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAMEO.ethnic]"
+      DTS:ObjectName="CAMEO.ethnic"
+      DTS:DTSID="{9170534C-DE04-4614-BE5C-9CE06A408542}"
+      DTS:CreationName="FLATFILE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\GDELT\References\Text\CAMEO.ethnic.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CODE"
+              DTS:DTSID="{9A407A57-B243-4DDB-85DA-354A3C87FC9C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LABEL"
+              DTS:DTSID="{631B1DEB-BAAD-478C-8878-AAE02B748C1D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAMEO.knowngroup]"
+      DTS:ObjectName="CAMEO.knowngroup"
+      DTS:DTSID="{6A5B6CB8-0726-4816-A7AF-C6B91DCF2B5C}"
+      DTS:CreationName="FLATFILE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\GDELT\References\Text\CAMEO.knowngroup.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CODE"
+              DTS:DTSID="{11504903-B6C9-46B8-B97F-3A6A3F976325}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LABEL"
+              DTS:DTSID="{C0F84773-A1C9-468D-A3A4-E576FCBFE9AF}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAMEO.religion]"
+      DTS:ObjectName="CAMEO.religion"
+      DTS:DTSID="{EF94E765-1CCE-4EAA-BD12-B614A0BD7590}"
+      DTS:CreationName="FLATFILE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\GDELT\References\Text\CAMEO.religion.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CODE"
+              DTS:DTSID="{86090B25-537E-4B4F-BFA6-B2918D6526B3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LABEL"
+              DTS:DTSID="{DA17FB30-1AE3-4ABC-A2ED-A876D0C9F163}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAMEO.type]"
+      DTS:ObjectName="CAMEO.type"
+      DTS:DTSID="{171B0418-8C95-46D0-A649-79FD98E97FF2}"
+      DTS:CreationName="FLATFILE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\GDELT\References\Text\CAMEO.type.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CODE"
+              DTS:DTSID="{14266ED7-DDB5-43B3-9590-C5650FC21CC6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LABEL"
+              DTS:DTSID="{8EAB3CDC-68C4-4941-97FA-5ACF47F4C2F4}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAMEOEventCodes]"
+      DTS:ObjectName="CAMEOEventCodes"
+      DTS:DTSID="{624B622C-54B2-4987-8C94-22858B8B5035}"
+      DTS:CreationName="FLATFILE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\GDELT\References\Text\CAMEO.eventcodes.expanded.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventCode"
+              DTS:DTSID="{D0BFB76B-2F0C-4190-88ED-D36DC0CB0090}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventDescription"
+              DTS:DTSID="{F0B42A0B-120D-4A0A-8FF9-4C0BD65429BA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventBaseCode"
+              DTS:DTSID="{684B2322-7B39-432B-B93F-573488733B2E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventBaseDescription"
+              DTS:DTSID="{61488C0A-2704-47B2-9168-D1E1DC290B8E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventRootCode"
+              DTS:DTSID="{A96EC3B5-5E6B-41E3-8BBA-7FED0DCCE743}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EventRootDescription"
+              DTS:DTSID="{7F11B55A-7CC1-4DAD-BF1A-7BB516B319AB}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ObjectName="SSIS log provider for Windows Event Log"
+      DTS:DTSID="{D6CF4C2A-D408-4DAA-A640-3C5F3E3C8ADC}"
+      DTS:Description="Writes log entries for events to the Event Log"
+      DTS:CreationName="DTS.LogProviderEventLog.3">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables />
+  <DTS:LoggingOptions
+    DTS:LoggingMode="1"
+    DTS:FilterKind="0">
+    <DTS:Property
+      DTS:Name="EventFilter"
+      DTS:DataType="8">1,7,OnError</DTS:Property>
+    <DTS:Property
+      DTS:Name="ColumnFilter"
+      DTS:EventName="OnError">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{D6CF4C2A-D408-4DAA-A640-3C5F3E3C8ADC}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load DimActorType"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load DimActorType"
+      DTS:DTSID="{c9e93697-f9b0-413a-be54-14cc3016e46a}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:LoggingMode="2"
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load DimActorType\Cameo ActorType File"
+              name="Cameo ActorType File"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              description="Flat File Source"
+              localeId="4105"
+              usesDispositions="true"
+              version="1"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="RetainNulls"
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null.">false</property>
+                <property
+                  name="FileNameColumnName"
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimActorType\Cameo ActorType File.Connections[FlatFileConnection]"
+                  name="FlatFileConnection"
+                  connectionManagerID="Package.ConnectionManagers[CAMEO.type]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAMEO.type]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Output].Columns[CODE]"
+                      name="CODE"
+                      lineageId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Output].Columns[CODE]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Output].ExternalColumns[CODE]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      name="LABEL"
+                      lineageId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Output].ExternalColumns[LABEL]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Output].ExternalColumns[CODE]"
+                      name="CODE"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Output].ExternalColumns[LABEL]"
+                      name="LABEL"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Error Output]"
+                  name="Flat File Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      dataType="text"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimActorType\DimActorType Destination"
+              name="DimActorType Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[DimActorType]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimActorType\DimActorType Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.GDELT]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load DimActorType\DimActorType Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimActorType\DimActorType Destination.Inputs[OLE DB Destination Input].Columns[CODE]"
+                      lineageId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Output].Columns[CODE]"
+                      externalMetadataColumnId="Package\Load DimActorType\DimActorType Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActorTypeKey]"
+                      cachedName="CODE"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Load DimActorType\DimActorType Destination.Inputs[OLE DB Destination Input].Columns[LABEL]"
+                      lineageId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      externalMetadataColumnId="Package\Load DimActorType\DimActorType Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActorTypeDescription]"
+                      cachedName="LABEL"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimActorType\DimActorType Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActorTypeKey]"
+                      name="ActorTypeKey"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimActorType\DimActorType Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActorTypeDescription]"
+                      name="ActorTypeDescription"
+                      dataType="str"
+                      length="255"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimActorType\DimActorType Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load DimActorType\DimActorType Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimActorType\DimActorType Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load DimActorType\DimActorType Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimActorType\DimActorType Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load DimActorType\DimActorType Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load DimActorType.Paths[Flat File Source Output]"
+              name="Flat File Source Output"
+              startId="Package\Load DimActorType\Cameo ActorType File.Outputs[Flat File Source Output]"
+              endId="Package\Load DimActorType\DimActorType Destination.Inputs[OLE DB Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load DimCountry"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load DimCountry"
+      DTS:DTSID="{E3AC06BA-E46B-47F9-9CBF-A25A624B220C}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:LoggingMode="2"
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load DimCountry\Cameo Country File"
+              name="Cameo Country File"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              description="Flat File Source"
+              localeId="4105"
+              usesDispositions="true"
+              version="1"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="RetainNulls"
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null.">false</property>
+                <property
+                  name="FileNameColumnName"
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimCountry\Cameo Country File.Connections[FlatFileConnection]"
+                  name="FlatFileConnection"
+                  connectionManagerID="Package.ConnectionManagers[CAMEO.country]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAMEO.country]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Output].Columns[CODE]"
+                      name="CODE"
+                      lineageId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Output].Columns[CODE]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Output].ExternalColumns[CODE]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      name="LABEL"
+                      lineageId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Output].ExternalColumns[LABEL]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Output].ExternalColumns[CODE]"
+                      name="CODE"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Output].ExternalColumns[LABEL]"
+                      name="LABEL"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Error Output]"
+                  name="Flat File Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      dataType="text"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimCountry\DimCountry Destination"
+              name="DimCountry Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[DimCountry]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimCountry\DimCountry Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.GDELT]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load DimCountry\DimCountry Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimCountry\DimCountry Destination.Inputs[OLE DB Destination Input].Columns[CODE]"
+                      lineageId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Output].Columns[CODE]"
+                      externalMetadataColumnId="Package\Load DimCountry\DimCountry Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryKey]"
+                      cachedName="CODE"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Load DimCountry\DimCountry Destination.Inputs[OLE DB Destination Input].Columns[LABEL]"
+                      lineageId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      externalMetadataColumnId="Package\Load DimCountry\DimCountry Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryDescription]"
+                      cachedName="LABEL"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimCountry\DimCountry Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryKey]"
+                      name="CountryKey"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimCountry\DimCountry Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryDescription]"
+                      name="CountryDescription"
+                      dataType="str"
+                      length="255"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimCountry\DimCountry Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load DimCountry\DimCountry Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCountry\DimCountry Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load DimCountry\DimCountry Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimCountry\DimCountry Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load DimCountry\DimCountry Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load DimCountry.Paths[Flat File Source Output]"
+              name="Flat File Source Output"
+              startId="Package\Load DimCountry\Cameo Country File.Outputs[Flat File Source Output]"
+              endId="Package\Load DimCountry\DimCountry Destination.Inputs[OLE DB Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load DimEthnicGroup"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load DimEthnicGroup"
+      DTS:DTSID="{1db4a281-d356-422e-ae30-ac100274419e}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:LoggingMode="2"
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load DimEthnicGroup\Cameo EthnicGroup File"
+              name="Cameo EthnicGroup File"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              description="Flat File Source"
+              localeId="4105"
+              usesDispositions="true"
+              version="1"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="RetainNulls"
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null.">false</property>
+                <property
+                  name="FileNameColumnName"
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Connections[FlatFileConnection]"
+                  name="FlatFileConnection"
+                  connectionManagerID="Package.ConnectionManagers[CAMEO.ethnic]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAMEO.ethnic]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Output].Columns[CODE]"
+                      name="CODE"
+                      lineageId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Output].Columns[CODE]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Output].ExternalColumns[CODE]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      name="LABEL"
+                      lineageId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Output].ExternalColumns[LABEL]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Output].ExternalColumns[CODE]"
+                      name="CODE"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Output].ExternalColumns[LABEL]"
+                      name="LABEL"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Error Output]"
+                  name="Flat File Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      dataType="text"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimEthnicGroup\DimEthnicGroup Destination"
+              name="DimEthnicGroup Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[DimEthnicGroup]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.GDELT]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Inputs[OLE DB Destination Input].Columns[CODE]"
+                      lineageId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Output].Columns[CODE]"
+                      externalMetadataColumnId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Inputs[OLE DB Destination Input].ExternalColumns[EthnicGroupKey]"
+                      cachedName="CODE"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Inputs[OLE DB Destination Input].Columns[LABEL]"
+                      lineageId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      externalMetadataColumnId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Inputs[OLE DB Destination Input].ExternalColumns[EthnicGroupDescription]"
+                      cachedName="LABEL"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Inputs[OLE DB Destination Input].ExternalColumns[EthnicGroupKey]"
+                      name="EthnicGroupKey"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Inputs[OLE DB Destination Input].ExternalColumns[EthnicGroupDescription]"
+                      name="EthnicGroupDescription"
+                      dataType="str"
+                      length="255"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load DimEthnicGroup.Paths[Flat File Source Output]"
+              name="Flat File Source Output"
+              startId="Package\Load DimEthnicGroup\Cameo EthnicGroup File.Outputs[Flat File Source Output]"
+              endId="Package\Load DimEthnicGroup\DimEthnicGroup Destination.Inputs[OLE DB Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load DimEventCode"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load DimEventCode"
+      DTS:DTSID="{91A7F6D2-3B1A-4589-A3EE-16677843BBA4}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:LoggingMode="2"
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load DimEventCode\Cameo Event Code File"
+              name="Cameo Event Code File"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              description="Flat File Source"
+              localeId="4105"
+              usesDispositions="true"
+              version="1"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="RetainNulls"
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null.">false</property>
+                <property
+                  name="FileNameColumnName"
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimEventCode\Cameo Event Code File.Connections[FlatFileConnection]"
+                  name="FlatFileConnection"
+                  connectionManagerID="Package.ConnectionManagers[CAMEOEventCodes]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAMEOEventCodes]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventCode]"
+                      name="EventCode"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventCode]"
+                      length="10"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].ExternalColumns[EventCode]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventDescription]"
+                      name="EventDescription"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventDescription]"
+                      length="255"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].ExternalColumns[EventDescription]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventBaseCode]"
+                      name="EventBaseCode"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventBaseCode]"
+                      length="10"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].ExternalColumns[EventBaseCode]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventBaseDescription]"
+                      name="EventBaseDescription"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventBaseDescription]"
+                      length="255"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].ExternalColumns[EventBaseDescription]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventRootCode]"
+                      name="EventRootCode"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventRootCode]"
+                      length="10"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].ExternalColumns[EventRootCode]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventRootDescription]"
+                      name="EventRootDescription"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventRootDescription]"
+                      length="255"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].ExternalColumns[EventRootDescription]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].ExternalColumns[EventCode]"
+                      name="EventCode"
+                      dataType="str"
+                      length="10"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].ExternalColumns[EventDescription]"
+                      name="EventDescription"
+                      dataType="str"
+                      length="255"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].ExternalColumns[EventBaseCode]"
+                      name="EventBaseCode"
+                      dataType="str"
+                      length="10"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].ExternalColumns[EventBaseDescription]"
+                      name="EventBaseDescription"
+                      dataType="str"
+                      length="255"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].ExternalColumns[EventRootCode]"
+                      name="EventRootCode"
+                      dataType="str"
+                      length="10"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].ExternalColumns[EventRootDescription]"
+                      name="EventRootDescription"
+                      dataType="str"
+                      length="255"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Error Output]"
+                  name="Flat File Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      dataType="text"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimEventCode\Derived EventCodeKey"
+              name="Derived EventCodeKey"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              usesDispositions="true"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\Load DimEventCode\Derived EventCodeKey.Inputs[Derived Column Input]"
+                  name="Derived Column Input"
+                  description="Input to the Derived Column Transformation">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimEventCode\Derived EventCodeKey.Inputs[Derived Column Input].Columns[EventCode]"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventCode]"
+                      cachedName="EventCode"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedCodepage="1252" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimEventCode\Derived EventCodeKey.Outputs[Derived Column Output]"
+                  name="Derived Column Output"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load DimEventCode\Derived EventCodeKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimEventCode\Derived EventCodeKey.Outputs[Derived Column Output].Columns[EVENT_CODE_KEY]"
+                      name="EVENT_CODE_KEY"
+                      lineageId="Package\Load DimEventCode\Derived EventCodeKey.Outputs[Derived Column Output].Columns[EVENT_CODE_KEY]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">(DT_I4)#{Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventCode]}</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">(DT_I4)EventCode</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load DimEventCode\Derived EventCodeKey.Outputs[Derived Column Error Output]"
+                  name="Derived Column Error Output"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load DimEventCode\Derived EventCodeKey.Inputs[Derived Column Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimEventCode\Derived EventCodeKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load DimEventCode\Derived EventCodeKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimEventCode\Derived EventCodeKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load DimEventCode\Derived EventCodeKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimEventCode\EventCode Destination"
+              name="EventCode Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[DimEventCode]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimEventCode\EventCode Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.GDELT]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].Columns[EventCode]"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventCode]"
+                      externalMetadataColumnId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventCode]"
+                      cachedName="EventCode"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].Columns[EVENT_CODE_KEY]"
+                      lineageId="Package\Load DimEventCode\Derived EventCodeKey.Outputs[Derived Column Output].Columns[EVENT_CODE_KEY]"
+                      externalMetadataColumnId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventCodeKey]"
+                      cachedName="EVENT_CODE_KEY"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].Columns[EventDescription]"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventDescription]"
+                      externalMetadataColumnId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventDescription]"
+                      cachedName="EventDescription"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].Columns[EventBaseCode]"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventBaseCode]"
+                      externalMetadataColumnId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventBaseCode]"
+                      cachedName="EventBaseCode"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].Columns[EventBaseDescription]"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventBaseDescription]"
+                      externalMetadataColumnId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventBaseDescription]"
+                      cachedName="EventBaseDescription"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].Columns[EventRootCode]"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventRootCode]"
+                      externalMetadataColumnId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventRootCode]"
+                      cachedName="EventRootCode"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].Columns[EventRootDescription]"
+                      lineageId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output].Columns[EventRootDescription]"
+                      externalMetadataColumnId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventRootDescription]"
+                      cachedName="EventRootDescription"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedCodepage="1252" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventCode]"
+                      name="EventCode"
+                      dataType="str"
+                      length="10"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventCodeKey]"
+                      name="EventCodeKey"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventDescription]"
+                      name="EventDescription"
+                      dataType="str"
+                      length="255"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventBaseCode]"
+                      name="EventBaseCode"
+                      dataType="str"
+                      length="10"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventBaseDescription]"
+                      name="EventBaseDescription"
+                      dataType="str"
+                      length="255"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventRootCode]"
+                      name="EventRootCode"
+                      dataType="str"
+                      length="10"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventRootDescription]"
+                      name="EventRootDescription"
+                      dataType="str"
+                      length="255"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimEventCode\EventCode Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load DimEventCode\EventCode Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimEventCode\EventCode Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load DimEventCode\EventCode Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load DimEventCode.Paths[Derived Column Output]"
+              name="Derived Column Output"
+              startId="Package\Load DimEventCode\Derived EventCodeKey.Outputs[Derived Column Output]"
+              endId="Package\Load DimEventCode\EventCode Destination.Inputs[OLE DB Destination Input]" />
+            <path
+              refId="Package\Load DimEventCode.Paths[Flat File Source Output]"
+              name="Flat File Source Output"
+              startId="Package\Load DimEventCode\Cameo Event Code File.Outputs[Flat File Source Output]"
+              endId="Package\Load DimEventCode\Derived EventCodeKey.Inputs[Derived Column Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load DimKnownGroup"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load DimKnownGroup"
+      DTS:DTSID="{787b83bd-e7f2-4833-bf5e-3b2feea22717}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:LoggingMode="2"
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load DimKnownGroup\Cameo Known Group File"
+              name="Cameo Known Group File"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              description="Flat File Source"
+              localeId="4105"
+              usesDispositions="true"
+              version="1"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="RetainNulls"
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null.">false</property>
+                <property
+                  name="FileNameColumnName"
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimKnownGroup\Cameo Known Group File.Connections[FlatFileConnection]"
+                  name="FlatFileConnection"
+                  connectionManagerID="Package.ConnectionManagers[CAMEO.knowngroup]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAMEO.knowngroup]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Output].Columns[CODE]"
+                      name="CODE"
+                      lineageId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Output].Columns[CODE]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Output].ExternalColumns[CODE]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      name="LABEL"
+                      lineageId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      length="255"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Output].ExternalColumns[LABEL]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Output].ExternalColumns[CODE]"
+                      name="CODE"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Output].ExternalColumns[LABEL]"
+                      name="LABEL"
+                      dataType="str"
+                      length="255"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Error Output]"
+                  name="Flat File Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      dataType="text"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimKnownGroup\DimKnownGroup Destination"
+              name="DimKnownGroup Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[DimKnownGroup]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimKnownGroup\DimKnownGroup Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.GDELT]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load DimKnownGroup\DimKnownGroup Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimKnownGroup\DimKnownGroup Destination.Inputs[OLE DB Destination Input].Columns[CODE]"
+                      lineageId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Output].Columns[CODE]"
+                      externalMetadataColumnId="Package\Load DimKnownGroup\DimKnownGroup Destination.Inputs[OLE DB Destination Input].ExternalColumns[KnownGroupKey]"
+                      cachedName="CODE"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Load DimKnownGroup\DimKnownGroup Destination.Inputs[OLE DB Destination Input].Columns[LABEL]"
+                      lineageId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      externalMetadataColumnId="Package\Load DimKnownGroup\DimKnownGroup Destination.Inputs[OLE DB Destination Input].ExternalColumns[KnownGroupDescription]"
+                      cachedName="LABEL"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedCodepage="1252" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimKnownGroup\DimKnownGroup Destination.Inputs[OLE DB Destination Input].ExternalColumns[KnownGroupKey]"
+                      name="KnownGroupKey"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimKnownGroup\DimKnownGroup Destination.Inputs[OLE DB Destination Input].ExternalColumns[KnownGroupDescription]"
+                      name="KnownGroupDescription"
+                      dataType="str"
+                      length="255"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimKnownGroup\DimKnownGroup Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load DimKnownGroup\DimKnownGroup Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimKnownGroup\DimKnownGroup Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load DimKnownGroup\DimKnownGroup Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimKnownGroup\DimKnownGroup Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load DimKnownGroup\DimKnownGroup Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load DimKnownGroup.Paths[Flat File Source Output]"
+              name="Flat File Source Output"
+              startId="Package\Load DimKnownGroup\Cameo Known Group File.Outputs[Flat File Source Output]"
+              endId="Package\Load DimKnownGroup\DimKnownGroup Destination.Inputs[OLE DB Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load DimReligion"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load DimReligion"
+      DTS:DTSID="{35aa7414-dd96-4fbe-b325-f7bb37aee10e}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:LoggingMode="2"
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load DimReligion\Cameo Religion File"
+              name="Cameo Religion File"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              description="Flat File Source"
+              localeId="4105"
+              usesDispositions="true"
+              version="1"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="RetainNulls"
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null.">false</property>
+                <property
+                  name="FileNameColumnName"
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimReligion\Cameo Religion File.Connections[FlatFileConnection]"
+                  name="FlatFileConnection"
+                  connectionManagerID="Package.ConnectionManagers[CAMEO.religion]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAMEO.religion]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Output].Columns[CODE]"
+                      name="CODE"
+                      lineageId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Output].Columns[CODE]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Output].ExternalColumns[CODE]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      name="LABEL"
+                      lineageId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Output].ExternalColumns[LABEL]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Output].ExternalColumns[CODE]"
+                      name="CODE"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Output].ExternalColumns[LABEL]"
+                      name="LABEL"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Error Output]"
+                  name="Flat File Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      dataType="text"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimReligion\DimReligion Destination"
+              name="DimReligion Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[DimReligion]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimReligion\DimReligion Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.GDELT]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load DimReligion\DimReligion Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimReligion\DimReligion Destination.Inputs[OLE DB Destination Input].Columns[CODE]"
+                      lineageId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Output].Columns[CODE]"
+                      externalMetadataColumnId="Package\Load DimReligion\DimReligion Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReligionKey]"
+                      cachedName="CODE"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Load DimReligion\DimReligion Destination.Inputs[OLE DB Destination Input].Columns[LABEL]"
+                      lineageId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Output].Columns[LABEL]"
+                      externalMetadataColumnId="Package\Load DimReligion\DimReligion Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReligionDescription]"
+                      cachedName="LABEL"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimReligion\DimReligion Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReligionKey]"
+                      name="ReligionKey"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimReligion\DimReligion Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReligionDescription]"
+                      name="ReligionDescription"
+                      dataType="str"
+                      length="255"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimReligion\DimReligion Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load DimReligion\DimReligion Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimReligion\DimReligion Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load DimReligion\DimReligion Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimReligion\DimReligion Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load DimReligion\DimReligion Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load DimReligion.Paths[Flat File Source Output]"
+              name="Flat File Source Output"
+              startId="Package\Load DimReligion\Cameo Religion File.Outputs[Flat File Source Output]"
+              endId="Package\Load DimReligion\DimReligion Destination.Inputs[OLE DB Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate DimActorType"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate DimActorType"
+      DTS:DTSID="{93014e1c-eafd-4fac-b9eb-598b8d126246}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:LoggingMode="2"
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DimActorType" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate DimCountry"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate DimCountry"
+      DTS:DTSID="{de8c19ff-3552-4677-a330-c21597d8e13d}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:LoggingMode="2"
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DimCountry" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate DimEthnicGroup"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate DimEthnicGroup"
+      DTS:DTSID="{65d1a5ce-58a8-41c6-ad4c-c28ed0f6a053}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:LoggingMode="2"
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DimEthnicGroup" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate DimEventCode"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="3"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate DimEventCode"
+      DTS:DTSID="{1CF2594B-A05F-4E33-ACDD-2DBB44E92E83}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:LoggingMode="2"
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DimEventCode" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate DimKnownGroup"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="4"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate DimKnownGroup"
+      DTS:DTSID="{93238343-da10-4fb3-b03b-ec7e5cccd253}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:LoggingMode="2"
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DimKnownGroup" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate DimReligion"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="5"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate DimReligion"
+      DTS:DTSID="{72719174-da42-41bf-9f55-c83487a6c437}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:LoggingMode="2"
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DimReligion" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:From="Package\Truncate DimEventCode"
+      DTS:To="Package\Load DimEventCode"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:DTSID="{13FCB043-E64A-479E-9560-F9DE1EC62CC7}"
+      DTS:CreationName="" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:From="Package\Truncate DimCountry"
+      DTS:To="Package\Load DimCountry"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:DTSID="{65782FE5-D242-4860-9094-29AA8ECDE4D6}"
+      DTS:CreationName="" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1]"
+      DTS:From="Package\Truncate DimActorType"
+      DTS:To="Package\Load DimActorType"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 1"
+      DTS:DTSID="{a7cbb024-d6eb-4be6-bad7-be8b91cc982e}"
+      DTS:CreationName="" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1 1]"
+      DTS:From="Package\Truncate DimEthnicGroup"
+      DTS:To="Package\Load DimEthnicGroup"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 1 1"
+      DTS:DTSID="{6f412d6e-80cf-4554-96ba-9336f7bebaaf}"
+      DTS:CreationName="" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1 1 1]"
+      DTS:From="Package\Truncate DimReligion"
+      DTS:To="Package\Load DimReligion"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 1 1 1"
+      DTS:DTSID="{9bf0d9e6-47f7-4044-8868-72e09f99cfe0}"
+      DTS:CreationName="" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1 1 1 1]"
+      DTS:From="Package\Truncate DimKnownGroup"
+      DTS:To="Package\Load DimKnownGroup"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 1 1 1 1"
+      DTS:DTSID="{8d958dfe-4608-4f3e-9f0a-fcc53dd263ca}"
+      DTS:CreationName="" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Load DimActorType"
+          TopLeft="652,124" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Load DimCountry"
+          TopLeft="417,117" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Load DimEthnicGroup"
+          TopLeft="880,131" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Load DimEventCode"
+          TopLeft="143,125" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Load DimKnownGroup"
+          TopLeft="144,318" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Load DimReligion"
+          TopLeft="1131,123" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Truncate DimActorType"
+          TopLeft="612,39" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Truncate DimCountry"
+          TopLeft="377,32" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Truncate DimEthnicGroup"
+          TopLeft="840,46" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Truncate DimEventCode"
+          TopLeft="104,32" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Truncate DimKnownGroup"
+          TopLeft="104,233" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Truncate DimReligion"
+          TopLeft="1091,38" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="201,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.5,51"
+              Start="0,0"
+              End="29.5,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="25.5,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.5,25.5"
+                    Point2="29.5,25.5"
+                    Point3="29.5,29.5" />
+                  <mssgle:LineSegment
+                    End="29.5,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="467,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.5,43"
+              Start="0,0"
+              End="30.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="26.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5,21.5"
+                    Point2="30.5,21.5"
+                    Point3="30.5,25.5" />
+                  <mssgle:LineSegment
+                    End="30.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1]"
+          TopLeft="707.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.5,43"
+              Start="0,0"
+              End="30.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="26.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5,21.5"
+                    Point2="30.5,21.5"
+                    Point3="30.5,25.5" />
+                  <mssgle:LineSegment
+                    End="30.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1 1]"
+          TopLeft="940.5,88">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.5,43"
+              Start="0,0"
+              End="30.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="26.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5,21.5"
+                    Point2="30.5,21.5"
+                    Point3="30.5,25.5" />
+                  <mssgle:LineSegment
+                    End="30.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1 1 1]"
+          TopLeft="1181.5,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.5,43"
+              Start="0,0"
+              End="30.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="26.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5,21.5"
+                    Point2="30.5,21.5"
+                    Point3="30.5,25.5" />
+                  <mssgle:LineSegment
+                    End="30.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1 1 1 1]"
+          TopLeft="206,275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.5,43"
+              Start="0,0"
+              End="30.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="26.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5,21.5"
+                    Point2="30.5,21.5"
+                    Point3="30.5,25.5" />
+                  <mssgle:LineSegment
+                    End="30.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load DimActorType">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Load DimActorType\DimActorType Destination"
+          TopLeft="52,165" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Load DimActorType\Cameo ActorType File"
+          TopLeft="62,60" />
+        <EdgeLayout
+          Id="Package\Load DimActorType.Paths[Flat File Source Output]"
+          TopLeft="153.25,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimActorType\DimActorType Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load DimCountry">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Load DimCountry\DimCountry Destination"
+          TopLeft="52,165" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Load DimCountry\Cameo Country File"
+          TopLeft="62,60" />
+        <EdgeLayout
+          Id="Package\Load DimCountry.Paths[Flat File Source Output]"
+          TopLeft="148,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimCountry\DimCountry Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load DimEthnicGroup">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Load DimEthnicGroup\DimEthnicGroup Destination"
+          TopLeft="52,165" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Load DimEthnicGroup\Cameo EthnicGroup File"
+          TopLeft="62,60" />
+        <EdgeLayout
+          Id="Package\Load DimEthnicGroup.Paths[Flat File Source Output]"
+          TopLeft="158,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimEthnicGroup\DimEthnicGroup Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load DimEventCode">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Load DimEventCode\Derived EventCodeKey"
+          TopLeft="385,145" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Load DimEventCode\Cameo Event Code File"
+          TopLeft="389,63" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Load DimEventCode\EventCode Destination"
+          TopLeft="418,240" />
+        <EdgeLayout
+          Id="Package\Load DimEventCode.Paths[Flat File Source Output]"
+          TopLeft="481,105">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load DimEventCode.Paths[Derived Column Output]"
+          TopLeft="478.5,187">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.5,53"
+              Start="0,0"
+              End="32.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
+                  <mssgle:LineSegment
+                    End="28.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.5,26.5"
+                    Point2="32.5,26.5"
+                    Point3="32.5,30.5" />
+                  <mssgle:LineSegment
+                    End="32.5,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Convert EventCode to integer as EVENT_CODE_KEY dimension&#xA;(note: dimension includes record 0 for no code)"
+          ParentId="Package\Load DimEventCode"
+          FontInfo="{assembly:Null}"
+          Size="358,74"
+          Id="08ded95b-4afe-46b8-b756-1274c466ca6b"
+          TopLeft="654,130" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimEventCode\EventCode Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load DimKnownGroup">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Load DimKnownGroup\DimKnownGroup Destination"
+          TopLeft="52,165" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Load DimKnownGroup\Cameo Known Group File"
+          TopLeft="62,60" />
+        <EdgeLayout
+          Id="Package\Load DimKnownGroup.Paths[Flat File Source Output]"
+          TopLeft="160.5,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimKnownGroup\DimKnownGroup Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load DimReligion">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Load DimReligion\DimReligion Destination"
+          TopLeft="52,165" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Load DimReligion\Cameo Religion File"
+          TopLeft="62,60" />
+        <EdgeLayout
+          Id="Package\Load DimReligion.Paths[Flat File Source Output]"
+          TopLeft="148,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimReligion\DimReligion Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
