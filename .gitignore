@@ -1,6 +1,6 @@
 *.ldf
 *.mdf
-Backup/
+Archive/
 Log/
 NetworkGraphs/
 Programs/
@@ -8,3 +8,9 @@ References/
 SourceFiles/
 *bin/
 *obj/
+*.database
+*.txt
+*.suo
+*.sln
+*.user
+*.params
