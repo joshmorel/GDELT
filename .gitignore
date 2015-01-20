@@ -10,6 +10,4 @@ SourceFiles/
 *.database
 *.txt
 *.suo
-*.sln
 *.user
-*.params

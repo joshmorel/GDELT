@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="JOSH-PC"
   DTS:CreationDate="10/19/2014 9:22:50 AM"
   DTS:PackageType="5"
-  DTS:VersionBuild="99"
-  DTS:VersionGUID="{C1B8B702-70F4-47DE-BE7B-C2409E123022}"
+  DTS:VersionBuild="123"
+  DTS:VersionGUID="{7C1C2E1D-F94A-46DD-9087-1A7E9ED56B64}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="4105"
   DTS:ObjectName="PreStaging"
@@ -46,7 +46,7 @@
       DTS:CreationName="">
       <DTS:Property
         DTS:Name="ParameterValue"
-        DTS:DataType="8">20150110</DTS:Property>
+        DTS:DataType="8">20150119</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
@@ -69,7 +69,7 @@
       DTS:Description="Calculates the Zip file path using either yesterday's date or the provided paramater"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="8">C:\GDELT\SourceFiles\20150110.export.CSV.zip</DTS:VariableValue>
+        DTS:DataType="8">C:\GDELT\SourceFiles\20150119.export.CSV.zip</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Expression="&quot;http://data.gdeltproject.org/events/&quot; +  @[$Package::GDELTExportDateString]  + &quot;.export.CSV.zip&quot;"
@@ -80,7 +80,7 @@
       DTS:DTSID="{10FFAA47-2A32-433D-B8A0-4320375C9AB9}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="8">http://data.gdeltproject.org/events/20150110.export.CSV.zip</DTS:VariableValue>
+        DTS:DataType="8">http://data.gdeltproject.org/events/20150119.export.CSV.zip</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:LoggingOptions
@@ -92,6 +92,24 @@
     <DTS:Property
       DTS:Name="ColumnFilter"
       DTS:EventName="OnError">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:Name="ColumnFilter"
+      DTS:EventName="OnVariableValueChanged">
       <DTS:Property
         DTS:Name="Computer">-1</DTS:Property>
       <DTS:Property
@@ -146,11 +164,11 @@
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
       <DTS:PropertyExpression
-        DTS:Name="Arguments">"-o " +  @[User::zipFilePath] + " " + @[User::zipURL]</DTS:PropertyExpression>
+        DTS:Name="Arguments">"--fail -o " +  @[User::zipFilePath] + " " + @[User::zipURL]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <ExecuteProcessData
           Executable="C:\GDELT\Programs\curl.exe"
-          Arguments="-o C:\GDELT\SourceFiles\20150110.export.CSV.zip http://data.gdeltproject.org/events/20150110.export.CSV.zip" />
+          Arguments="--fail -o C:\GDELT\SourceFiles\20150119.export.CSV.zip http://data.gdeltproject.org/events/20150119.export.CSV.zip" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -171,7 +189,7 @@
       <DTS:ObjectData>
         <ExecuteProcessData
           Executable="C:\GDELT\Programs\7za.exe"
-          Arguments="e C:\GDELT\SourceFiles\20150110.export.CSV.zip -oC:\GDELT\SourceFiles -y" />
+          Arguments="e C:\GDELT\SourceFiles\20150119.export.CSV.zip -oC:\GDELT\SourceFiles -y" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -208,29 +226,29 @@
         <NodeLayout
           Size="221,42"
           Id="Package\Delete GDELT Export Zip Files"
-          TopLeft="156,221" />
+          TopLeft="424,246" />
         <NodeLayout
           Size="196,42"
           Id="Package\Download GDELT Export"
-          TopLeft="173,37" />
+          TopLeft="437,88" />
         <NodeLayout
           Size="176,42"
           Id="Package\UnZip GDELT Export"
-          TopLeft="183,126" />
+          TopLeft="442,170" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="268.75,168">
+          TopLeft="532.25,212">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,53"
+              EndConnector="0,34"
               Start="0,0"
-              End="0,45.5">
+              End="0,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.5" />
+                    End="0,26.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -241,18 +259,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="271,79">
+          TopLeft="532.5,130">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47"
+              EndConnector="0,40"
               Start="0,0"
-              End="0,39.5">
+              End="0,32.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.5" />
+                    End="0,32.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -261,6 +279,27 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Uses curl.exe program to download file to local directory&#xD;&#xA;--fail flag returns fail value if file not found to fail task (22)&#xD;&#xA;-o flag saves output to file"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="375,74"
+          Id="860e62e1-2794-4d00-9673-c59a570711dc"
+          TopLeft="639,75" />
+        <AnnotationLayout
+          Text="Uses 7za to unzip downloaded file to local directory"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="304,60"
+          Id="daa6f124-68b3-42dc-8c6c-94c7900de17b"
+          TopLeft="637,164" />
+        <AnnotationLayout
+          Text="Uses windows cmd to delete downloaded zip file"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="288,42"
+          Id="f4bbe09f-c360-4b31-a3b5-4c55675be982"
+          TopLeft="652,240" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
