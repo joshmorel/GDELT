@@ -5,6 +5,7 @@ Log/
 NetworkGraphs/
 References/
 SourceFiles/
+SSAS/
 *bin/
 *obj/
 *.database
