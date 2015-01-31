@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="JOSH-PC"
   DTS:CreationDate="12/24/2014 12:34:55 PM"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{0AD68EC2-0944-45EF-BBBB-968D8EC9D94E}"
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{E0E13F0D-2295-41BC-B5E5-DDED55D97FF8}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="4105"
   DTS:ObjectName="DimActor"
@@ -23,7 +23,7 @@
       DTS:CreationName="">
       <DTS:Property
         DTS:Name="ParameterValue"
-        DTS:DataType="8">20141201</DTS:Property>
+        DTS:DataType="8">20150102</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:DataType="8"
@@ -57,7 +57,7 @@
       DTS:DTSID="{FEC32A11-5603-418B-B008-09C8D7650590}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="3">20141201</DTS:VariableValue>
+        DTS:DataType="3">20150102</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Namespace="User"
@@ -84,13 +84,19 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
-          SQLTask:SqlStatementSource="EXEC&#x9;dbo.InsertDimActor&#xA;&#x9;&#x9;@DateAdded = ?&#xA;SELECT @@ROWCOUNT;"
+          SQLTask:SqlStatementSource="DECLARE @DateAdded int, @RowsInserted int&#xA;&#xA;EXEC&#x9;dbo.InsertDimActor&#xA;&#x9;@DateAdded = ?,&#xA;&#x9;@RowsInserted = ? OUTPUT&#xA;&#xA;SELECT&#x9;@RowsInserted as N'@RowsInserted'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
             SQLTask:DtsVariableName="User::RowCount" />
           <SQLTask:ParameterBinding
-            SQLTask:ParameterName="@p1"
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowCount"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::DateAddedInt"
             SQLTask:ParameterDirection="Input"
             SQLTask:DataType="3"

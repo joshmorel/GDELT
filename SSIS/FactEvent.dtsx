@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="JOSH-PC"
   DTS:CreationDate="12/24/2014 12:34:55 PM"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{4175CC6A-F1D4-4E21-BED9-C8CD07F6BA73}"
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{C81B30A3-C80F-4845-A6E8-F5724AFABD7C}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="4105"
   DTS:ObjectName="FactEvent"
@@ -23,7 +23,7 @@
       DTS:CreationName="">
       <DTS:Property
         DTS:Name="ParameterValue"
-        DTS:DataType="8">20141031</DTS:Property>
+        DTS:DataType="8">20150102</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:DataType="8"
@@ -57,7 +57,7 @@
       DTS:DTSID="{88C56B7D-4BAF-4D0F-B626-59E6A7C17EDF}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="3">20141031</DTS:VariableValue>
+        DTS:DataType="3">20150102</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Namespace="User"
@@ -84,15 +84,21 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
-          SQLTask:SqlStatementSource="EXEC dbo.InsertFactEvent @DateAdded = ?&#xA;&#xA;SELECT @@ROWCOUNT;"
+          SQLTask:SqlStatementSource="DECLARE @DateAdded int, @RowsInserted int&#xA;&#xA;EXEC&#x9;dbo.InsertFactEvent&#xA;&#x9;@DateAdded = ?,&#xA;&#x9;@RowsInserted = ? OUTPUT&#xA;&#xA;SELECT&#x9;@RowsInserted as N'@RowsInserted'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
             SQLTask:DtsVariableName="User::RowCount" />
           <SQLTask:ParameterBinding
-            SQLTask:ParameterName="@p1"
+            SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::DateAddedInt"
             SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowCount"
+            SQLTask:ParameterDirection="Output"
             SQLTask:DataType="3"
             SQLTask:ParameterSize="-1" />
         </SQLTask:SqlTaskData>

@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="JOSH-PC"
   DTS:CreationDate="10/19/2014 9:22:50 AM"
   DTS:PackageType="5"
-  DTS:VersionBuild="123"
-  DTS:VersionGUID="{7C1C2E1D-F94A-46DD-9087-1A7E9ED56B64}"
+  DTS:VersionBuild="126"
+  DTS:VersionGUID="{339CA856-3881-4542-B1B7-1F458FFBAF13}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="4105"
   DTS:ObjectName="PreStaging"
@@ -46,7 +46,7 @@
       DTS:CreationName="">
       <DTS:Property
         DTS:Name="ParameterValue"
-        DTS:DataType="8">20150119</DTS:Property>
+        DTS:DataType="8">20150103</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
@@ -69,7 +69,7 @@
       DTS:Description="Calculates the Zip file path using either yesterday's date or the provided paramater"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="8">C:\GDELT\SourceFiles\20150119.export.CSV.zip</DTS:VariableValue>
+        DTS:DataType="8">C:\GDELT\SourceFiles\20150103.export.CSV.zip</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Expression="&quot;http://data.gdeltproject.org/events/&quot; +  @[$Package::GDELTExportDateString]  + &quot;.export.CSV.zip&quot;"
@@ -80,7 +80,7 @@
       DTS:DTSID="{10FFAA47-2A32-433D-B8A0-4320375C9AB9}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="8">http://data.gdeltproject.org/events/20150119.export.CSV.zip</DTS:VariableValue>
+        DTS:DataType="8">http://data.gdeltproject.org/events/20150103.export.CSV.zip</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:LoggingOptions
@@ -168,7 +168,7 @@
       <DTS:ObjectData>
         <ExecuteProcessData
           Executable="C:\GDELT\Programs\curl.exe"
-          Arguments="--fail -o C:\GDELT\SourceFiles\20150119.export.CSV.zip http://data.gdeltproject.org/events/20150119.export.CSV.zip" />
+          Arguments="--fail -o C:\GDELT\SourceFiles\20150103.export.CSV.zip http://data.gdeltproject.org/events/20150103.export.CSV.zip" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -189,7 +189,7 @@
       <DTS:ObjectData>
         <ExecuteProcessData
           Executable="C:\GDELT\Programs\7za.exe"
-          Arguments="e C:\GDELT\SourceFiles\20150119.export.CSV.zip -oC:\GDELT\SourceFiles -y" />
+          Arguments="e C:\GDELT\SourceFiles\20150103.export.CSV.zip -oC:\GDELT\SourceFiles -y" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -280,7 +280,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="Uses curl.exe program to download file to local directory&#xD;&#xA;--fail flag returns fail value if file not found to fail task (22)&#xD;&#xA;-o flag saves output to file"
+          Text="Uses curl.exe program to download file to local directory&#xA;--fail flag returns fail value if file not found to fail task (22)&#xA;-o flag saves output to file"
           ParentId="Package"
           FontInfo="{assembly:Null}"
           Size="375,74"
@@ -290,14 +290,14 @@
           Text="Uses 7za to unzip downloaded file to local directory"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="304,60"
+          Size="304,42"
           Id="daa6f124-68b3-42dc-8c6c-94c7900de17b"
           TopLeft="637,164" />
         <AnnotationLayout
           Text="Uses windows cmd to delete downloaded zip file"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="288,42"
+          Size="288,58"
           Id="f4bbe09f-c360-4b31-a3b5-4c55675be982"
           TopLeft="652,240" />
       </GraphLayout>

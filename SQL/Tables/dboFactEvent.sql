@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  Table [dbo].[FactEvent]    Script Date: 13/01/2015 6:55:18 PM ******/
+/****** Object:  Table [dbo].[FactEvent]    Script Date: 31/01/2015 12:43:19 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -17,23 +17,7 @@ CREATE TABLE [dbo].[FactEvent](
 	[AddedDateKey] [int] NOT NULL,
 	[QuadClassKey] [int] NOT NULL,
 	[Actor1Key] [int] NOT NULL,
-	[Actor1CountryKey] [varchar](50) NOT NULL,
-	[Actor1KnownGroupKey] [varchar](50) NOT NULL,
-	[Actor1EthnicGroupKey] [varchar](50) NOT NULL,
-	[Actor1Religion1Key] [varchar](50) NOT NULL,
-	[Actor1Religion2Key] [varchar](50) NOT NULL,
-	[Actor1Type1Key] [varchar](50) NOT NULL,
-	[Actor1Type2Key] [varchar](50) NOT NULL,
-	[Actor1Type3Key] [varchar](50) NOT NULL,
 	[Actor2Key] [int] NOT NULL,
-	[Actor2CountryKey] [varchar](50) NOT NULL,
-	[Actor2KnownGroupKey] [varchar](50) NOT NULL,
-	[Actor2EthnicGroupKey] [varchar](50) NOT NULL,
-	[Actor2Religion1Key] [varchar](50) NOT NULL,
-	[Actor2Religion2Key] [varchar](50) NOT NULL,
-	[Actor2Type1Key] [varchar](50) NOT NULL,
-	[Actor2Type2Key] [varchar](50) NOT NULL,
-	[Actor2Type3Key] [varchar](50) NOT NULL,
 	[IsRootEvent] [tinyint] NULL,
 	[EventCodeKey] [int] NOT NULL,
 	[Actor1GeoTypeKey] [int] NOT NULL,
