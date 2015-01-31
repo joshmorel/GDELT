@@ -9,6 +9,5 @@ SSAS/
 *bin/
 *obj/
 *.database
-*.txt
 *.suo
 *.user
