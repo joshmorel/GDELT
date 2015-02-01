@@ -1,12 +1,14 @@
 USE [GDELT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[InsertFactEvent]    Script Date: 01/02/2015 11:51:22 AM ******/
+/****** Object:  StoredProcedure [dbo].[InsertFactEvent]    Script Date: 01/02/2015 12:42:28 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
+
 
 
 
@@ -50,17 +52,20 @@ select
 	,IsRootEvent
 	,case when ISNUMERIC(de.EventCode) = 1 then cast(de.EventCode as int) else 0 end as EventCodeKey
 	--For Actor1GeoKey
-	--FullName, Lat, Long, FeatureID can be assumed unique for DimGeo
+	--FullName, Lat, Long, FeatureID can be assumed unique for DimGeo (include Actor1Geo_Type for no geo cases)
+	,Actor1Geo_Type
 	,isnull(Actor1Geo_Fullname,'n/a') Actor1Geo_Fullname
 	,Actor1Geo_Lat
 	,Actor1Geo_Long
 	,isnull(Actor1Geo_FeatureID,'n/a') Actor1Geo_FeatureID
 	--For Actor2GeoKey
+	,Actor2Geo_Type
 	,isnull(Actor2Geo_Fullname,'n/a') Actor2Geo_Fullname
 	,Actor2Geo_Lat
 	,Actor2Geo_Long
 	,isnull(Actor2Geo_FeatureID,'n/a') Actor2Geo_FeatureID
 	--For ActionGeoKey
+	,ActionGeo_Type
 	,isnull(ActionGeo_Fullname,'n/a') ActionGeo_Fullname
 	,ActionGeo_Lat
 	,ActionGeo_Long
@@ -113,27 +118,31 @@ from #dailyevent de
 			and de.Actor2Religion1Code = a2.ActorReligion1Code
 			and de.Actor2Religion2Code = a2.ActorReligion2Code
 	left outer join dbo.DimGeo ag1
-		on 	de.Actor1Geo_Fullname = ag1.GeoFullname
-			and de.Actor1Geo_Lat = ag1.GeoLat
-			and de.Actor1Geo_Long = ag1.GeoLong
+		on 	de.Actor1Geo_Type = ag1.GeoTypeCode
+			and de.Actor1Geo_Fullname = ag1.GeoFullname
+			and isnull(de.Actor1Geo_Lat,0) = isnull(ag1.GeoLat,0)
+			and isnull(de.Actor1Geo_Long,0) = isnull(ag1.GeoLong,0)
 			and de.Actor1Geo_FeatureID = ag1.GeoFeatureID
 	left outer join dbo.DimGeo ag2
-		on 	de.Actor2Geo_Fullname = ag2.GeoFullname
-			and de.Actor2Geo_Lat = ag2.GeoLat
-			and de.Actor2Geo_Long = ag2.GeoLong
+		on 	de.Actor2Geo_Type = ag2.GeoTypeCode
+			and de.Actor2Geo_Fullname = ag2.GeoFullname
+			and isnull(de.Actor2Geo_Lat,0) = isnull(ag2.GeoLat,0)
+			and isnull(de.Actor2Geo_Long,0) = isnull(ag2.GeoLong,0)
 			and de.Actor2Geo_FeatureID = ag2.GeoFeatureID
 	left outer join dbo.DimGeo actg
-		on 	de.ActionGeo_Fullname = actg.GeoFullname
-			and de.ActionGeo_Lat = actg.GeoLat
-			and de.ActionGeo_Long = actg.GeoLong
+		on 	de.ActionGeo_Type = actg.GeoTypeCode
+			and de.ActionGeo_Fullname = actg.GeoFullname
+			and isnull(de.ActionGeo_Lat,0) = isnull(actg.GeoLat,0)
+			and isnull(de.ActionGeo_Long,0) = isnull(actg.GeoLong,0)
 			and de.ActionGeo_FeatureID = actg.GeoFeatureID
-
 
 SELECT @RowsInserted = @@ROWCOUNT;
 
 drop table #dailyevent
 
 END
+
+
 
 
 
