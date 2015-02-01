@@ -1,12 +1,14 @@
 USE [GDELT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[InsertFactEvent]    Script Date: 31/01/2015 12:44:39 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertFactEvent]    Script Date: 01/02/2015 11:51:22 AM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
+
 
 
 
@@ -47,28 +49,22 @@ select
 	,isnull(de.Actor2Religion2Code,'n/a') Actor2Religion2Code
 	,IsRootEvent
 	,case when ISNUMERIC(de.EventCode) = 1 then cast(de.EventCode as int) else 0 end as EventCodeKey
-	--ascii() function to return ascii code of first character of string. If '-' = 45, if 0 to 9 = 48 to 57. Else alpha
-	,Actor1Geo_Type as Actor1GeoTypeKey
-	,isnull(a1g.GeoNameKey,0) as Actor1GeoNameKey  --Find Actor1GeoNameKey from dimension table joining based on name
-	,isnull(Actor1Geo_ADM1Code,'0') as Actor1GeoCountryADM1Key
-	,Actor1Geo_Lat as Actor1GeoLatitude
-	,Actor1Geo_Long as Actor1GeoLongitude
-	,case when ascii(Actor1Geo_FeatureID) >= 65 or Actor1Geo_FeatureID is null then -2147483648 else Actor1Geo_FeatureID 
-		end as Actor1GeoFeatureKey 	--ascii() function to return ascii code of first character of string. If '-' = 45, if 0 to 9 = 48 to 57. Else alpha
-	,Actor2Geo_Type as Actor2GeoTypeKey
-	,isnull(a2g.GeoNameKey,0) as Actor2GeoNameKey --Find Actor2GeoNameKey from dimension table joining based on name
-	,isnull(Actor2Geo_ADM1Code,'0') as Actor2GeoCountryADM1Key
-	,Actor2Geo_Lat as Actor2GeoLatitude
-	,Actor2Geo_Long as Actor2GeoLongitude
-	,case when ascii(Actor2Geo_FeatureID) >= 65 or Actor2Geo_FeatureID is null then -2147483648 else Actor2Geo_FeatureID 
-		end as Actor2GeoFeatureKey	--ascii() function to return ascii code of first character of string. If '-' = 45, if 0 to 9 = 48 to 57. Else alpha
-	,ActionGeo_Type as ActionGeoTypeKey
-	,isnull(acg.GeoNameKey,0) as ActionGeoNameKey --Find ActionGeoNameKey from dimension table joining based on name
-	,isnull(ActionGeo_ADM1Code,'0') as ActionGeoCountryADM1Key
-	,ActionGeo_Lat as ActionGeoLatitude
-	,ActionGeo_Long as ActionGeoLongitude
-	,case when ascii(ActionGeo_FeatureID) >= 65 or ActionGeo_FeatureID is null then -2147483648 else ActionGeo_FeatureID 
-		end as ActionGeoFeatureKey	--ascii() function to return ascii code of first character of string. If '-' = 45, if 0 to 9 = 48 to 57. Else alpha
+	--For Actor1GeoKey
+	--FullName, Lat, Long, FeatureID can be assumed unique for DimGeo
+	,isnull(Actor1Geo_Fullname,'n/a') Actor1Geo_Fullname
+	,Actor1Geo_Lat
+	,Actor1Geo_Long
+	,isnull(Actor1Geo_FeatureID,'n/a') Actor1Geo_FeatureID
+	--For Actor2GeoKey
+	,isnull(Actor2Geo_Fullname,'n/a') Actor2Geo_Fullname
+	,Actor2Geo_Lat
+	,Actor2Geo_Long
+	,isnull(Actor2Geo_FeatureID,'n/a') Actor2Geo_FeatureID
+	--For ActionGeoKey
+	,isnull(ActionGeo_Fullname,'n/a') ActionGeo_Fullname
+	,ActionGeo_Lat
+	,ActionGeo_Long
+	,isnull(ActionGeo_FeatureID,'n/a') ActionGeo_FeatureID
 	,GoldsteinScale
 	,NumMentions
 	,NumSources
@@ -77,12 +73,6 @@ select
     ,SOURCEURL as SourceURL
 into #dailyevent
  from stg.DailyEvent de
-	left outer join dbo.DimGeoName a1g
-		on de.Actor1Geo_Fullname = a1g.GeoName
-	left outer join dbo.DimGeoName a2g
-		on de.Actor2Geo_Fullname = a2g.GeoName
-	left outer join dbo.DimGeoName acg
-		on de.ActionGeo_Fullname = acg.GeoName
 where DATEADDED = @DateAdded;
 
 
@@ -96,24 +86,9 @@ select
 	,isnull(a2.ActorKey,-1) Actor2Key --These are non null actor not found in dimension (unexpected)
 	,IsRootEvent
 	,EventCodeKey
-	,Actor1GeoTypeKey
-	,Actor1GeoNameKey
-	,Actor1GeoCountryADM1Key
-	,Actor1GeoLatitude
-	,Actor1GeoLongitude
-	,Actor1GeoFeatureKey
-	,Actor2GeoTypeKey
-	,Actor2GeoNameKey
-	,Actor2GeoCountryADM1Key
-	,Actor2GeoLatitude
-	,Actor2GeoLongitude
-	,Actor2GeoFeatureKey
-	,ActionGeoTypeKey
-	,ActionGeoNameKey
-	,ActionGeoCountryADM1Key
-	,ActionGeoLatitude
-	,ActionGeoLongitude
-	,ActionGeoFeatureKey
+	,isnull(ag1.GeoKey,-1) Actor1GeoKey --These are non null actor not found in dimension (unexpected)
+	,isnull(ag2.GeoKey,-1) Actor2GeoKey --These are non null actor not found in dimension (unexpected)
+	,isnull(actg.GeoKey,-1) ActionGeoKey --These are non null actor not found in dimension (unexpected)
 	,GoldsteinScale
 	,NumMentions
 	,NumSources
@@ -137,12 +112,30 @@ from #dailyevent de
 			and de.Actor2EthnicCode = a2.ActorEthnicCode
 			and de.Actor2Religion1Code = a2.ActorReligion1Code
 			and de.Actor2Religion2Code = a2.ActorReligion2Code
+	left outer join dbo.DimGeo ag1
+		on 	de.Actor1Geo_Fullname = ag1.GeoFullname
+			and de.Actor1Geo_Lat = ag1.GeoLat
+			and de.Actor1Geo_Long = ag1.GeoLong
+			and de.Actor1Geo_FeatureID = ag1.GeoFeatureID
+	left outer join dbo.DimGeo ag2
+		on 	de.Actor2Geo_Fullname = ag2.GeoFullname
+			and de.Actor2Geo_Lat = ag2.GeoLat
+			and de.Actor2Geo_Long = ag2.GeoLong
+			and de.Actor2Geo_FeatureID = ag2.GeoFeatureID
+	left outer join dbo.DimGeo actg
+		on 	de.ActionGeo_Fullname = actg.GeoFullname
+			and de.ActionGeo_Lat = actg.GeoLat
+			and de.ActionGeo_Long = actg.GeoLong
+			and de.ActionGeo_FeatureID = actg.GeoFeatureID
+
 
 SELECT @RowsInserted = @@ROWCOUNT;
 
 drop table #dailyevent
 
 END
+
+
 
 
 

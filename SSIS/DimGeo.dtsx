@@ -6,12 +6,12 @@
   DTS:CreatorComputerName="JOSH-PC"
   DTS:CreationDate="12/24/2014 12:34:55 PM"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{27F3AFF7-0F07-4D65-BE29-6D0B9B3648FF}"
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{16385C08-0FC3-4513-950F-8BEBBB670B24}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="4105"
-  DTS:ObjectName="DimGeoName"
-  DTS:DTSID="{C04EDEC6-1C37-486D-B33B-A5F71E14B601}"
+  DTS:ObjectName="DimGeo"
+  DTS:DTSID="{4814951F-F7E2-4123-B071-48DC518032FF}"
   DTS:CreationName="SSIS.Package.3">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
@@ -23,7 +23,7 @@
       DTS:CreationName="">
       <DTS:Property
         DTS:Name="ParameterValue"
-        DTS:DataType="8">20141201</DTS:Property>
+        DTS:DataType="8">20150101</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:DataType="8"
@@ -57,7 +57,7 @@
       DTS:DTSID="{9B92E618-EE6E-404D-839E-CF2EFEDEAD4B}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="3">20141201</DTS:VariableValue>
+        DTS:DataType="3">20150101</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Namespace="User"
@@ -71,12 +71,12 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Insert DimGeoName"
+      DTS:refId="Package\Insert DimGeo"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:ThreadHint="0"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Insert DimGeoName"
+      DTS:ObjectName="Insert DimGeo"
       DTS:DTSID="{EF22FE1F-7579-4AA9-9566-7E06B6173C7B}"
       DTS:Description="Execute SQL Task"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
@@ -84,15 +84,21 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
-          SQLTask:SqlStatementSource="EXEC&#x9;dbo.InsertDimGeoName&#x9;@DateAdded = ?&#xA;SELECT @@ROWCOUNT;"
+          SQLTask:SqlStatementSource="DECLARE @DateAdded int, @RowsInserted int&#xA;&#xA;EXEC&#x9;dbo.InsertDimGeo&#xA;&#x9;@DateAdded = ?,&#xA;&#x9;@RowsInserted = ? OUTPUT&#xA;&#xA;SELECT&#x9;@RowsInserted as N'@RowsInserted'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
             SQLTask:DtsVariableName="User::RowCount" />
           <SQLTask:ParameterBinding
-            SQLTask:ParameterName="@p1"
+            SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::DateAddedInt"
             SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowCount"
+            SQLTask:ParameterDirection="Output"
             SQLTask:DataType="3"
             SQLTask:ParameterSize="-1" />
         </SQLTask:SqlTaskData>
@@ -150,7 +156,7 @@
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
-      DTS:From="Package\Insert DimGeoName"
+      DTS:From="Package\Insert DimGeo"
       DTS:To="Package\Insert RowCount"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -170,8 +176,8 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="175,42"
-          Id="Package\Insert DimGeoName"
+          Size="148,42"
+          Id="Package\Insert DimGeo"
           TopLeft="46,35" />
         <NodeLayout
           Size="159,42"
@@ -179,30 +185,18 @@
           TopLeft="46,137" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="133.5,77">
+          TopLeft="122.75,77">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="-8,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-4,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4,30"
-                    Point2="-8,30"
-                    Point3="-8,34" />
-                  <mssgle:LineSegment
-                    End="-8,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="JOSH-PC"
   DTS:CreationDate="10/19/2014 9:51:05 AM"
   DTS:PackageType="5"
-  DTS:VersionBuild="103"
-  DTS:VersionGUID="{7F3D4521-CE58-4B1B-8114-EA01F4734784}"
+  DTS:VersionBuild="110"
+  DTS:VersionGUID="{A25399E8-D24A-4AFA-996E-E22545AE3F1B}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="4105"
   DTS:ObjectName="stgDailyEvent"
@@ -31,7 +31,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\GDELT\SourceFiles\20150103.export.CSV">
+          DTS:ConnectionString="C:\GDELT\SourceFiles\20150101.export.CSV">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -562,7 +562,7 @@
         DTS:Name="ConnectionString">@[User::csvFilePath]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\GDELT\SourceFiles\20150103.export.CSV" />
+          DTS:ConnectionString="C:\GDELT\SourceFiles\20150101.export.CSV" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -596,7 +596,7 @@
       DTS:CreationName="">
       <DTS:Property
         DTS:Name="ParameterValue"
-        DTS:DataType="8">20150103</DTS:Property>
+        DTS:DataType="8">20150101</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:DataType="8"
@@ -631,7 +631,7 @@
       DTS:Description="Calculates the CSV file path using either yesterday's date or the provided paramater"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="8">C:\GDELT\SourceFiles\20150103.export.CSV</DTS:VariableValue>
+        DTS:DataType="8">C:\GDELT\SourceFiles\20150101.export.CSV</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Namespace="User"

@@ -1,0 +1,16 @@
+USE [GDELT]
+GO
+
+USE [GDELT]
+GO
+
+/****** Object:  Sequence [dbo].[SeqGeoKey]    Script Date: 01/02/2015 11:46:26 AM ******/
+CREATE SEQUENCE [dbo].[SeqGeoKey] 
+ AS [int]
+ START WITH 1
+ INCREMENT BY 1
+ MINVALUE -2147483648
+ MAXVALUE 2147483647
+ CACHE 
+GO
+

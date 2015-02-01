@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="JOSH-PC"
   DTS:CreationDate="10/24/2014 8:15:01 AM"
   DTS:PackageType="5"
-  DTS:VersionBuild="82"
-  DTS:VersionGUID="{ECBD88F3-2BF0-493D-AE07-1C90ACA4CCD9}"
+  DTS:VersionBuild="83"
+  DTS:VersionGUID="{1E94C899-5CE7-4236-9C2A-6E9A4A8FA26D}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="4105"
   DTS:ObjectName="Master"
@@ -49,7 +49,7 @@
       DTS:DTSID="{53318B4D-364E-4BE2-96F1-8011F2D085EC}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="7">1/12/2015</DTS:VariableValue>
+        DTS:DataType="7">1/2/2015</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Namespace="User"
@@ -260,11 +260,11 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Repeat for Each DATEADDED\DimGeoName"
+          DTS:refId="Package\Repeat for Each DATEADDED\DimGeo"
           DTS:ExecutableType="SSIS.ExecutePackageTask.3"
           DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:LocaleID="-1"
-          DTS:ObjectName="DimGeoName"
+          DTS:ObjectName="DimGeo"
           DTS:DTSID="{A386FA46-C56D-4DF7-860B-74FE74DAAD06}"
           DTS:Description="Load GeoName dimension from transactional data"
           DTS:CreationName="SSIS.ExecutePackageTask.3">
@@ -275,7 +275,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>DimGeoName.dtsx</PackageName>
+              <PackageName>DimGeo.dtsx</PackageName>
               <ParameterAssignment>
                 <ParameterName>DateAddedString</ParameterName>
                 <BindedVariableOrParameterName>User::GDELTExportDateString</BindedVariableOrParameterName>
@@ -388,14 +388,14 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Repeat for Each DATEADDED.PrecedenceConstraints[Constraint 3]"
           DTS:From="Package\Repeat for Each DATEADDED\DimActor"
-          DTS:To="Package\Repeat for Each DATEADDED\DimGeoName"
+          DTS:To="Package\Repeat for Each DATEADDED\DimGeo"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3"
           DTS:DTSID="{2F9E3D86-6D99-44A8-991C-12D92783B6DA}"
           DTS:CreationName="" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Repeat for Each DATEADDED.PrecedenceConstraints[Constraint 4]"
-          DTS:From="Package\Repeat for Each DATEADDED\DimGeoName"
+          DTS:From="Package\Repeat for Each DATEADDED\DimGeo"
           DTS:To="Package\Repeat for Each DATEADDED\FactEvent"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 4"
@@ -462,8 +462,8 @@
           Id="Package\Repeat for Each DATEADDED\DimActor"
           TopLeft="204,103" />
         <NodeLayout
-          Size="130,42"
-          Id="Package\Repeat for Each DATEADDED\DimGeoName"
+          Size="117,42"
+          Id="Package\Repeat for Each DATEADDED\DimGeo"
           TopLeft="19,188" />
         <NodeLayout
           Size="126,42"
@@ -539,9 +539,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-185,43"
+              EndConnector="-191.5,43"
               Start="0,0"
-              End="-185,35.5">
+              End="-191.5,35.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -552,13 +552,13 @@
                     Point2="0,21.5"
                     Point3="-4,21.5" />
                   <mssgle:LineSegment
-                    End="-181,21.5" />
+                    End="-187.5,21.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-181,21.5"
-                    Point2="-185,21.5"
-                    Point3="-185,25.5" />
+                    Point1="-187.5,21.5"
+                    Point2="-191.5,21.5"
+                    Point3="-191.5,25.5" />
                   <mssgle:LineSegment
-                    End="-185,35.5" />
+                    End="-191.5,35.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -569,18 +569,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Repeat for Each DATEADDED.PrecedenceConstraints[Constraint 4]"
-          TopLeft="149,210.5">
+          TopLeft="136,210.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="50,0"
+              EndConnector="63,0"
               Start="0,0"
-              End="42.5,0">
+              End="55.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="42.5,0" />
+                    End="55.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -592,8 +592,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="373,238"
-          Size="373,282"
+          PanelSize="373,288"
+          Size="373,331"
           Id="Package\Repeat for Each DATEADDED"
           TopLeft="9.57936507936489,269.468253968254" />
         <NodeLayout
