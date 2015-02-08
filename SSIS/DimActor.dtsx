@@ -1,70 +1,70 @@
 ﻿<?xml version="1.0"?>
-<DTS:Executable
-  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ExecutableType="SSIS.Package.3"
-  DTS:CreatorName="Josh-PC\Josh"
-  DTS:CreatorComputerName="JOSH-PC"
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
   DTS:CreationDate="12/24/2014 12:34:55 PM"
-  DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{95A55A36-346C-4299-9457-8D7B340906C6}"
-  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JOSH-PC"
+  DTS:CreatorName="Josh-PC\Josh"
+  DTS:DTSID="{D70D7E59-5C99-49F5-B899-F56E3AD3017C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
   DTS:LocaleID="4105"
   DTS:ObjectName="DimActor"
-  DTS:DTSID="{D70D7E59-5C99-49F5-B899-F56E3AD3017C}"
-  DTS:CreationName="SSIS.Package.3">
+  DTS:PackageType="5"
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{C7C3676F-7F0C-44C3-B5F5-237BA4A0F678}">
   <DTS:Property
-    DTS:Name="PackageFormatVersion">6</DTS:Property>
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
+      DTS:CreationName=""
       DTS:DataType="8"
-      DTS:ObjectName="DateAddedString"
       DTS:DTSID="{A83BBAA6-A5C2-4303-8F56-6559B47BD529}"
-      DTS:CreationName="">
+      DTS:ObjectName="DateAddedString">
       <DTS:Property
-        DTS:Name="ParameterValue"
-        DTS:DataType="8">20150102</DTS:Property>
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">20150207</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
+      DTS:CreationName=""
       DTS:DataType="8"
-      DTS:ObjectName="MasterPackageID"
       DTS:DTSID="{FCC848B5-5804-460B-BA8C-0BFE388DDF89}"
-      DTS:CreationName="">
+      DTS:ObjectName="MasterPackageID">
       <DTS:Property
+        DTS:DataType="8"
         DTS:Name="ParameterValue"
-        xml:space="preserve"
-        DTS:DataType="8"></DTS:Property>
+        xml:space="preserve"></DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
-      DTS:Expression="@[$Package::MasterPackageID] == &quot;&quot; || ISNULL(@[$Package::MasterPackageID])  ? @[System::PackageID]  : @[$Package::MasterPackageID]"
-      DTS:EvaluateAsExpression="True"
-      DTS:Namespace="User"
-      DTS:IncludeInDebugDump="2345"
-      DTS:ObjectName="computedPackageID"
+      DTS:CreationName=""
       DTS:DTSID="{02A61B53-2125-4482-B1B4-EC5AA7A00B1A}"
-      DTS:CreationName="">
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::MasterPackageID] == &quot;&quot; || ISNULL(@[$Package::MasterPackageID])  ? @[System::PackageID]  : @[$Package::MasterPackageID]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="computedPackageID">
       <DTS:VariableValue
         DTS:DataType="8">{D70D7E59-5C99-49F5-B899-F56E3AD3017C}</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
-      DTS:Expression="(DT_I4)  @[$Package::DateAddedString]"
-      DTS:EvaluateAsExpression="True"
-      DTS:Namespace="User"
-      DTS:IncludeInDebugDump="2345"
-      DTS:ObjectName="DateAddedInt"
+      DTS:CreationName=""
       DTS:DTSID="{FEC32A11-5603-418B-B008-09C8D7650590}"
-      DTS:CreationName="">
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_I4)  @[$Package::DateAddedString]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DateAddedInt">
       <DTS:VariableValue
-        DTS:DataType="3">20150102</DTS:VariableValue>
+        DTS:DataType="3">20150207</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
-      DTS:Namespace="User"
-      DTS:IncludeInDebugDump="6789"
-      DTS:ObjectName="RowCount"
+      DTS:CreationName=""
       DTS:DTSID="{FFEB1C57-B99A-4521-86F8-6E0182DD79BB}"
-      DTS:CreationName="">
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCount">
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
@@ -72,18 +72,18 @@
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Insert DimActor"
-      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="0"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{526EE656-047C-4CCE-A193-30906D749190}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Insert DimActor"
-      DTS:DTSID="{526EE656-047C-4CCE-A193-30906D749190}"
-      DTS:Description="Execute SQL Task"
-      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
+          SQLTask:Connection="{9CC49AAD-075B-4350-A1E2-39224DBDA34B}"
           SQLTask:SqlStatementSource="DECLARE @DateAdded int, @RowsInserted int&#xA;&#xA;EXEC&#x9;dbo.InsertDimActor&#xA;&#x9;@DateAdded = ?,&#xA;&#x9;@RowsInserted = ? OUTPUT&#xA;&#xA;SELECT&#x9;@RowsInserted as N'@RowsInserted'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -106,18 +106,18 @@
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Insert RowCount"
-      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="0"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{fddf52c0-53cc-4fd6-9b32-beb695e2e684}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Insert RowCount"
-      DTS:DTSID="{fddf52c0-53cc-4fd6-9b32-beb695e2e684}"
-      DTS:Description="Execute SQL Task"
-      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
+          SQLTask:Connection="{9CC49AAD-075B-4350-A1E2-39224DBDA34B}"
           SQLTask:SqlStatementSource="INSERT INTO SSIS.ETLHistory&#xA;(MasterPackageID&#xA;      ,PackageID&#xA;      ,PackageName&#xA;      ,SourceDateAdded&#xA;      ,NewRecordCount&#xA;      ,ModifiedRecordCount&#xA;)&#xA;VALUES&#xA;(?&#xA;,?&#xA;,?&#xA;,?&#xA;,?&#xA;,0)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="@p1"
@@ -156,19 +156,19 @@
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B1E61D54-2778-4C3F-8BBB-08A5C1195A0D}"
       DTS:From="Package\Insert DimActor"
-      DTS:To="Package\Insert RowCount"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:DTSID="{B1E61D54-2778-4C3F-8BBB-08A5C1195A0D}"
-      DTS:CreationName="" />
+      DTS:To="Package\Insert RowCount" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
 <!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
-  Version="sql11">
+  Version="sql12">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
@@ -176,16 +176,16 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="154,42"
+          Size="155,42"
           Id="Package\Insert DimActor"
-          TopLeft="65,46" />
+          TopLeft="8.00000000000001,5.5" />
         <NodeLayout
-          Size="159,42"
+          Size="160,42"
           Id="Package\Insert RowCount"
-          TopLeft="65,148" />
+          TopLeft="5.50000000000001,107.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="143.25,88">
+          TopLeft="85.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

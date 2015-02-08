@@ -235,56 +235,56 @@ EventCode	EventDescription	EventBaseCode	EventBaseDescription	EventRootCode	Even
 1452	Engage in violent protest for policy change	145	"Protest violently, riot"	14	PROTEST
 1453	Engage in violent protest for rights	145	"Protest violently, riot"	14	PROTEST
 1454	"Engage in violent protest for  change in institutions, regime"	145	"Protest violently, riot"	14	PROTEST
-150	"Demonstrate military or police power, not specified below"	150	"Demonstrate military or police power, not specified below"	16	EXHIBIT FORCE POSTURE
-151	Increase police alert status	151	Increase police alert status	17	EXHIBIT FORCE POSTURE
-152	Increase military alert status	152	Increase military alert status	18	EXHIBIT FORCE POSTURE
-153	Mobilize or increase police power	153	Mobilize or increase police power	19	EXHIBIT FORCE POSTURE
-154	Mobilize or increase armed forces 	154	Mobilize or increase armed forces 	20	EXHIBIT FORCE POSTURE
-160	"Reduce relations, not specified below"	160	"Reduce relations, not specified below"	17	REDUCE RELATIONS
-161	Reduce or break diplomatic relations	161	Reduce or break diplomatic relations	18	REDUCE RELATIONS
-162	"Reduce or stop aid, not specified below"	162	Reduce or stop aid	19	REDUCE RELATIONS
-1621	Reduce or stop economic assistance	162	Reduce or stop aid	20	REDUCE RELATIONS
-1622	Reduce or stop military assistance	162	Reduce or stop aid	21	REDUCE RELATIONS
-1623	Reduce or stop humanitarian assistance	162	Reduce or stop aid	22	REDUCE RELATIONS
-163	"Impose embargo, boycott, or sanctions"	163	"Impose embargo, boycott, or sanctions"	23	REDUCE RELATIONS
-164	Halt negotiations	164	Halt negotiations	24	REDUCE RELATIONS
-165	Halt mediation	165	Halt mediation	25	REDUCE RELATIONS
-166	"Expel or withdraw, not specified below"	166	Expel or withdraw	26	REDUCE RELATIONS
-1661	Expel or withdraw peacekeepers	166	Expel or withdraw	27	REDUCE RELATIONS
-1662	"Expel or withdraw inspectors, observers"	166	Expel or withdraw	28	REDUCE RELATIONS
-1663	Expel or withdraw aid agencies	166	Expel or withdraw	29	REDUCE RELATIONS
-170	"Coerce, not specified below "	170	"Coerce, not specified below "	18	COERCE
-171	"Seize or damage property, not specified below"	171	Seize or damage property	19	COERCE
-1711	Confiscate property	1711	Confiscate property	20	COERCE
-1712	Destroy property	1712	Destroy property	21	COERCE
-172	"Impose administrative sanctions, not specified below"	172	Impose administrative sanctions	22	COERCE
-1721	Impose restrictions on political freedoms  	172	Impose administrative sanctions	23	COERCE
-1722	Ban political parties or politicians	172	Impose administrative sanctions	24	COERCE
-1723	Impose curfew	172	Impose administrative sanctions	25	COERCE
-1724	Impose state of emergency or martial law	172	Impose administrative sanctions	26	COERCE
-173	"Arrest, detain, or charge with legal action "	173	"Arrest, detain, or charge with legal action "	27	COERCE
-174	Expel or deport individuals	174	Expel or deport individuals	28	COERCE
-175	Use tactics of violent repression  	175	Use tactics of violent repression  	29	COERCE
-180	"Use unconventional violence, not specified below"	180	"Use unconventional violence, not specified below"	19	ASSAULT
-181	"Abduct, hijack, or take hostage "	181	"Abduct, hijack, or take hostage "	20	ASSAULT
-182	"Physically assault, not specified below"	182	Physically assault	21	ASSAULT
-1821	Sexually assault	182	Physically assault	22	ASSAULT
-1822	Torture	182	Physically assault	23	ASSAULT
-1823	Kill by physical assault	182	Physically assault	24	ASSAULT
-183	"Conduct suicide, car, or other non-military bombing, not spec below"	183	"Conduct suicide, car, or other non-military bombing"	25	ASSAULT
-1831	Carry out suicide bombing	183	"Conduct suicide, car, or other non-military bombing"	26	ASSAULT
-1832	Carry out car bombing	183	"Conduct suicide, car, or other non-military bombing"	27	ASSAULT
-1833	Carry out roadside bombing 	183	"Conduct suicide, car, or other non-military bombing"	28	ASSAULT
-184	Use as human shield 	184	Use as human shield 	29	ASSAULT
-185	Attempt to assassinate	185	Attempt to assassinate	30	ASSAULT
-186	Assassinate 	186	Assassinate 	31	ASSAULT
-190	"Use conventional military force, not specified below"	190	Use conventional military force	20	FIGHT
-191	"Impose blockade, restrict movement "	191	"Impose blockade, restrict movement "	21	FIGHT
-192	Occupy territory	192	Occupy territory	22	FIGHT
-193	Fight with small arms and light weapons	193	Fight with small arms and light weapons	23	FIGHT
-194	Fight with artillery and tanks	194	Fight with artillery and tanks	24	FIGHT
-195	Employ aerial weapons	195	Employ aerial weapons	25	FIGHT
-196	Violate ceasefire 	196	Violate ceasefire 	26	FIGHT
+150	"Demonstrate military or police power, not specified below"	150	"Demonstrate military or police power, not specified below"	15	EXHIBIT FORCE POSTURE
+151	Increase police alert status	151	Increase police alert status	15	EXHIBIT FORCE POSTURE
+152	Increase military alert status	152	Increase military alert status	15	EXHIBIT FORCE POSTURE
+153	Mobilize or increase police power	153	Mobilize or increase police power	15	EXHIBIT FORCE POSTURE
+154	Mobilize or increase armed forces 	154	Mobilize or increase armed forces 	15	EXHIBIT FORCE POSTURE
+160	"Reduce relations, not specified below"	160	"Reduce relations, not specified below"	16	REDUCE RELATIONS
+161	Reduce or break diplomatic relations	161	Reduce or break diplomatic relations	16	REDUCE RELATIONS
+162	"Reduce or stop aid, not specified below"	162	Reduce or stop aid	16	REDUCE RELATIONS
+1621	Reduce or stop economic assistance	162	Reduce or stop aid	16	REDUCE RELATIONS
+1622	Reduce or stop military assistance	162	Reduce or stop aid	16	REDUCE RELATIONS
+1623	Reduce or stop humanitarian assistance	162	Reduce or stop aid	16	REDUCE RELATIONS
+163	"Impose embargo, boycott, or sanctions"	163	"Impose embargo, boycott, or sanctions"	16	REDUCE RELATIONS
+164	Halt negotiations	164	Halt negotiations	16	REDUCE RELATIONS
+165	Halt mediation	165	Halt mediation	16	REDUCE RELATIONS
+166	"Expel or withdraw, not specified below"	166	Expel or withdraw	16	REDUCE RELATIONS
+1661	Expel or withdraw peacekeepers	166	Expel or withdraw	16	REDUCE RELATIONS
+1662	"Expel or withdraw inspectors, observers"	166	Expel or withdraw	16	REDUCE RELATIONS
+1663	Expel or withdraw aid agencies	166	Expel or withdraw	16	REDUCE RELATIONS
+170	"Coerce, not specified below "	170	"Coerce, not specified below "	17	COERCE
+171	"Seize or damage property, not specified below"	171	Seize or damage property	17	COERCE
+1711	Confiscate property	1711	Confiscate property	17	COERCE
+1712	Destroy property	1712	Destroy property	17	COERCE
+172	"Impose administrative sanctions, not specified below"	172	Impose administrative sanctions	17	COERCE
+1721	Impose restrictions on political freedoms  	172	Impose administrative sanctions	17	COERCE
+1722	Ban political parties or politicians	172	Impose administrative sanctions	17	COERCE
+1723	Impose curfew	172	Impose administrative sanctions	17	COERCE
+1724	Impose state of emergency or martial law	172	Impose administrative sanctions	17	COERCE
+173	"Arrest, detain, or charge with legal action "	173	"Arrest, detain, or charge with legal action "	17	COERCE
+174	Expel or deport individuals	174	Expel or deport individuals	17	COERCE
+175	Use tactics of violent repression  	175	Use tactics of violent repression  	17	COERCE
+180	"Use unconventional violence, not specified below"	180	"Use unconventional violence, not specified below"	18	ASSAULT
+181	"Abduct, hijack, or take hostage "	181	"Abduct, hijack, or take hostage "	18	ASSAULT
+182	"Physically assault, not specified below"	182	Physically assault	18	ASSAULT
+1821	Sexually assault	182	Physically assault	18	ASSAULT
+1822	Torture	182	Physically assault	18	ASSAULT
+1823	Kill by physical assault	182	Physically assault	18	ASSAULT
+183	"Conduct suicide, car, or other non-military bombing, not spec below"	183	"Conduct suicide, car, or other non-military bombing"	18	ASSAULT
+1831	Carry out suicide bombing	183	"Conduct suicide, car, or other non-military bombing"	18	ASSAULT
+1832	Carry out car bombing	183	"Conduct suicide, car, or other non-military bombing"	18	ASSAULT
+1833	Carry out roadside bombing 	183	"Conduct suicide, car, or other non-military bombing"	18	ASSAULT
+184	Use as human shield 	184	Use as human shield 	18	ASSAULT
+185	Attempt to assassinate	185	Attempt to assassinate	18	ASSAULT
+186	Assassinate 	186	Assassinate 	18	ASSAULT
+190	"Use conventional military force, not specified below"	190	Use conventional military force	19	FIGHT
+191	"Impose blockade, restrict movement "	191	"Impose blockade, restrict movement "	19	FIGHT
+192	Occupy territory	192	Occupy territory	19	FIGHT
+193	Fight with small arms and light weapons	193	Fight with small arms and light weapons	19	FIGHT
+194	Fight with artillery and tanks	194	Fight with artillery and tanks	19	FIGHT
+195	Employ aerial weapons	195	Employ aerial weapons	19	FIGHT
+196	Violate ceasefire 	196	Violate ceasefire 	19	FIGHT
 200	"Use unconventional mass violence, not specified below"	200	"Use unconventional mass violence, not specified below"	20	USE UNCONVENTIONAL MASS VIOLENCE
 201	Engage in mass expulsion	201	Engage in mass expulsion	20	USE UNCONVENTIONAL MASS VIOLENCE
 202	Engage in mass killings	202	Engage in mass killings	20	USE UNCONVENTIONAL MASS VIOLENCE

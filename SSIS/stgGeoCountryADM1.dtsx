@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0"?>
-<DTS:Executable
-  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ExecutableType="SSIS.Package.3"
-  DTS:CreatorName="Josh-PC\Josh"
-  DTS:CreatorComputerName="JOSH-PC"
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
   DTS:CreationDate="12/24/2014 10:57:52 AM"
-  DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{50D0DCE6-937C-4965-98C9-4BE99D03B15B}"
-  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JOSH-PC"
+  DTS:CreatorName="Josh-PC\Josh"
+  DTS:DTSID="{CE3F069A-1249-4002-BCAB-18937A40BD8E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
   DTS:LocaleID="4105"
-  DTS:ObjectName="DimGeoCountryADM1"
-  DTS:DTSID="{9E71CCB8-9001-44DE-931E-EC2943C41A40}"
-  DTS:CreationName="SSIS.Package.3">
+  DTS:ObjectName="stgGeoCountryADM1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{63B522C6-EE77-4A19-8192-08F4DC14E5DE}">
   <DTS:Property
-    DTS:Name="PackageFormatVersion">6</DTS:Property>
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[GNSADM1Codes]"
-      DTS:ObjectName="GNSADM1Codes"
+      DTS:CreationName="FLATFILE"
       DTS:DTSID="{6A8B03A9-DAF6-437A-A4B6-9944DB2A2E79}"
-      DTS:CreationName="FLATFILE">
+      DTS:ObjectName="GNSADM1Codes">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -65,9 +65,9 @@
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[GNSCountryCodes]"
-      DTS:ObjectName="GNSCountryCodes"
+      DTS:CreationName="FLATFILE"
       DTS:DTSID="{4E922DE4-6C39-4CAE-A07B-150305F10A50}"
-      DTS:CreationName="FLATFILE">
+      DTS:ObjectName="GNSCountryCodes">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -106,30 +106,30 @@
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Insert Unknown DimGeoCountryADM"
-      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="0"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A6BF9D61-D3E3-463F-B91F-23480061D6DB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Insert Unknown DimGeoCountryADM"
-      DTS:DTSID="{A6BF9D61-D3E3-463F-B91F-23480061D6DB}"
-      DTS:Description="Execute SQL Task"
-      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
-          SQLTask:SqlStatementSource="INSERT INTO dbo.DimGeoCountryADM1 VALUES ('0','0','Unknown or Not Applicable','0','Unknown or Not Applicable',0)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{9CC49AAD-075B-4350-A1E2-39224DBDA34B}"
+          SQLTask:SqlStatementSource="INSERT INTO stg.GeoCountryADM1 VALUES ('0','0','Unknown or Not Applicable','0','Unknown or Not Applicable',0)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Load DimGeoCountryADM"
-      DTS:ExecutableType="SSIS.Pipeline.3"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3CCADF0D-6CC3-4747-8F28-3263D6497FF3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Load DimGeoCountryADM"
-      DTS:DTSID="{3CCADF0D-6CC3-4747-8F28-3263D6497FF3}"
-      DTS:Description="Data Flow Task"
-      DTS:CreationName="SSIS.Pipeline.3">
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
@@ -137,32 +137,32 @@
           <components>
             <component
               refId="Package\Load DimGeoCountryADM\Derived Column"
-              name="Derived Column"
-              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              usesDispositions="true"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              name="Derived Column"
+              usesDispositions="true">
               <inputs>
                 <input
                   refId="Package\Load DimGeoCountryADM\Derived Column.Inputs[Derived Column Input]"
-                  name="Derived Column Input"
-                  description="Input to the Derived Column Transformation">
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column.Inputs[Derived Column Input].Columns[GeoCountryCode]"
-                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryCode]"
-                      cachedName="GeoCountryCode"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001"
-                      cachedSortKeyPosition="1" />
+                      cachedName="GeoCountryCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryCode]" />
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column.Inputs[Derived Column Input].Columns[GeoADM1Code]"
-                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Code]"
-                      cachedName="GeoADM1Code"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001" />
+                      cachedName="GeoADM1Code"
+                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Code]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -170,54 +170,54 @@
               <outputs>
                 <output
                   refId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Output]"
-                  name="Derived Column Output"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
+                  name="Derived Column Output"
                   synchronousInputId="Package\Load DimGeoCountryADM\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Output].Columns[GeoCountryADM1Key]"
-                      name="GeoCountryADM1Key"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Output].Columns[GeoCountryADM1Key]"
-                      length="4"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Output].Columns[GeoCountryADM1Key]"
+                      name="GeoCountryADM1Key"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="Expression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryCode]} + #{Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Code]}</property>
+                          name="Expression">#{Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryCode]} + #{Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Code]}</property>
                         <property
-                          name="FriendlyExpression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          containsID="true"
-                          expressionType="Notify">GeoCountryCode + GeoADM1Code</property>
+                          expressionType="Notify"
+                          name="FriendlyExpression">GeoCountryCode + GeoADM1Code</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Output].Columns[IsCountry]"
-                      name="IsCountry"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Output].Columns[IsCountry]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Output].Columns[IsCountry]"
+                      name="IsCountry"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="Expression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          containsID="true">0</property>
+                          name="Expression">0</property>
                         <property
-                          name="FriendlyExpression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          containsID="true"
-                          expressionType="Notify">0</property>
+                          expressionType="Notify"
+                          name="FriendlyExpression">0</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -225,23 +225,23 @@
                 </output>
                 <output
                   refId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Error Output]"
-                  name="Derived Column Error Output"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
-                  synchronousInputId="Package\Load DimGeoCountryADM\Derived Column.Inputs[Derived Column Input]"
-                  isErrorOut="true">
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load DimGeoCountryADM\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -250,24 +250,24 @@
             </component>
             <component
               refId="Package\Load DimGeoCountryADM\Derived Column 1"
-              name="Derived Column 1"
-              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              usesDispositions="true"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              name="Derived Column 1"
+              usesDispositions="true">
               <inputs>
                 <input
                   refId="Package\Load DimGeoCountryADM\Derived Column 1.Inputs[Derived Column Input]"
-                  name="Derived Column Input"
-                  description="Input to the Derived Column Transformation">
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 1.Inputs[Derived Column Input].Columns[GeoCountryCode]"
-                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryCode]"
-                      cachedName="GeoCountryCode"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001" />
+                      cachedName="GeoCountryCode"
+                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryCode]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -275,101 +275,101 @@
               <outputs>
                 <output
                   refId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output]"
-                  name="Derived Column Output"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
+                  name="Derived Column Output"
                   synchronousInputId="Package\Load DimGeoCountryADM\Derived Column 1.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoCountryADM1Key]"
-                      name="GeoCountryADM1Key"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoCountryADM1Key]"
-                      length="2"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoCountryADM1Key]"
+                      name="GeoCountryADM1Key"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="Expression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          containsID="true">#{Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryCode]}</property>
+                          name="Expression">#{Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryCode]}</property>
                         <property
-                          name="FriendlyExpression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          containsID="true"
-                          expressionType="Notify">GeoCountryCode</property>
+                          expressionType="Notify"
+                          name="FriendlyExpression">GeoCountryCode</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoADM1Code]"
-                      name="GeoADM1Code"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoADM1Code]"
-                      length="2"
-                      dataType="str"
                       codePage="65001"
+                      dataType="str"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoADM1Code]"
+                      name="GeoADM1Code"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="Expression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          containsID="true">(DT_STR,2,65001)"NA"</property>
+                          name="Expression">(DT_STR,2,65001)"NA"</property>
                         <property
-                          name="FriendlyExpression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          containsID="true"
-                          expressionType="Notify">(DT_STR,2,65001)"NA"</property>
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,2,65001)"NA"</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoADM1Description]"
-                      name="GeoADM1Description"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoADM1Description]"
-                      length="31"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
+                      length="31"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoADM1Description]"
+                      name="GeoADM1Description"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="Expression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          containsID="true">"Not Applicable, Is Country Type"</property>
+                          name="Expression">"Not Applicable, Is Country Type"</property>
                         <property
-                          name="FriendlyExpression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          containsID="true"
-                          expressionType="Notify">"Not Applicable, Is Country Type"</property>
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Not Applicable, Is Country Type"</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[IsCountry]"
-                      name="IsCountry"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[IsCountry]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[IsCountry]"
+                      name="IsCountry"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="Expression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          containsID="true">1</property>
+                          name="Expression">1</property>
                         <property
-                          name="FriendlyExpression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          containsID="true"
-                          expressionType="Notify">1</property>
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -377,23 +377,23 @@
                 </output>
                 <output
                   refId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Error Output]"
-                  name="Derived Column Error Output"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
-                  synchronousInputId="Package\Load DimGeoCountryADM\Derived Column 1.Inputs[Derived Column Input]"
-                  isErrorOut="true">
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load DimGeoCountryADM\Derived Column 1.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -402,37 +402,37 @@
             </component>
             <component
               refId="Package\Load DimGeoCountryADM\Derived Column 2"
-              name="Derived Column 2"
-              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              usesDispositions="true"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              name="Derived Column 2"
+              usesDispositions="true">
               <inputs>
                 <input
                   refId="Package\Load DimGeoCountryADM\Derived Column 2.Inputs[Derived Column Input]"
-                  name="Derived Column Input"
-                  description="Input to the Derived Column Transformation">
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 2.Inputs[Derived Column Input].Columns[GeoCountryCode]"
-                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryCode]"
-                      cachedName="GeoCountryCode"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001" />
+                      cachedName="GeoCountryCode"
+                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryCode]" />
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 2.Inputs[Derived Column Input].Columns[GeoADM1Code]"
-                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Code]"
-                      cachedName="GeoADM1Code"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001" />
+                      cachedName="GeoADM1Code"
+                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Code]" />
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 2.Inputs[Derived Column Input].Columns[GeoCountryADM1Key]"
-                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryADM1Key]"
-                      cachedName="GeoCountryADM1Key"
                       cachedDataType="wstr"
-                      cachedLength="4" />
+                      cachedLength="4"
+                      cachedName="GeoCountryADM1Key"
+                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryADM1Key]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -440,81 +440,81 @@
               <outputs>
                 <output
                   refId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output]"
-                  name="Derived Column Output"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
+                  name="Derived Column Output"
                   synchronousInputId="Package\Load DimGeoCountryADM\Derived Column 2.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoCountryCode]"
-                      name="ConvertGeoCountryCode"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoCountryCode]"
-                      length="2"
-                      dataType="str"
                       codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoCountryCode]"
+                      name="ConvertGeoCountryCode"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="Expression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          containsID="true">(DT_STR,2,1252)#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryCode]}</property>
+                          name="Expression">(DT_STR,2,1252)#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryCode]}</property>
                         <property
-                          name="FriendlyExpression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          containsID="true"
-                          expressionType="Notify">(DT_STR,2,1252)GeoCountryCode</property>
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,2,1252)GeoCountryCode</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoADM1Code]"
-                      name="ConvertGeoADM1Code"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoADM1Code]"
-                      length="2"
-                      dataType="str"
                       codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoADM1Code]"
+                      name="ConvertGeoADM1Code"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="Expression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          containsID="true">(DT_STR,2,1252)#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Code]}</property>
+                          name="Expression">(DT_STR,2,1252)#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Code]}</property>
                         <property
-                          name="FriendlyExpression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          containsID="true"
-                          expressionType="Notify">(DT_STR,2,1252)GeoADM1Code</property>
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,2,1252)GeoADM1Code</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoCountryADM1Key]"
-                      name="ConvertGeoCountryADM1Key"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoCountryADM1Key]"
-                      length="4"
-                      dataType="str"
                       codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoCountryADM1Key]"
+                      name="ConvertGeoCountryADM1Key"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="Expression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          containsID="true">(DT_STR,4,1252)#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryADM1Key]}</property>
+                          name="Expression">(DT_STR,4,1252)#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryADM1Key]}</property>
                         <property
-                          name="FriendlyExpression"
+                          containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          containsID="true"
-                          expressionType="Notify">(DT_STR,4,1252)GeoCountryADM1Key</property>
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,4,1252)GeoCountryADM1Key</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -522,23 +522,23 @@
                 </output>
                 <output
                   refId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Error Output]"
-                  name="Derived Column Error Output"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
-                  synchronousInputId="Package\Load DimGeoCountryADM\Derived Column 2.Inputs[Derived Column Input]"
-                  isErrorOut="true">
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load DimGeoCountryADM\Derived Column 2.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -547,29 +547,29 @@
             </component>
             <component
               refId="Package\Load DimGeoCountryADM\GNSADM1 Source"
-              name="GNSADM1 Source"
-              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
               localeId="4105"
+              name="GNSADM1 Source"
               usesDispositions="true"
-              version="1"
-              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              version="1">
               <properties>
                 <property
-                  name="RetainNulls"
                   dataType="System.Boolean"
-                  description="Specifies whether zero-length columns are treated as null.">false</property>
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
                 <property
-                  name="FileNameColumnName"
                   dataType="System.String"
-                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."></property>
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
               </properties>
               <connections>
                 <connection
                   refId="Package\Load DimGeoCountryADM\GNSADM1 Source.Connections[FlatFileConnection]"
-                  name="FlatFileConnection"
                   connectionManagerID="Package.ConnectionManagers[GNSADM1Codes]"
-                  connectionManagerRefId="Package.ConnectionManagers[GNSADM1Codes]" />
+                  connectionManagerRefId="Package.ConnectionManagers[GNSADM1Codes]"
+                  name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
@@ -578,67 +578,67 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1]"
-                      name="ADM1"
-                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1]"
-                      length="2"
-                      dataType="str"
                       codePage="65001"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      truncationRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].ExternalColumns[ADM1]">
+                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].ExternalColumns[ADM1]"
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1]"
+                      name="ADM1"
+                      truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="FastParse"
                           dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
                         <property
-                          name="UseBinaryFormat"
                           dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format.">false</property>
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[COUNTRY_CD]"
-                      name="COUNTRY_CD"
-                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[COUNTRY_CD]"
-                      length="2"
-                      dataType="str"
                       codePage="65001"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      truncationRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].ExternalColumns[COUNTRY_CD]">
+                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].ExternalColumns[COUNTRY_CD]"
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[COUNTRY_CD]"
+                      name="COUNTRY_CD"
+                      truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="FastParse"
                           dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
                         <property
-                          name="UseBinaryFormat"
                           dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format.">false</property>
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1_NAME]"
-                      name="ADM1_NAME"
-                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1_NAME]"
-                      length="255"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      truncationRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].ExternalColumns[ADM1_NAME]">
+                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].ExternalColumns[ADM1_NAME]"
+                      length="255"
+                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1_NAME]"
+                      name="ADM1_NAME"
+                      truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="FastParse"
                           dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
                         <property
-                          name="UseBinaryFormat"
                           dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format.">false</property>
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -646,46 +646,46 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].ExternalColumns[ADM1]"
-                      name="ADM1"
+                      codePage="65001"
                       dataType="str"
                       length="2"
-                      codePage="65001" />
+                      name="ADM1" />
                     <externalMetadataColumn
                       refId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].ExternalColumns[COUNTRY_CD]"
-                      name="COUNTRY_CD"
+                      codePage="65001"
                       dataType="str"
                       length="2"
-                      codePage="65001" />
+                      name="COUNTRY_CD" />
                     <externalMetadataColumn
                       refId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].ExternalColumns[ADM1_NAME]"
-                      name="ADM1_NAME"
                       dataType="wstr"
-                      length="255" />
+                      length="255"
+                      name="ADM1_NAME" />
                   </externalMetadataColumns>
                 </output>
                 <output
                   refId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Error Output]"
-                  name="Flat File Source Error Output"
-                  isErrorOut="true">
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      name="Flat File Source Error Output Column"
+                      codePage="65001"
+                      dataType="text"
                       description="Flat File Source Error Output Column"
                       lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      dataType="text"
-                      codePage="65001" />
+                      name="Flat File Source Error Output Column" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -694,29 +694,29 @@
             </component>
             <component
               refId="Package\Load DimGeoCountryADM\GNSCountry Source 2"
-              name="GNSCountry Source 2"
-              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
               localeId="4105"
+              name="GNSCountry Source 2"
               usesDispositions="true"
-              version="1"
-              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              version="1">
               <properties>
                 <property
-                  name="RetainNulls"
                   dataType="System.Boolean"
-                  description="Specifies whether zero-length columns are treated as null.">false</property>
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
                 <property
-                  name="FileNameColumnName"
                   dataType="System.String"
-                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."></property>
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
               </properties>
               <connections>
                 <connection
                   refId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Connections[FlatFileConnection]"
-                  name="FlatFileConnection"
                   connectionManagerID="Package.ConnectionManagers[GNSCountryCodes]"
-                  connectionManagerRefId="Package.ConnectionManagers[GNSCountryCodes]" />
+                  connectionManagerRefId="Package.ConnectionManagers[GNSCountryCodes]"
+                  name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
@@ -725,45 +725,45 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryCode]"
-                      name="GeoCountryCode"
-                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryCode]"
-                      length="2"
-                      dataType="str"
                       codePage="65001"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      truncationRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].ExternalColumns[CODE]">
+                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].ExternalColumns[CODE]"
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryCode]"
+                      name="GeoCountryCode"
+                      truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="FastParse"
                           dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
                         <property
-                          name="UseBinaryFormat"
                           dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format.">false</property>
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryDescription]"
-                      name="GeoCountryDescription"
-                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryDescription]"
-                      length="255"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      truncationRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].ExternalColumns[NAME]">
+                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].ExternalColumns[NAME]"
+                      length="255"
+                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryDescription]"
+                      name="GeoCountryDescription"
+                      truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="FastParse"
                           dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
                         <property
-                          name="UseBinaryFormat"
                           dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format.">false</property>
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -771,40 +771,40 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].ExternalColumns[CODE]"
-                      name="CODE"
+                      codePage="65001"
                       dataType="str"
                       length="2"
-                      codePage="65001" />
+                      name="CODE" />
                     <externalMetadataColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].ExternalColumns[NAME]"
-                      name="NAME"
                       dataType="wstr"
-                      length="255" />
+                      length="255"
+                      name="NAME" />
                   </externalMetadataColumns>
                 </output>
                 <output
                   refId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Error Output]"
-                  name="Flat File Source Error Output"
-                  isErrorOut="true">
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      name="Flat File Source Error Output Column"
+                      codePage="65001"
+                      dataType="text"
                       description="Flat File Source Error Output Column"
                       lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      dataType="text"
-                      codePage="65001" />
+                      name="Flat File Source Error Output Column" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -813,29 +813,29 @@
             </component>
             <component
               refId="Package\Load DimGeoCountryADM\GNSCountrySource"
-              name="GNSCountrySource"
-              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
               localeId="4105"
+              name="GNSCountrySource"
               usesDispositions="true"
-              version="1"
-              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              version="1">
               <properties>
                 <property
-                  name="RetainNulls"
                   dataType="System.Boolean"
-                  description="Specifies whether zero-length columns are treated as null.">false</property>
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
                 <property
-                  name="FileNameColumnName"
                   dataType="System.String"
-                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."></property>
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
               </properties>
               <connections>
                 <connection
                   refId="Package\Load DimGeoCountryADM\GNSCountrySource.Connections[FlatFileConnection]"
-                  name="FlatFileConnection"
                   connectionManagerID="Package.ConnectionManagers[GNSCountryCodes]"
-                  connectionManagerRefId="Package.ConnectionManagers[GNSCountryCodes]" />
+                  connectionManagerRefId="Package.ConnectionManagers[GNSCountryCodes]"
+                  name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
@@ -844,45 +844,45 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[CODE]"
-                      name="CODE"
-                      lineageId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[CODE]"
-                      length="2"
-                      dataType="str"
                       codePage="65001"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      truncationRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].ExternalColumns[CODE]">
+                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].ExternalColumns[CODE]"
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[CODE]"
+                      name="CODE"
+                      truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="FastParse"
                           dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
                         <property
-                          name="UseBinaryFormat"
                           dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format.">false</property>
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[NAME]"
-                      name="NAME"
-                      lineageId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[NAME]"
-                      length="255"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      truncationRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].ExternalColumns[NAME]">
+                      externalMetadataColumnId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].ExternalColumns[NAME]"
+                      length="255"
+                      lineageId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[NAME]"
+                      name="NAME"
+                      truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          name="FastParse"
                           dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
                         <property
-                          name="UseBinaryFormat"
                           dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format.">false</property>
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -890,40 +890,40 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].ExternalColumns[CODE]"
-                      name="CODE"
+                      codePage="65001"
                       dataType="str"
                       length="2"
-                      codePage="65001" />
+                      name="CODE" />
                     <externalMetadataColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].ExternalColumns[NAME]"
-                      name="NAME"
                       dataType="wstr"
-                      length="255" />
+                      length="255"
+                      name="NAME" />
                   </externalMetadataColumns>
                 </output>
                 <output
                   refId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Error Output]"
-                  name="Flat File Source Error Output"
-                  isErrorOut="true">
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      name="Flat File Source Error Output Column"
+                      codePage="65001"
+                      dataType="text"
                       description="Flat File Source Error Output Column"
                       lineageId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      dataType="text"
-                      codePage="65001" />
+                      name="Flat File Source Error Output Column" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      lineageId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      lineageId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -932,79 +932,79 @@
             </component>
             <component
               refId="Package\Load DimGeoCountryADM\Merge Join"
-              name="Merge Join"
-              componentClassID="{14D43A4F-D7BD-489D-829E-6DE35750CFE4}"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
-              version="1"
-              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              name="Merge Join"
+              version="1">
               <properties>
                 <property
-                  name="JoinType"
                   dataType="System.Int32"
                   description="Specifies the type of join to perform."
+                  name="JoinType"
                   typeConverter="JoinType">2</property>
                 <property
-                  name="NumKeyColumns"
                   dataType="System.Int32"
-                  description="Specifies the number of columns in the ordering key.">1</property>
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
                 <property
-                  name="TreatNullsAsEqual"
                   dataType="System.Boolean"
-                  description="Indicates whether the null values are treated as equal values.">true</property>
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
                 <property
-                  name="MaxBuffersPerInput"
                   dataType="System.Int32"
-                  description="Indicates the requested maximum buffers per input before blocking.">5</property>
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
               </properties>
               <inputs>
                 <input
                   refId="Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Left Input]"
-                  name="Merge Join Left Input"
-                  hasSideEffects="true">
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
                   <inputColumns>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Left Input].Columns[COUNTRY_CD]"
-                      lineageId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[COUNTRY_CD]"
-                      cachedName="COUNTRY_CD"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001"
-                      cachedSortKeyPosition="1" />
+                      cachedName="COUNTRY_CD"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[COUNTRY_CD]" />
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Left Input].Columns[ADM1]"
-                      lineageId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[ADM1]"
-                      cachedName="ADM1"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001" />
+                      cachedName="ADM1"
+                      lineageId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[ADM1]" />
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Left Input].Columns[ADM1_NAME]"
-                      lineageId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[ADM1_NAME]"
-                      cachedName="ADM1_NAME"
                       cachedDataType="wstr"
-                      cachedLength="255" />
+                      cachedLength="255"
+                      cachedName="ADM1_NAME"
+                      lineageId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[ADM1_NAME]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
                 <input
                   refId="Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Right Input]"
-                  name="Merge Join Right Input"
-                  hasSideEffects="true">
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
                   <inputColumns>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Right Input].Columns[CODE]"
-                      lineageId="Package\Load DimGeoCountryADM\Sort 1.Outputs[Sort Output].Columns[CODE]"
-                      cachedName="CODE"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001"
-                      cachedSortKeyPosition="1" />
+                      cachedName="CODE"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load DimGeoCountryADM\Sort 1.Outputs[Sort Output].Columns[CODE]" />
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Right Input].Columns[NAME]"
-                      lineageId="Package\Load DimGeoCountryADM\Sort 1.Outputs[Sort Output].Columns[NAME]"
-                      cachedName="NAME"
                       cachedDataType="wstr"
-                      cachedLength="255" />
+                      cachedLength="255"
+                      cachedName="NAME"
+                      lineageId="Package\Load DimGeoCountryADM\Sort 1.Outputs[Sort Output].Columns[NAME]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1012,66 +1012,66 @@
               <outputs>
                 <output
                   refId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output]"
-                  name="Merge Join Output"
-                  isSorted="true">
+                  isSorted="true"
+                  name="Merge Join Output">
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryCode]"
-                      name="GeoCountryCode"
-                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryCode]"
-                      length="2"
-                      dataType="str"
                       codePage="65001"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryCode]"
+                      name="GeoCountryCode"
                       sortKeyPosition="1">
                       <properties>
                         <property
-                          name="InputColumnID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Left Input].Columns[COUNTRY_CD]}</property>
+                          name="InputColumnID">#{Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Left Input].Columns[COUNTRY_CD]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryDescription]"
-                      name="GeoCountryDescription"
-                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryDescription]"
+                      dataType="wstr"
                       length="255"
-                      dataType="wstr">
+                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryDescription]"
+                      name="GeoCountryDescription">
                       <properties>
                         <property
-                          name="InputColumnID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Right Input].Columns[NAME]}</property>
+                          name="InputColumnID">#{Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Right Input].Columns[NAME]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Code]"
-                      name="GeoADM1Code"
-                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Code]"
-                      length="2"
+                      codePage="65001"
                       dataType="str"
-                      codePage="65001">
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Code]"
+                      name="GeoADM1Code">
                       <properties>
                         <property
-                          name="InputColumnID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Left Input].Columns[ADM1]}</property>
+                          name="InputColumnID">#{Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Left Input].Columns[ADM1]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Description]"
-                      name="GeoADM1Description"
-                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Description]"
+                      dataType="wstr"
                       length="255"
-                      dataType="wstr">
+                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Description]"
+                      name="GeoADM1Description">
                       <properties>
                         <property
-                          name="InputColumnID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Left Input].Columns[ADM1_NAME]}</property>
+                          name="InputColumnID">#{Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Left Input].Columns[ADM1_NAME]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1081,177 +1081,177 @@
             </component>
             <component
               refId="Package\Load DimGeoCountryADM\OLE DB Destination"
-              name="OLE DB Destination"
-              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
+              name="OLE DB Destination"
               usesDispositions="true"
-              version="4"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              version="4">
               <properties>
                 <property
-                  name="CommandTimeout"
                   dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
                 <property
-                  name="OpenRowset"
                   dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset.">[dbo].[DimGeoCountryADM1]</property>
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[GeoCountryADM1]</property>
                 <property
-                  name="OpenRowsetVariable"
                   dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
                 <property
-                  name="SqlCommand"
                   dataType="System.String"
                   description="The SQL command to be executed."
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
-                  name="DefaultCodePage"
                   dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
                 <property
-                  name="AlwaysUseDefaultCodePage"
                   dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
                 <property
-                  name="AccessMode"
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
+                  name="AccessMode"
                   typeConverter="AccessMode">3</property>
                 <property
-                  name="FastLoadKeepIdentity"
                   dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
                 <property
-                  name="FastLoadKeepNulls"
                   dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
                 <property
-                  name="FastLoadOptions"
                   dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
-                  name="FastLoadMaxInsertCommitSize"
                   dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\Load DimGeoCountryADM\OLE DB Destination.Connections[OleDbConnection]"
-                  name="OleDbConnection"
+                  connectionManagerID="{9CC49AAD-075B-4350-A1E2-39224DBDA34B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[JOSH-PC_JPCSQLSERVER.GDELT]"
                   description="The OLE DB runtime connection used to access the database."
-                  connectionManagerID="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[localhost.GDELT]" />
+                  name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
                   refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  name="OLE DB Destination Input"
-                  hasSideEffects="true"
                   errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent">
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GeoCountryDescription]"
-                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryDescription]"
-                      externalMetadataColumnId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoCountryDescription]"
-                      cachedName="GeoCountryDescription"
-                      cachedDataType="wstr"
-                      cachedLength="255" />
-                    <inputColumn
-                      refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GeoADM1Description]"
-                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Description]"
-                      externalMetadataColumnId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoADM1Description]"
-                      cachedName="GeoADM1Description"
-                      cachedDataType="wstr"
-                      cachedLength="255" />
-                    <inputColumn
                       refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IsCountry]"
-                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[IsCountry]"
-                      externalMetadataColumnId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsCountry]"
+                      cachedDataType="i4"
                       cachedName="IsCountry"
-                      cachedDataType="i4" />
+                      externalMetadataColumnId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsCountry]"
+                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[IsCountry]" />
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ConvertGeoCountryCode]"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoCountryCode]"
-                      externalMetadataColumnId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoCountryCode]"
-                      cachedName="ConvertGeoCountryCode"
+                      cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="1252" />
+                      cachedName="ConvertGeoCountryCode"
+                      externalMetadataColumnId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoCountryCode]"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoCountryCode]" />
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ConvertGeoADM1Code]"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoADM1Code]"
-                      externalMetadataColumnId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoADM1Code]"
-                      cachedName="ConvertGeoADM1Code"
+                      cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="1252" />
+                      cachedName="ConvertGeoADM1Code"
+                      externalMetadataColumnId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoADM1Code]"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoADM1Code]" />
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ConvertGeoCountryADM1Key]"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoCountryADM1Key]"
-                      externalMetadataColumnId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoCountryADM1Key]"
-                      cachedName="ConvertGeoCountryADM1Key"
+                      cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="4"
-                      cachedCodepage="1252" />
+                      cachedName="ConvertGeoCountryADM1Key"
+                      externalMetadataColumnId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoCountryADM1Key]"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output].Columns[ConvertGeoCountryADM1Key]" />
+                    <inputColumn
+                      refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GeoADM1Description]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GeoADM1Description"
+                      externalMetadataColumnId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoADM1Desc]"
+                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Description]" />
+                    <inputColumn
+                      refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GeoCountryDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GeoCountryDescription"
+                      externalMetadataColumnId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoCountryDesc]"
+                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryDescription]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoCountryADM1Key]"
-                      name="GeoCountryADM1Key"
+                      codePage="1252"
                       dataType="str"
                       length="4"
-                      codePage="1252" />
+                      name="GeoCountryADM1Key" />
                     <externalMetadataColumn
                       refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoCountryCode]"
-                      name="GeoCountryCode"
+                      codePage="1252"
                       dataType="str"
                       length="2"
-                      codePage="1252" />
-                    <externalMetadataColumn
-                      refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoCountryDescription]"
-                      name="GeoCountryDescription"
-                      dataType="wstr"
-                      length="255" />
+                      name="GeoCountryCode" />
                     <externalMetadataColumn
                       refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoADM1Code]"
-                      name="GeoADM1Code"
+                      codePage="1252"
                       dataType="str"
                       length="2"
-                      codePage="1252" />
-                    <externalMetadataColumn
-                      refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoADM1Description]"
-                      name="GeoADM1Description"
-                      dataType="wstr"
-                      length="255" />
+                      name="GeoADM1Code" />
                     <externalMetadataColumn
                       refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsCountry]"
-                      name="IsCountry"
-                      dataType="ui1" />
+                      dataType="ui1"
+                      name="IsCountry" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoCountryDesc]"
+                      dataType="wstr"
+                      length="255"
+                      name="GeoCountryDesc" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoADM1Desc]"
+                      dataType="wstr"
+                      length="255"
+                      name="GeoADM1Desc" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
                   refId="Package\Load DimGeoCountryADM\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  name="OLE DB Destination Error Output"
                   exclusionGroup="1"
-                  synchronousInputId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  isErrorOut="true">
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      lineageId="Package\Load DimGeoCountryADM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      lineageId="Package\Load DimGeoCountryADM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
+                      lineageId="Package\Load DimGeoCountryADM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -1260,21 +1260,21 @@
             </component>
             <component
               refId="Package\Load DimGeoCountryADM\Sort"
-              name="Sort"
-              componentClassID="{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              version="1"
-              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              name="Sort"
+              version="1">
               <properties>
                 <property
-                  name="EliminateDuplicates"
                   dataType="System.Boolean"
-                  description="Indicates whether the Sort transformation removes rows with duplicate sort values.">false</property>
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
                 <property
-                  name="MaximumThreads"
                   dataType="System.Int32"
                   description="Specifies the maximum number of threads to use for sorting."
-                  expressionType="Notify">-1</property>
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
               </properties>
               <inputs>
                 <input
@@ -1283,55 +1283,55 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Sort.Inputs[Sort Input].Columns[ADM1]"
-                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1]"
-                      cachedName="ADM1"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001">
+                      cachedName="ADM1"
+                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1]">
                       <properties>
                         <property
-                          name="NewComparisonFlags"
                           dataType="System.Int32"
-                          description="Specifies the comparison options for character data.">0</property>
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
                         <property
-                          name="NewSortKeyPosition"
                           dataType="System.Int32"
-                          description="Specifies the sort order of the column.">0</property>
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Sort.Inputs[Sort Input].Columns[COUNTRY_CD]"
-                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[COUNTRY_CD]"
-                      cachedName="COUNTRY_CD"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001">
+                      cachedName="COUNTRY_CD"
+                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[COUNTRY_CD]">
                       <properties>
                         <property
-                          name="NewComparisonFlags"
                           dataType="System.Int32"
-                          description="Specifies the comparison options for character data.">0</property>
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
                         <property
-                          name="NewSortKeyPosition"
                           dataType="System.Int32"
-                          description="Specifies the sort order of the column.">1</property>
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Sort.Inputs[Sort Input].Columns[ADM1_NAME]"
-                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1_NAME]"
-                      cachedName="ADM1_NAME"
                       cachedDataType="wstr"
-                      cachedLength="255">
+                      cachedLength="255"
+                      cachedName="ADM1_NAME"
+                      lineageId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1_NAME]">
                       <properties>
                         <property
-                          name="NewComparisonFlags"
                           dataType="System.Int32"
-                          description="Specifies the comparison options for character data.">0</property>
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
                         <property
-                          name="NewSortKeyPosition"
                           dataType="System.Int32"
-                          description="Specifies the sort order of the column.">0</property>
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -1341,52 +1341,52 @@
               <outputs>
                 <output
                   refId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output]"
-                  name="Sort Output"
-                  isSorted="true">
+                  isSorted="true"
+                  name="Sort Output">
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[ADM1]"
-                      name="ADM1"
-                      lineageId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[ADM1]"
-                      length="2"
+                      codePage="65001"
                       dataType="str"
-                      codePage="65001">
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[ADM1]"
+                      name="ADM1">
                       <properties>
                         <property
-                          name="SortColumnId"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          containsID="true">#{Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1]}</property>
+                          name="SortColumnId">#{Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[COUNTRY_CD]"
-                      name="COUNTRY_CD"
-                      lineageId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[COUNTRY_CD]"
-                      length="2"
-                      dataType="str"
                       codePage="65001"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[COUNTRY_CD]"
+                      name="COUNTRY_CD"
                       sortKeyPosition="1">
                       <properties>
                         <property
-                          name="SortColumnId"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          containsID="true">#{Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[COUNTRY_CD]}</property>
+                          name="SortColumnId">#{Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[COUNTRY_CD]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[ADM1_NAME]"
-                      name="ADM1_NAME"
-                      lineageId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[ADM1_NAME]"
+                      dataType="wstr"
                       length="255"
-                      dataType="wstr">
+                      lineageId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output].Columns[ADM1_NAME]"
+                      name="ADM1_NAME">
                       <properties>
                         <property
-                          name="SortColumnId"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          containsID="true">#{Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1_NAME]}</property>
+                          name="SortColumnId">#{Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output].Columns[ADM1_NAME]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1396,21 +1396,21 @@
             </component>
             <component
               refId="Package\Load DimGeoCountryADM\Sort 1"
-              name="Sort 1"
-              componentClassID="{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              version="1"
-              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              name="Sort 1"
+              version="1">
               <properties>
                 <property
-                  name="EliminateDuplicates"
                   dataType="System.Boolean"
-                  description="Indicates whether the Sort transformation removes rows with duplicate sort values.">false</property>
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
                 <property
-                  name="MaximumThreads"
                   dataType="System.Int32"
                   description="Specifies the maximum number of threads to use for sorting."
-                  expressionType="Notify">-1</property>
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
               </properties>
               <inputs>
                 <input
@@ -1419,37 +1419,37 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Sort 1.Inputs[Sort Input].Columns[CODE]"
-                      lineageId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[CODE]"
-                      cachedName="CODE"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001">
+                      cachedName="CODE"
+                      lineageId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[CODE]">
                       <properties>
                         <property
-                          name="NewComparisonFlags"
                           dataType="System.Int32"
-                          description="Specifies the comparison options for character data.">0</property>
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
                         <property
-                          name="NewSortKeyPosition"
                           dataType="System.Int32"
-                          description="Specifies the sort order of the column.">1</property>
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Sort 1.Inputs[Sort Input].Columns[NAME]"
-                      lineageId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[NAME]"
-                      cachedName="NAME"
                       cachedDataType="wstr"
-                      cachedLength="255">
+                      cachedLength="255"
+                      cachedName="NAME"
+                      lineageId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[NAME]">
                       <properties>
                         <property
-                          name="NewComparisonFlags"
                           dataType="System.Int32"
-                          description="Specifies the comparison options for character data.">0</property>
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
                         <property
-                          name="NewSortKeyPosition"
                           dataType="System.Int32"
-                          description="Specifies the sort order of the column.">0</property>
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -1459,37 +1459,37 @@
               <outputs>
                 <output
                   refId="Package\Load DimGeoCountryADM\Sort 1.Outputs[Sort Output]"
-                  name="Sort Output"
-                  isSorted="true">
+                  isSorted="true"
+                  name="Sort Output">
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Sort 1.Outputs[Sort Output].Columns[CODE]"
-                      name="CODE"
-                      lineageId="Package\Load DimGeoCountryADM\Sort 1.Outputs[Sort Output].Columns[CODE]"
-                      length="2"
-                      dataType="str"
                       codePage="65001"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\Sort 1.Outputs[Sort Output].Columns[CODE]"
+                      name="CODE"
                       sortKeyPosition="1">
                       <properties>
                         <property
-                          name="SortColumnId"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          containsID="true">#{Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[CODE]}</property>
+                          name="SortColumnId">#{Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[CODE]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Sort 1.Outputs[Sort Output].Columns[NAME]"
-                      name="NAME"
-                      lineageId="Package\Load DimGeoCountryADM\Sort 1.Outputs[Sort Output].Columns[NAME]"
+                      dataType="wstr"
                       length="255"
-                      dataType="wstr">
+                      lineageId="Package\Load DimGeoCountryADM\Sort 1.Outputs[Sort Output].Columns[NAME]"
+                      name="NAME">
                       <properties>
                         <property
-                          name="SortColumnId"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          containsID="true">#{Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[NAME]}</property>
+                          name="SortColumnId">#{Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output].Columns[NAME]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1499,11 +1499,11 @@
             </component>
             <component
               refId="Package\Load DimGeoCountryADM\Union All"
-              name="Union All"
-              componentClassID="{B594E9A8-4351-4939-891C-CFE1AB93E925}"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
-              version="1"
-              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              name="Union All"
+              version="1">
               <inputs>
                 <input
                   refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 1]"
@@ -1511,88 +1511,88 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 1].Columns[GeoCountryCode]"
-                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryCode]"
-                      cachedName="GeoCountryCode"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001"
-                      cachedSortKeyPosition="1">
+                      cachedName="GeoCountryCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryCode]">
                       <properties>
                         <property
-                          name="OutputColumnLineageID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryCode]}</property>
+                          name="OutputColumnLineageID">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryCode]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 1].Columns[GeoCountryDescription]"
-                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryDescription]"
-                      cachedName="GeoCountryDescription"
                       cachedDataType="wstr"
-                      cachedLength="255">
+                      cachedLength="255"
+                      cachedName="GeoCountryDescription"
+                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoCountryDescription]">
                       <properties>
                         <property
-                          name="OutputColumnLineageID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryDescription]}</property>
+                          name="OutputColumnLineageID">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryDescription]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 1].Columns[GeoADM1Code]"
-                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Code]"
-                      cachedName="GeoADM1Code"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001">
+                      cachedName="GeoADM1Code"
+                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Code]">
                       <properties>
                         <property
-                          name="OutputColumnLineageID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Code]}</property>
+                          name="OutputColumnLineageID">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Code]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 1].Columns[GeoADM1Description]"
-                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Description]"
-                      cachedName="GeoADM1Description"
                       cachedDataType="wstr"
-                      cachedLength="255">
+                      cachedLength="255"
+                      cachedName="GeoADM1Description"
+                      lineageId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output].Columns[GeoADM1Description]">
                       <properties>
                         <property
-                          name="OutputColumnLineageID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Description]}</property>
+                          name="OutputColumnLineageID">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Description]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 1].Columns[GeoCountryADM1Key]"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Output].Columns[GeoCountryADM1Key]"
-                      cachedName="GeoCountryADM1Key"
                       cachedDataType="wstr"
-                      cachedLength="4">
+                      cachedLength="4"
+                      cachedName="GeoCountryADM1Key"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Output].Columns[GeoCountryADM1Key]">
                       <properties>
                         <property
-                          name="OutputColumnLineageID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryADM1Key]}</property>
+                          name="OutputColumnLineageID">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryADM1Key]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 1].Columns[IsCountry]"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Output].Columns[IsCountry]"
+                      cachedDataType="i4"
                       cachedName="IsCountry"
-                      cachedDataType="i4">
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Output].Columns[IsCountry]">
                       <properties>
                         <property
-                          name="OutputColumnLineageID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[IsCountry]}</property>
+                          name="OutputColumnLineageID">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[IsCountry]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -1600,92 +1600,92 @@
                 </input>
                 <input
                   refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 2]"
-                  name="Union All Input 2"
-                  hasSideEffects="true">
+                  hasSideEffects="true"
+                  name="Union All Input 2">
                   <inputColumns>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 2].Columns[GeoCountryCode]"
-                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryCode]"
-                      cachedName="GeoCountryCode"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001">
+                      cachedName="GeoCountryCode"
+                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryCode]">
                       <properties>
                         <property
-                          name="OutputColumnLineageID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryCode]}</property>
+                          name="OutputColumnLineageID">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryCode]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 2].Columns[GeoCountryDescription]"
-                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryDescription]"
-                      cachedName="GeoCountryDescription"
                       cachedDataType="wstr"
-                      cachedLength="255">
+                      cachedLength="255"
+                      cachedName="GeoCountryDescription"
+                      lineageId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output].Columns[GeoCountryDescription]">
                       <properties>
                         <property
-                          name="OutputColumnLineageID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryDescription]}</property>
+                          name="OutputColumnLineageID">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryDescription]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 2].Columns[GeoCountryADM1Key]"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoCountryADM1Key]"
-                      cachedName="GeoCountryADM1Key"
                       cachedDataType="wstr"
-                      cachedLength="2">
+                      cachedLength="2"
+                      cachedName="GeoCountryADM1Key"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoCountryADM1Key]">
                       <properties>
                         <property
-                          name="OutputColumnLineageID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryADM1Key]}</property>
+                          name="OutputColumnLineageID">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryADM1Key]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 2].Columns[GeoADM1Description]"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoADM1Description]"
-                      cachedName="GeoADM1Description"
                       cachedDataType="wstr"
-                      cachedLength="31">
+                      cachedLength="31"
+                      cachedName="GeoADM1Description"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoADM1Description]">
                       <properties>
                         <property
-                          name="OutputColumnLineageID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Description]}</property>
+                          name="OutputColumnLineageID">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Description]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 2].Columns[IsCountry]"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[IsCountry]"
+                      cachedDataType="i4"
                       cachedName="IsCountry"
-                      cachedDataType="i4">
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[IsCountry]">
                       <properties>
                         <property
-                          name="OutputColumnLineageID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[IsCountry]}</property>
+                          name="OutputColumnLineageID">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[IsCountry]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 2].Columns[GeoADM1Code]"
-                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoADM1Code]"
-                      cachedName="GeoADM1Code"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="2"
-                      cachedCodepage="65001">
+                      cachedName="GeoADM1Code"
+                      lineageId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output].Columns[GeoADM1Code]">
                       <properties>
                         <property
-                          name="OutputColumnLineageID"
+                          containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          containsID="true">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Code]}</property>
+                          name="OutputColumnLineageID">#{Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Code]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -1693,9 +1693,9 @@
                 </input>
                 <input
                   refId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 3]"
-                  name="Union All Input 3"
+                  dangling="true"
                   hasSideEffects="true"
-                  dangling="true">
+                  name="Union All Input 3">
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -1706,41 +1706,41 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryCode]"
-                      name="GeoCountryCode"
-                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryCode]"
-                      length="2"
+                      codePage="65001"
                       dataType="str"
-                      codePage="65001" />
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryCode]"
+                      name="GeoCountryCode" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryDescription]"
-                      name="GeoCountryDescription"
-                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryDescription]"
+                      dataType="wstr"
                       length="255"
-                      dataType="wstr" />
+                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryDescription]"
+                      name="GeoCountryDescription" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Code]"
-                      name="GeoADM1Code"
-                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Code]"
-                      length="2"
+                      codePage="65001"
                       dataType="str"
-                      codePage="65001" />
+                      length="2"
+                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Code]"
+                      name="GeoADM1Code" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Description]"
-                      name="GeoADM1Description"
-                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Description]"
+                      dataType="wstr"
                       length="255"
-                      dataType="wstr" />
+                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoADM1Description]"
+                      name="GeoADM1Description" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryADM1Key]"
-                      name="GeoCountryADM1Key"
-                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryADM1Key]"
+                      dataType="wstr"
                       length="4"
-                      dataType="wstr" />
+                      lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[GeoCountryADM1Key]"
+                      name="GeoCountryADM1Key" />
                     <outputColumn
                       refId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[IsCountry]"
-                      name="IsCountry"
+                      dataType="i4"
                       lineageId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1].Columns[IsCountry]"
-                      dataType="i4" />
+                      name="IsCountry" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1749,104 +1749,104 @@
           </components>
           <paths>
             <path
-              refId="Package\Load DimGeoCountryADM.Paths[Derived Column Output2]"
+              refId="Package\Load DimGeoCountryADM.Paths[Derived Column Output]"
+              endId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
-              startId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Output]"
-              endId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 1]" />
+              startId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load DimGeoCountryADM.Paths[Derived Column Output1]"
+              endId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 2]"
               name="Derived Column Output"
-              startId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output]"
-              endId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 2]" />
+              startId="Package\Load DimGeoCountryADM\Derived Column 1.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Load DimGeoCountryADM.Paths[Derived Column Output]"
+              refId="Package\Load DimGeoCountryADM.Paths[Derived Column Output2]"
+              endId="Package\Load DimGeoCountryADM\Union All.Inputs[Union All Input 1]"
               name="Derived Column Output"
-              startId="Package\Load DimGeoCountryADM\Derived Column 2.Outputs[Derived Column Output]"
-              endId="Package\Load DimGeoCountryADM\OLE DB Destination.Inputs[OLE DB Destination Input]" />
-            <path
-              refId="Package\Load DimGeoCountryADM.Paths[Flat File Source Output2]"
-              name="Flat File Source Output"
-              startId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output]"
-              endId="Package\Load DimGeoCountryADM\Derived Column 1.Inputs[Derived Column Input]" />
-            <path
-              refId="Package\Load DimGeoCountryADM.Paths[Flat File Source Output1]"
-              name="Flat File Source Output"
-              startId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output]"
-              endId="Package\Load DimGeoCountryADM\Sort.Inputs[Sort Input]" />
+              startId="Package\Load DimGeoCountryADM\Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load DimGeoCountryADM.Paths[Flat File Source Output]"
+              endId="Package\Load DimGeoCountryADM\Sort 1.Inputs[Sort Input]"
               name="Flat File Source Output"
-              startId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output]"
-              endId="Package\Load DimGeoCountryADM\Sort 1.Inputs[Sort Input]" />
+              startId="Package\Load DimGeoCountryADM\GNSCountrySource.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Load DimGeoCountryADM.Paths[Flat File Source Output1]"
+              endId="Package\Load DimGeoCountryADM\Sort.Inputs[Sort Input]"
+              name="Flat File Source Output"
+              startId="Package\Load DimGeoCountryADM\GNSADM1 Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Load DimGeoCountryADM.Paths[Flat File Source Output2]"
+              endId="Package\Load DimGeoCountryADM\Derived Column 1.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Load DimGeoCountryADM\GNSCountry Source 2.Outputs[Flat File Source Output]" />
             <path
               refId="Package\Load DimGeoCountryADM.Paths[Merge Join Output]"
+              endId="Package\Load DimGeoCountryADM\Derived Column.Inputs[Derived Column Input]"
               name="Merge Join Output"
-              startId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output]"
-              endId="Package\Load DimGeoCountryADM\Derived Column.Inputs[Derived Column Input]" />
-            <path
-              refId="Package\Load DimGeoCountryADM.Paths[Sort Output1]"
-              name="Sort Output"
-              startId="Package\Load DimGeoCountryADM\Sort 1.Outputs[Sort Output]"
-              endId="Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Right Input]" />
+              startId="Package\Load DimGeoCountryADM\Merge Join.Outputs[Merge Join Output]" />
             <path
               refId="Package\Load DimGeoCountryADM.Paths[Sort Output]"
+              endId="Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Left Input]"
               name="Sort Output"
-              startId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output]"
-              endId="Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Left Input]" />
+              startId="Package\Load DimGeoCountryADM\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Load DimGeoCountryADM.Paths[Sort Output1]"
+              endId="Package\Load DimGeoCountryADM\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Load DimGeoCountryADM\Sort 1.Outputs[Sort Output]" />
             <path
               refId="Package\Load DimGeoCountryADM.Paths[Union All Output 1]"
+              endId="Package\Load DimGeoCountryADM\Derived Column 2.Inputs[Derived Column Input]"
               name="Union All Output 1"
-              startId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1]"
-              endId="Package\Load DimGeoCountryADM\Derived Column 2.Inputs[Derived Column Input]" />
+              startId="Package\Load DimGeoCountryADM\Union All.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Truncate DimGeoCountryADM"
-      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="0"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{313278f8-21f7-479f-873a-ed9ad9057d36}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate DimGeoCountryADM"
-      DTS:DTSID="{313278f8-21f7-479f-873a-ed9ad9057d36}"
-      DTS:Description="Execute SQL Task"
-      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
-        DTS:LoggingMode="2"
-        DTS:FilterKind="0" />
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DimGeoCountryADM1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{9CC49AAD-075B-4350-A1E2-39224DBDA34B}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.GeoCountryADM1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{65884610-7364-409E-801F-A233F8B96B84}"
       DTS:From="Package\Truncate DimGeoCountryADM"
-      DTS:To="Package\Insert Unknown DimGeoCountryADM"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:DTSID="{65884610-7364-409E-801F-A233F8B96B84}"
-      DTS:CreationName="" />
+      DTS:To="Package\Insert Unknown DimGeoCountryADM" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{2752425F-A9EF-48B7-A855-F5265006A97D}"
       DTS:From="Package\Insert Unknown DimGeoCountryADM"
-      DTS:To="Package\Load DimGeoCountryADM"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:DTSID="{2752425F-A9EF-48B7-A855-F5265006A97D}"
-      DTS:CreationName="" />
+      DTS:To="Package\Load DimGeoCountryADM" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
 <!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
-  Version="sql11">
+  Version="sql12">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
@@ -1854,43 +1854,31 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="254,42"
+          Size="255,42"
           Id="Package\Insert Unknown DimGeoCountryADM"
-          TopLeft="74,199" />
+          TopLeft="5.5,107.5" />
         <NodeLayout
-          Size="202,42"
+          Size="203,42"
           Id="Package\Load DimGeoCountryADM"
-          TopLeft="94,301" />
+          TopLeft="31.5,209.5" />
         <NodeLayout
-          Size="221,42"
+          Size="222,42"
           Id="Package\Truncate DimGeoCountryADM"
-          TopLeft="67,64" />
+          TopLeft="22,5.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="177.5,106">
+          TopLeft="133,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="23.5,93"
+              EndConnector="0,60"
               Start="0,0"
-              End="23.5,85.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,42.5"
-                    Point2="0,46.5"
-                    Point3="4,46.5" />
-                  <mssgle:LineSegment
-                    End="19.5,46.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19.5,46.5"
-                    Point2="23.5,46.5"
-                    Point3="23.5,50.5" />
-                  <mssgle:LineSegment
-                    End="23.5,85.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1901,7 +1889,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="198,241">
+          TopLeft="133,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1930,75 +1918,63 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="164,42"
+          Size="165,42"
           Id="Package\Load DimGeoCountryADM\Derived Column 1"
-          TopLeft="545,310" />
+          TopLeft="292,311.5" />
         <NodeLayout
-          Size="131,42"
+          Size="132,42"
           Id="Package\Load DimGeoCountryADM\Merge Join"
-          TopLeft="255,222" />
+          TopLeft="87.5000000000001,209.5" />
         <NodeLayout
-          Size="169,42"
+          Size="170,42"
           Id="Package\Load DimGeoCountryADM\GNSCountrySource"
-          TopLeft="354,21" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Load DimGeoCountryADM\GNSADM1 Source"
-          TopLeft="114,18" />
-        <NodeLayout
-          Size="172,42"
-          Id="Package\Load DimGeoCountryADM\OLE DB Destination"
-          TopLeft="414,543" />
-        <NodeLayout
-          Size="108,42"
-          Id="Package\Load DimGeoCountryADM\Sort 1"
-          TopLeft="381,113" />
-        <NodeLayout
-          Size="122,42"
-          Id="Package\Load DimGeoCountryADM\Union All"
-          TopLeft="355,402" />
-        <NodeLayout
-          Size="182,42"
-          Id="Package\Load DimGeoCountryADM\GNSCountry Source 2"
-          TopLeft="548,155" />
-        <NodeLayout
-          Size="99,42"
-          Id="Package\Load DimGeoCountryADM\Sort"
-          TopLeft="141,114" />
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Load DimGeoCountryADM\Derived Column"
-          TopLeft="264,306" />
+          TopLeft="5.50000000000006,5.5" />
         <NodeLayout
           Size="164,42"
+          Id="Package\Load DimGeoCountryADM\GNSADM1 Source"
+          TopLeft="236.5,5.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Load DimGeoCountryADM\OLE DB Destination"
+          TopLeft="288,617.5" />
+        <NodeLayout
+          Size="109,42"
+          Id="Package\Load DimGeoCountryADM\Sort 1"
+          TopLeft="99.0000000000001,107.5" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Load DimGeoCountryADM\GNSCountry Source 2"
+          TopLeft="283,209.5" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Load DimGeoCountryADM\Union All"
+          TopLeft="313,413.5" />
+        <NodeLayout
+          Size="100,42"
+          Id="Package\Load DimGeoCountryADM\Sort"
+          TopLeft="268.5,107.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Load DimGeoCountryADM\Derived Column"
+          TopLeft="75.5000000000001,311.5" />
+        <NodeLayout
+          Size="165,42"
           Id="Package\Load DimGeoCountryADM\Derived Column 2"
-          TopLeft="385,472" />
+          TopLeft="292,515.5" />
         <EdgeLayout
           Id="Package\Load DimGeoCountryADM.Paths[Union All Output 1]"
-          TopLeft="416,444">
+          TopLeft="374.5,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="51,28"
+              EndConnector="0,60"
               Start="0,0"
-              End="51,20.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10"
-                    Point2="0,14"
-                    Point3="4,14" />
-                  <mssgle:LineSegment
-                    End="47,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="47,14"
-                    Point2="51,14"
-                    Point3="51,18" />
-                  <mssgle:LineSegment
-                    End="51,20.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2009,30 +1985,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load DimGeoCountryADM.Paths[Sort Output1]"
-          TopLeft="435,155">
+          TopLeft="153.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-94,67"
+              EndConnector="-20.6666666666667,60"
               Start="0,0"
-              End="-94,59.5">
+              End="-20.6666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.7149321266968" />
+                    End="0,31.5688622754491" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,35.7149321266968"
-                    Point2="0,39.7149321266968"
-                    Point3="-4,39.7149321266968" />
+                    Point1="0,31.5688622754491"
+                    Point2="0,35.5688622754491"
+                    Point3="-4,35.5688622754491" />
                   <mssgle:LineSegment
-                    End="-90,39.7149321266968" />
+                    End="-16.6666666666667,35.5688622754491" />
                   <mssgle:CubicBezierSegment
-                    Point1="-90,39.7149321266968"
-                    Point2="-94,39.7149321266968"
-                    Point3="-94,43.7149321266968" />
+                    Point1="-16.6666666666667,35.5688622754491"
+                    Point2="-20.6666666666667,35.5688622754491"
+                    Point3="-20.6666666666667,39.5688622754491" />
                   <mssgle:LineSegment
-                    End="-94,59.5" />
+                    End="-20.6666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2043,30 +2019,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load DimGeoCountryADM.Paths[Sort Output]"
-          TopLeft="190.5,156">
+          TopLeft="318.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="130,66"
+              EndConnector="-144.333333333333,60"
               Start="0,0"
-              End="130,58.5">
+              End="-144.333333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29" />
+                    End="0,31.5688622754491" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29"
-                    Point2="0,33"
-                    Point3="4,33" />
+                    Point1="0,31.5688622754491"
+                    Point2="0,35.5688622754491"
+                    Point3="-4,35.5688622754491" />
                   <mssgle:LineSegment
-                    End="126,33" />
+                    End="-140.333333333333,35.5688622754491" />
                   <mssgle:CubicBezierSegment
-                    Point1="126,33"
-                    Point2="130,33"
-                    Point3="130,37" />
+                    Point1="-140.333333333333,35.5688622754491"
+                    Point2="-144.333333333333,35.5688622754491"
+                    Point3="-144.333333333333,39.5688622754491" />
                   <mssgle:LineSegment
-                    End="130,58.5" />
+                    End="-144.333333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2077,30 +2053,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load DimGeoCountryADM.Paths[Merge Join Output]"
-          TopLeft="320.5,264">
+          TopLeft="153.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="21,42"
+              EndConnector="0,60"
               Start="0,0"
-              End="21,34.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17"
-                    Point2="0,21"
-                    Point3="4,21" />
-                  <mssgle:LineSegment
-                    End="17,21" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17,21"
-                    Point2="21,21"
-                    Point3="21,25" />
-                  <mssgle:LineSegment
-                    End="21,34.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2111,30 +2075,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load DimGeoCountryADM.Paths[Flat File Source Output2]"
-          TopLeft="639,197">
+          TopLeft="374.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-12,113"
+              EndConnector="0,60"
               Start="0,0"
-              End="-12,105.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,52.5"
-                    Point2="0,56.5"
-                    Point3="-4,56.5" />
-                  <mssgle:LineSegment
-                    End="-8,56.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-8,56.5"
-                    Point2="-12,56.5"
-                    Point3="-12,60.5" />
-                  <mssgle:LineSegment
-                    End="-12,105.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2145,18 +2097,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load DimGeoCountryADM.Paths[Flat File Source Output1]"
-          TopLeft="193,60">
+          TopLeft="318.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,54"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,46.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2167,18 +2119,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load DimGeoCountryADM.Paths[Flat File Source Output]"
-          TopLeft="436.75,63">
+          TopLeft="90.5000000000001,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,50"
+              EndConnector="63,60"
               Start="0,0"
-              End="0,42.5">
+              End="63,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.5" />
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="59,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59,30"
+                    Point2="63,30"
+                    Point3="63,34" />
+                  <mssgle:LineSegment
+                    End="63,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2189,30 +2153,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load DimGeoCountryADM.Paths[Derived Column Output2]"
-          TopLeft="341.5,348">
+          TopLeft="153.5,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="74.5,54"
+              EndConnector="201.833333333333,60"
               Start="0,0"
-              End="74.5,46.5">
+              End="201.833333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23" />
+                    End="0,31.53772070626" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23"
-                    Point2="0,27"
-                    Point3="4,27" />
+                    Point1="0,31.53772070626"
+                    Point2="0,35.53772070626"
+                    Point3="4,35.53772070626" />
                   <mssgle:LineSegment
-                    End="70.5,27" />
+                    End="197.833333333333,35.53772070626" />
                   <mssgle:CubicBezierSegment
-                    Point1="70.5,27"
-                    Point2="74.5,27"
-                    Point3="74.5,31" />
+                    Point1="197.833333333333,35.53772070626"
+                    Point2="201.833333333333,35.53772070626"
+                    Point3="201.833333333333,39.53772070626" />
                   <mssgle:LineSegment
-                    End="74.5,46.5" />
+                    End="201.833333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2223,30 +2187,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load DimGeoCountryADM.Paths[Derived Column Output1]"
-          TopLeft="627,352">
+          TopLeft="374.5,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-192,50"
+              EndConnector="19.1666666666667,60"
               Start="0,0"
-              End="-192,42.5">
+              End="19.1666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.6116504854369" />
+                    End="0,31.53772070626" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.6116504854369"
-                    Point2="0,29.6116504854369"
-                    Point3="-4,29.6116504854369" />
+                    Point1="0,31.53772070626"
+                    Point2="0,35.53772070626"
+                    Point3="4,35.53772070626" />
                   <mssgle:LineSegment
-                    End="-188,29.6116504854369" />
+                    End="15.1666666666667,35.53772070626" />
                   <mssgle:CubicBezierSegment
-                    Point1="-188,29.6116504854369"
-                    Point2="-192,29.6116504854369"
-                    Point3="-192,33.6116504854369" />
+                    Point1="15.1666666666667,35.53772070626"
+                    Point2="19.1666666666667,35.53772070626"
+                    Point3="19.1666666666667,39.53772070626" />
                   <mssgle:LineSegment
-                    End="-192,42.5" />
+                    End="19.1666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2257,30 +2221,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load DimGeoCountryADM.Paths[Derived Column Output]"
-          TopLeft="467,514">
+          TopLeft="374.5,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="33,29"
+              EndConnector="0,60"
               Start="0,0"
-              End="33,21.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.5"
-                    Point2="0,14.5"
-                    Point3="4,14.5" />
-                  <mssgle:LineSegment
-                    End="29,14.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="29,14.5"
-                    Point2="33,14.5"
-                    Point3="33,18.5" />
-                  <mssgle:LineSegment
-                    End="33,21.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2289,13 +2241,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="Combine administrative division 1 and country tables from Geographic Name Service website into one dimension table.&#xA;Union with country records only."
-          ParentId="Package\Load DimGeoCountryADM"
-          FontInfo="{assembly:Null}"
-          Size="661,74"
-          Id="bc93f47e-0835-40ff-bf3f-5cf971ee8c0a"
-          TopLeft="609,41" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>

@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="JOSH-PC"
   DTS:CreationDate="10/24/2014 8:15:01 AM"
   DTS:PackageType="5"
-  DTS:VersionBuild="83"
-  DTS:VersionGUID="{1E94C899-5CE7-4236-9C2A-6E9A4A8FA26D}"
+  DTS:VersionBuild="84"
+  DTS:VersionGUID="{7024DF7F-39B1-4794-A875-D4485AF431A7}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="4105"
   DTS:ObjectName="Master"
@@ -49,7 +49,7 @@
       DTS:DTSID="{53318B4D-364E-4BE2-96F1-8011F2D085EC}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="7">1/2/2015</DTS:VariableValue>
+        DTS:DataType="7">1/11/2015</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Namespace="User"
@@ -184,7 +184,7 @@
         DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B82CE74C-3EFC-4594-8D50-77D38B1F33F7}"
+          SQLTask:Connection="{9CC49AAD-075B-4350-A1E2-39224DBDA34B}"
           SQLTask:SqlStatementSource="SELECT CAST(CAST(MAX(AddedDateKey) AS CHAR(8)) AS DATETIME)&#xA;AS maxAddedDateKey&#xA;FROM dbo.FactEvent"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding

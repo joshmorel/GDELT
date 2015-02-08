@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0"?>
-<DTS:Executable
-  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ExecutableType="SSIS.Package.3"
-  DTS:CreatorName="Josh-PC\Josh"
-  DTS:CreatorComputerName="JOSH-PC"
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
   DTS:CreationDate="10/19/2014 9:22:50 AM"
-  DTS:PackageType="5"
-  DTS:VersionBuild="127"
-  DTS:VersionGUID="{01E3C690-FFCE-4849-8718-0406A5911296}"
-  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JOSH-PC"
+  DTS:CreatorName="Josh-PC\Josh"
+  DTS:DTSID="{72162881-5833-4E90-9F20-D0EAD7211E5D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
   DTS:LocaleID="4105"
   DTS:ObjectName="PreStaging"
-  DTS:DTSID="{72162881-5833-4E90-9F20-D0EAD7211E5D}"
-  DTS:CreationName="SSIS.Package.3">
+  DTS:PackageType="5"
+  DTS:VersionBuild="128"
+  DTS:VersionGUID="{5D892DA7-8E52-48A3-92C1-89A044D9C0DC}">
   <DTS:Property
-    DTS:Name="PackageFormatVersion">6</DTS:Property>
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[GDELTExport.CSV.zip]"
-      DTS:ObjectName="GDELTExport.CSV.zip"
+      DTS:CreationName="FILE"
       DTS:DTSID="{4282A4BF-7D45-4450-9C67-2CE96C9FA189}"
-      DTS:CreationName="FILE">
+      DTS:ObjectName="GDELTExport.CSV.zip">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="C:\GDELT\SourceFiles\*export.CSV.zip" />
@@ -29,10 +29,10 @@
   </DTS:ConnectionManagers>
   <DTS:LogProviders>
     <DTS:LogProvider
-      DTS:ObjectName="SSIS log provider for Windows Event Log"
-      DTS:DTSID="{5E137D84-31C4-4B2B-8EBF-5D047FE596FC}"
+      DTS:CreationName="Microsoft.LogProviderEventLog"
       DTS:Description="Writes log entries for events to the Event Log"
-      DTS:CreationName="DTS.LogProviderEventLog.3">
+      DTS:DTSID="{5E137D84-31C4-4B2B-8EBF-5D047FE596FC}"
+      DTS:ObjectName="SSIS log provider for Windows Event Log">
       <DTS:ObjectData>
         <InnerObject />
       </DTS:ObjectData>
@@ -40,58 +40,58 @@
   </DTS:LogProviders>
   <DTS:PackageParameters>
     <DTS:PackageParameter
+      DTS:CreationName=""
       DTS:DataType="8"
-      DTS:ObjectName="GDELTExportDateString"
       DTS:DTSID="{A5EECDE1-5E05-4029-8046-1F8FA36613A9}"
-      DTS:CreationName="">
+      DTS:ObjectName="GDELTExportDateString">
       <DTS:Property
-        DTS:Name="ParameterValue"
-        DTS:DataType="8">20150101</DTS:Property>
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">20150207</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
-      DTS:Namespace="User"
-      DTS:IncludeInDebugDump="6789"
-      DTS:ObjectName="zipFileExists"
+      DTS:CreationName=""
       DTS:DTSID="{B63CFA99-CA3A-4968-9E89-06E4EB44522B}"
-      DTS:CreationName="">
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="zipFileExists">
       <DTS:VariableValue
         DTS:DataType="11">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
-      DTS:Expression="&quot;C:\\GDELT\\SourceFiles\\&quot; +  @[$Package::GDELTExportDateString]  + &quot;.export.CSV.zip&quot;"
-      DTS:EvaluateAsExpression="True"
-      DTS:Namespace="User"
-      DTS:IncludeInDebugDump="2345"
-      DTS:ObjectName="zipFilePath"
-      DTS:DTSID="{7B05D680-3942-46E3-A2B7-7B84EECF419A}"
+      DTS:CreationName=""
       DTS:Description="Calculates the Zip file path using either yesterday's date or the provided paramater"
-      DTS:CreationName="">
+      DTS:DTSID="{7B05D680-3942-46E3-A2B7-7B84EECF419A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;C:\\GDELT\\SourceFiles\\&quot; +  @[$Package::GDELTExportDateString]  + &quot;.export.CSV.zip&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="zipFilePath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\GDELT\SourceFiles\20150101.export.CSV.zip</DTS:VariableValue>
+        DTS:DataType="8">C:\GDELT\SourceFiles\20150207.export.CSV.zip</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
-      DTS:Expression="&quot;http://data.gdeltproject.org/events/&quot; +  @[$Package::GDELTExportDateString]  + &quot;.export.CSV.zip&quot;"
-      DTS:EvaluateAsExpression="True"
-      DTS:Namespace="User"
-      DTS:IncludeInDebugDump="2345"
-      DTS:ObjectName="zipURL"
+      DTS:CreationName=""
       DTS:DTSID="{10FFAA47-2A32-433D-B8A0-4320375C9AB9}"
-      DTS:CreationName="">
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;http://data.gdeltproject.org/events/&quot; +  @[$Package::GDELTExportDateString]  + &quot;.export.CSV.zip&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="zipURL">
       <DTS:VariableValue
-        DTS:DataType="8">http://data.gdeltproject.org/events/20150101.export.CSV.zip</DTS:VariableValue>
+        DTS:DataType="8">http://data.gdeltproject.org/events/20150207.export.CSV.zip</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:LoggingOptions
-    DTS:LoggingMode="1"
-    DTS:FilterKind="0">
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
     <DTS:Property
-      DTS:Name="EventFilter"
-      DTS:DataType="8">1,7,OnError</DTS:Property>
+      DTS:DataType="8"
+      DTS:Name="EventFilter">1,7,OnError</DTS:Property>
     <DTS:Property
-      DTS:Name="ColumnFilter"
-      DTS:EventName="OnError">
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
       <DTS:Property
         DTS:Name="Computer">-1</DTS:Property>
       <DTS:Property
@@ -108,8 +108,8 @@
         DTS:Name="DataBytes">-1</DTS:Property>
     </DTS:Property>
     <DTS:Property
-      DTS:Name="ColumnFilter"
-      DTS:EventName="OnVariableValueChanged">
+      DTS:EventName="OnVariableValueChanged"
+      DTS:Name="ColumnFilter">
       <DTS:Property
         DTS:Name="Computer">-1</DTS:Property>
       <DTS:Property
@@ -133,14 +133,14 @@
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Delete GDELT Export Zip Files"
-      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="0"
-      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{023368DA-2F89-4276-8E51-25C6DBEA981A}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
       DTS:LocaleID="-1"
       DTS:ObjectName="Delete GDELT Export Zip Files"
-      DTS:DTSID="{023368DA-2F89-4276-8E51-25C6DBEA981A}"
-      DTS:Description="Execute Process Task"
-      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -152,14 +152,14 @@
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Download GDELT Export"
-      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="0"
-      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{D0E3FC3C-EE7D-4411-B368-B66AF8C029FA}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
       DTS:LocaleID="-1"
       DTS:ObjectName="Download GDELT Export"
-      DTS:DTSID="{D0E3FC3C-EE7D-4411-B368-B66AF8C029FA}"
-      DTS:Description="Execute Process Task"
-      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -168,19 +168,19 @@
       <DTS:ObjectData>
         <ExecuteProcessData
           Executable="C:\GDELT\Programs\curl.exe"
-          Arguments="--fail -o C:\GDELT\SourceFiles\20150101.export.CSV.zip http://data.gdeltproject.org/events/20150101.export.CSV.zip" />
+          Arguments="--fail -o C:\GDELT\SourceFiles\20150207.export.CSV.zip http://data.gdeltproject.org/events/20150207.export.CSV.zip" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\UnZip GDELT Export"
-      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="0"
-      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{6040F916-5EF5-4B38-86D7-AA4514DFDBAE}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
       DTS:LocaleID="-1"
       DTS:ObjectName="UnZip GDELT Export"
-      DTS:DTSID="{6040F916-5EF5-4B38-86D7-AA4514DFDBAE}"
-      DTS:Description="Execute Process Task"
-      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -189,34 +189,34 @@
       <DTS:ObjectData>
         <ExecuteProcessData
           Executable="C:\GDELT\Programs\7za.exe"
-          Arguments="e C:\GDELT\SourceFiles\20150101.export.CSV.zip -oC:\GDELT\SourceFiles -y" />
+          Arguments="e C:\GDELT\SourceFiles\20150207.export.CSV.zip -oC:\GDELT\SourceFiles -y" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{092CCAEA-C861-4C52-925E-7C9EC95F35ED}"
       DTS:From="Package\UnZip GDELT Export"
-      DTS:To="Package\Delete GDELT Export Zip Files"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:DTSID="{092CCAEA-C861-4C52-925E-7C9EC95F35ED}"
-      DTS:CreationName="" />
+      DTS:To="Package\Delete GDELT Export Zip Files" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{2367877B-FBE8-45E7-908F-91E8A70D5F42}"
       DTS:From="Package\Download GDELT Export"
-      DTS:To="Package\UnZip GDELT Export"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
-      DTS:DTSID="{2367877B-FBE8-45E7-908F-91E8A70D5F42}"
-      DTS:CreationName="" />
+      DTS:To="Package\UnZip GDELT Export" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
 <!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
-  Version="sql11">
+  Version="sql12">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
@@ -224,31 +224,31 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="221,42"
+          Size="222,42"
           Id="Package\Delete GDELT Export Zip Files"
-          TopLeft="424,246" />
+          TopLeft="5.50000000000003,209.5" />
         <NodeLayout
-          Size="196,42"
+          Size="197,42"
           Id="Package\Download GDELT Export"
-          TopLeft="437,88" />
+          TopLeft="18,5.5" />
         <NodeLayout
-          Size="176,42"
+          Size="177,42"
           Id="Package\UnZip GDELT Export"
-          TopLeft="442,170" />
+          TopLeft="28,107.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="532.25,212">
+          TopLeft="116.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,26.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -259,18 +259,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="532.5,130">
+          TopLeft="116.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,32.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -279,27 +279,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="Uses curl.exe program to download file to local directory&#xA;--fail flag returns fail value if file not found to fail task (22)&#xA;-o flag saves output to file"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="375,74"
-          Id="860e62e1-2794-4d00-9673-c59a570711dc"
-          TopLeft="639,75" />
-        <AnnotationLayout
-          Text="Uses 7za to unzip downloaded file to local directory"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="304,42"
-          Id="daa6f124-68b3-42dc-8c6c-94c7900de17b"
-          TopLeft="637,164" />
-        <AnnotationLayout
-          Text="Uses windows cmd to delete downloaded zip file"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="288,58"
-          Id="f4bbe09f-c360-4b31-a3b5-4c55675be982"
-          TopLeft="652,240" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
