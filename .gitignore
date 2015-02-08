@@ -6,6 +6,7 @@ NetworkGraphs/
 References/
 SourceFiles/
 SSAS/
+Visualizations/
 *bin/
 *obj/
 *.database
