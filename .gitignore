@@ -5,7 +5,8 @@ Log/
 NetworkGraphs/
 References/
 SourceFiles/
-SSAS/
+SSAS_MD/
+SSAD_TAB/
 Visualizations/
 *bin/
 *obj/
