@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="stgGDELT20Event"
   DTS:PackageType="5"
-  DTS:VersionBuild="146"
-  DTS:VersionGUID="{728F20F6-22D6-490A-83AB-37BD0CBA3E9B}">
+  DTS:VersionBuild="151"
+  DTS:VersionGUID="{607BA66D-2F73-4820-B8A4-C9F67B223849}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -861,6 +861,30 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">(DT_DBTIMESTAMP2,0)@[$Package::GDELTExportDatetime]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\stgDailyEvent\Add SourceFile Metadata.Outputs[Derived Column Output].Columns[SourceLanguage]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\stgDailyEvent\Add SourceFile Metadata.Outputs[Derived Column Output].Columns[SourceLanguage]"
+                      name="SourceLanguage"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,255,1252)"english"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,255,1252)"english"</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2609,11 +2633,40 @@
               </outputs>
             </component>
             <component
-              refId="Package\stgDailyEvent\OLE DB Destination"
+              refId="Package\stgDailyEvent\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::newRecordCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\stgDailyEvent\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stgDailyEvent\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\stgDailyEvent\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stgDailyEvent\stgGDETL20 Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE DB Destination"
+              name="stgGDETL20 Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -2666,7 +2719,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\stgDailyEvent\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\stgDailyEvent\stgGDETL20 Destination.Connections[OleDbConnection]"
                   connectionManagerID="{9CC49AAD-075B-4350-A1E2-39224DBDA34B}:external"
                   connectionManagerRefId="Project.ConnectionManagers[JOSH-PC_JPCSQLSERVER.GDELT]"
                   description="The OLE DB runtime connection used to access the database."
@@ -2674,882 +2727,861 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GlobalEventID]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[GlobalEventID]"
                       cachedDataType="i4"
                       cachedName="GlobalEventID"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GlobalEventID]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[GlobalEventID]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[GlobalEventID]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Day]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Day]"
                       cachedDataType="i4"
                       cachedName="Day"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Day]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MonthYear]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[MonthYear]"
                       cachedDataType="i4"
                       cachedName="MonthYear"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthYear]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthYear]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[MonthYear]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Year]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Year]"
                       cachedDataType="i4"
                       cachedName="Year"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Year]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FractionDate]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[FractionDate]"
                       cachedDataType="numeric"
                       cachedName="FractionDate"
                       cachedPrecision="9"
                       cachedScale="4"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FractionDate]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[FractionDate]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[FractionDate]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Name]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1Name"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Name]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Name]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Name]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1CountryCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1CountryCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1CountryCode"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1CountryCode]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1CountryCode]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1CountryCode]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1KnownGroupCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1KnownGroupCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1KnownGroupCode"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1KnownGroupCode]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1KnownGroupCode]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1KnownGroupCode]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1EthnicCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1EthnicCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1EthnicCode"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1EthnicCode]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1EthnicCode]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1EthnicCode]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Religion1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Religion1Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1Religion1Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Religion1Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Religion1Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Religion1Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Religion2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Religion2Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1Religion2Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Religion2Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Religion2Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Religion2Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Type1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Type1Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1Type1Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Type1Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Type1Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Type1Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Type2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Type2Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1Type2Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Type2Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Type2Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Type2Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Type3Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Type3Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1Type3Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Type3Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Type3Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Type3Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Name]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2Name"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Name]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Name]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Name]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2CountryCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2CountryCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2CountryCode"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2CountryCode]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2CountryCode]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2CountryCode]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2KnownGroupCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2KnownGroupCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2KnownGroupCode"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2KnownGroupCode]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2KnownGroupCode]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2KnownGroupCode]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2EthnicCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2EthnicCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2EthnicCode"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2EthnicCode]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2EthnicCode]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2EthnicCode]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Religion1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Religion1Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2Religion1Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Religion1Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Religion1Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Religion1Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Religion2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Religion2Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2Religion2Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Religion2Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Religion2Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Religion2Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Type1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Type1Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2Type1Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Type1Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Type1Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Type1Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Type2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Type2Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Actor2Type2Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Type2Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Type2Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Type2Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Type3Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Type3Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2Type3Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Type3Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Type3Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Type3Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IsRootEvent]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[IsRootEvent]"
                       cachedDataType="ui1"
                       cachedName="IsRootEvent"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsRootEvent]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsRootEvent]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[IsRootEvent]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EventCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[EventCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="EventCode"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventCode]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventCode]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[EventCode]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EventBaseCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[EventBaseCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="EventBaseCode"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventBaseCode]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventBaseCode]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[EventBaseCode]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EventRootCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[EventRootCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="EventRootCode"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventRootCode]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventRootCode]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[EventRootCode]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[QuadClass]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[QuadClass]"
                       cachedDataType="i4"
                       cachedName="QuadClass"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QuadClass]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[QuadClass]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[QuadClass]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GoldsteinScale]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[GoldsteinScale]"
                       cachedDataType="numeric"
                       cachedName="GoldsteinScale"
                       cachedPrecision="4"
                       cachedScale="1"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GoldsteinScale]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[GoldsteinScale]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[GoldsteinScale]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NumMentions]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[NumMentions]"
                       cachedDataType="i4"
                       cachedName="NumMentions"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumMentions]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumMentions]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[NumMentions]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NumSources]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[NumSources]"
                       cachedDataType="i4"
                       cachedName="NumSources"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumSources]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumSources]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[NumSources]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NumArticles]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[NumArticles]"
                       cachedDataType="i4"
                       cachedName="NumArticles"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumArticles]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumArticles]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[NumArticles]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AvgTone]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[AvgTone]"
                       cachedDataType="r8"
                       cachedName="AvgTone"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AvgTone]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[AvgTone]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[AvgTone]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_Type]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_Type]"
                       cachedDataType="i4"
                       cachedName="Actor1Geo_Type"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Type]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Type]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Geo_Type]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_Fullname]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_Fullname]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1Geo_Fullname"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Fullname]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Fullname]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Geo_Fullname]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_CountryCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_CountryCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1Geo_CountryCode"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_CountryCode]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_CountryCode]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Geo_CountryCode]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_ADM1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_ADM1Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1Geo_ADM1Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_ADM1Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_ADM1Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Geo_ADM1Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_ADM2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_ADM2Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1Geo_ADM2Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_ADM2Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_ADM2Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Geo_ADM2Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_Lat]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_Lat]"
                       cachedDataType="numeric"
                       cachedName="Actor1Geo_Lat"
                       cachedPrecision="9"
                       cachedScale="6"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Lat]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Lat]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Geo_Lat]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_Long]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_Long]"
                       cachedDataType="numeric"
                       cachedName="Actor1Geo_Long"
                       cachedPrecision="9"
                       cachedScale="6"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Long]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Long]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Geo_Long]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_FeatureID]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor1Geo_FeatureID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor1Geo_FeatureID"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_FeatureID]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_FeatureID]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor1Geo_FeatureID]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_Type]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_Type]"
                       cachedDataType="i4"
                       cachedName="Actor2Geo_Type"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Type]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Type]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Geo_Type]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_Fullname]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_Fullname]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2Geo_Fullname"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Fullname]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Fullname]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Geo_Fullname]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_CountryCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_CountryCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2Geo_CountryCode"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_CountryCode]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_CountryCode]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Geo_CountryCode]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_ADM1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_ADM1Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2Geo_ADM1Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_ADM1Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_ADM1Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Geo_ADM1Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_ADM2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_ADM2Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2Geo_ADM2Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_ADM2Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_ADM2Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Geo_ADM2Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_Lat]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_Lat]"
                       cachedDataType="numeric"
                       cachedName="Actor2Geo_Lat"
                       cachedPrecision="9"
                       cachedScale="6"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Lat]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Lat]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Geo_Lat]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_Long]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_Long]"
                       cachedDataType="numeric"
                       cachedName="Actor2Geo_Long"
                       cachedPrecision="9"
                       cachedScale="6"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Long]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Long]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Geo_Long]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_FeatureID]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[Actor2Geo_FeatureID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Actor2Geo_FeatureID"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_FeatureID]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_FeatureID]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[Actor2Geo_FeatureID]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_Type]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_Type]"
                       cachedDataType="i4"
                       cachedName="ActionGeo_Type"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Type]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Type]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[ActionGeo_Type]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_Fullname]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_Fullname]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="ActionGeo_Fullname"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Fullname]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Fullname]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[ActionGeo_Fullname]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_CountryCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_CountryCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="ActionGeo_CountryCode"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_CountryCode]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_CountryCode]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[ActionGeo_CountryCode]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_ADM1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_ADM1Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="ActionGeo_ADM1Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_ADM1Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_ADM1Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[ActionGeo_ADM1Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_ADM2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_ADM2Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="ActionGeo_ADM2Code"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_ADM2Code]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_ADM2Code]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[ActionGeo_ADM2Code]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_Lat]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_Lat]"
                       cachedDataType="numeric"
                       cachedName="ActionGeo_Lat"
                       cachedPrecision="9"
                       cachedScale="6"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Lat]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Lat]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[ActionGeo_Lat]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_Long]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_Long]"
                       cachedDataType="numeric"
                       cachedName="ActionGeo_Long"
                       cachedPrecision="9"
                       cachedScale="6"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Long]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Long]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[ActionGeo_Long]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_FeatureID]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[ActionGeo_FeatureID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="ActionGeo_FeatureID"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_FeatureID]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_FeatureID]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[ActionGeo_FeatureID]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DATEADDED]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[DATEADDED]"
                       cachedDataType="i8"
                       cachedName="DATEADDED"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATEADDED]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATEADDED]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[DATEADDED]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SOURCEURL]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[SOURCEURL]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="SOURCEURL"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOURCEURL]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOURCEURL]"
                       lineageId="Package\stgDailyEvent\GDELT 20 CSV Source.Outputs[Flat File Source Output].Columns[SOURCEURL]" />
                     <inputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceFileDatetime]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[SourceFileDatetime]"
                       cachedDataType="dbTimeStamp2"
                       cachedName="SourceFileDatetime"
-                      externalMetadataColumnId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceFileDatetime]"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceFileDatetime]"
                       lineageId="Package\stgDailyEvent\Add SourceFile Metadata.Outputs[Derived Column Output].Columns[SourceFileDatetime]" />
+                    <inputColumn
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].Columns[SourceLanguage]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="SourceLanguage"
+                      externalMetadataColumnId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceLanguage]"
+                      lineageId="Package\stgDailyEvent\Add SourceFile Metadata.Outputs[Derived Column Output].Columns[SourceLanguage]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GlobalEventID]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[GlobalEventID]"
                       dataType="i4"
                       name="GlobalEventID" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
                       dataType="i4"
                       name="Day" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthYear]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthYear]"
                       dataType="i4"
                       name="MonthYear" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
                       dataType="i4"
                       name="Year" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FractionDate]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[FractionDate]"
                       dataType="numeric"
                       name="FractionDate"
                       precision="9"
                       scale="4" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Name]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Name]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1Name" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1CountryCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1CountryCode]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1CountryCode" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1KnownGroupCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1KnownGroupCode]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1KnownGroupCode" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1EthnicCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1EthnicCode]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1EthnicCode" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Religion1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Religion1Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1Religion1Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Religion2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Religion2Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1Religion2Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Type1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Type1Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1Type1Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Type2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Type2Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1Type2Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Type3Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Type3Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1Type3Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Name]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Name]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2Name" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2CountryCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2CountryCode]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2CountryCode" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2KnownGroupCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2KnownGroupCode]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2KnownGroupCode" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2EthnicCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2EthnicCode]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2EthnicCode" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Religion1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Religion1Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2Religion1Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Religion2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Religion2Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2Religion2Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Type1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Type1Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2Type1Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Type2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Type2Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2Type2Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Type3Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Type3Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2Type3Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsRootEvent]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsRootEvent]"
                       dataType="ui1"
                       name="IsRootEvent" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventCode]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="EventCode" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventBaseCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventBaseCode]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="EventBaseCode" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventRootCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[EventRootCode]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="EventRootCode" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QuadClass]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[QuadClass]"
                       dataType="i4"
                       name="QuadClass" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GoldsteinScale]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[GoldsteinScale]"
                       dataType="numeric"
                       name="GoldsteinScale"
                       precision="3"
                       scale="1" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumMentions]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumMentions]"
                       dataType="i4"
                       name="NumMentions" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumSources]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumSources]"
                       dataType="i4"
                       name="NumSources" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumArticles]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumArticles]"
                       dataType="i4"
                       name="NumArticles" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AvgTone]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[AvgTone]"
                       dataType="r8"
                       name="AvgTone" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Type]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Type]"
                       dataType="i4"
                       name="Actor1Geo_Type" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Fullname]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Fullname]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1Geo_Fullname" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_CountryCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_CountryCode]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1Geo_CountryCode" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_ADM1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_ADM1Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1Geo_ADM1Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_ADM2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_ADM2Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1Geo_ADM2Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Lat]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Lat]"
                       dataType="numeric"
                       name="Actor1Geo_Lat"
                       precision="9"
                       scale="6" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Long]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_Long]"
                       dataType="numeric"
                       name="Actor1Geo_Long"
                       precision="9"
                       scale="6" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_FeatureID]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor1Geo_FeatureID]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor1Geo_FeatureID" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Type]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Type]"
                       dataType="i4"
                       name="Actor2Geo_Type" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Fullname]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Fullname]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2Geo_Fullname" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_CountryCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_CountryCode]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2Geo_CountryCode" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_ADM1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_ADM1Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2Geo_ADM1Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_ADM2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_ADM2Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2Geo_ADM2Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Lat]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Lat]"
                       dataType="numeric"
                       name="Actor2Geo_Lat"
                       precision="9"
                       scale="6" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Long]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_Long]"
                       dataType="numeric"
                       name="Actor2Geo_Long"
                       precision="9"
                       scale="6" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_FeatureID]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actor2Geo_FeatureID]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Actor2Geo_FeatureID" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Type]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Type]"
                       dataType="i4"
                       name="ActionGeo_Type" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Fullname]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Fullname]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="ActionGeo_Fullname" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_CountryCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_CountryCode]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="ActionGeo_CountryCode" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_ADM1Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_ADM1Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="ActionGeo_ADM1Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_ADM2Code]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_ADM2Code]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="ActionGeo_ADM2Code" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Lat]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Lat]"
                       dataType="numeric"
                       name="ActionGeo_Lat"
                       precision="9"
                       scale="6" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Long]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_Long]"
                       dataType="numeric"
                       name="ActionGeo_Long"
                       precision="9"
                       scale="6" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_FeatureID]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActionGeo_FeatureID]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="ActionGeo_FeatureID" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATEADDED]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATEADDED]"
                       dataType="i8"
                       name="DATEADDED" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOURCEURL]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOURCEURL]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="SOURCEURL" />
                     <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceFileName]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceFileDatetime]"
+                      dataType="dbTimeStamp2"
+                      name="SourceFileDatetime" />
+                    <externalMetadataColumn
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceLanguage]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      name="SourceFileName" />
-                    <externalMetadataColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceFileDatetime]"
-                      dataType="dbTimeStamp2"
-                      name="SourceFileDatetime" />
+                      name="SourceLanguage" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\stgDailyEvent\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\stgDailyEvent\stgGDETL20 Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\stgDailyEvent\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\stgDailyEvent\stgGDETL20 Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\stgDailyEvent\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\stgDailyEvent\stgGDETL20 Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\stgDailyEvent\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\stgDailyEvent\stgGDETL20 Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\stgDailyEvent\Row Count"
-              componentClassID="Microsoft.RowCount"
-              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-              name="Row Count">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable to hold the row count."
-                  name="VariableName">User::newRecordCount</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\stgDailyEvent\Row Count.Inputs[Row Count Input 1]"
-                  hasSideEffects="true"
-                  name="Row Count Input 1">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\stgDailyEvent\Row Count.Outputs[Row Count Output 1]"
-                  name="Row Count Output 1"
-                  synchronousInputId="Package\stgDailyEvent\Row Count.Inputs[Row Count Input 1]">
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -3558,7 +3590,7 @@
           <paths>
             <path
               refId="Package\stgDailyEvent.Paths[Derived Column Output]"
-              endId="Package\stgDailyEvent\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\stgDailyEvent\stgGDETL20 Destination.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
               startId="Package\stgDailyEvent\Add SourceFile Metadata.Outputs[Derived Column Output]" />
             <path
@@ -3694,21 +3726,21 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="132,42"
-          Id="Package\stgDailyEvent\Row Count"
-          TopLeft="72,111" />
-        <NodeLayout
-          Size="198,42"
-          Id="Package\stgDailyEvent\Add SourceFile Metadata"
-          TopLeft="51,191" />
-        <NodeLayout
-          Size="173,42"
-          Id="Package\stgDailyEvent\OLE DB Destination"
+          Size="195,42"
+          Id="Package\stgDailyEvent\stgGDETL20 Destination"
           TopLeft="54,274" />
         <NodeLayout
           Size="185,42"
           Id="Package\stgDailyEvent\GDELT 20 CSV Source"
           TopLeft="50,25" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\stgDailyEvent\Add SourceFile Metadata"
+          TopLeft="51,191" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\stgDailyEvent\Row Count"
+          TopLeft="72,111" />
         <EdgeLayout
           Id="Package\stgDailyEvent.Paths[Row Count Output 1]"
           TopLeft="138,153">
@@ -3767,30 +3799,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\stgDailyEvent.Paths[Derived Column Output]"
-          TopLeft="150,233">
+          TopLeft="150.75,233">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.5,41"
+              EndConnector="0,41"
               Start="0,0"
-              End="-9.5,33.5">
+              End="0,33.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5"
-                    Point2="0,20.5"
-                    Point3="-4,20.5" />
-                  <mssgle:LineSegment
-                    End="-5.5,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.5,20.5"
-                    Point2="-9.5,20.5"
-                    Point3="-9.5,24.5" />
-                  <mssgle:LineSegment
-                    End="-9.5,33.5" />
+                    End="0,33.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3803,7 +3823,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\stgDailyEvent\OLE DB Destination">
+    design-time-name="Package\stgDailyEvent\stgGDETL20 Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

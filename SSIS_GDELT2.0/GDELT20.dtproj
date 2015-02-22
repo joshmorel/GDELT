@@ -26,19 +26,18 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">JOSH-PC</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAH8CF5ZZUcUikWQz5zBbslgAAAAACAAAAAAAQZgAAAAEAACAAAADXV2kl8J3STGnjQDejgSg1yiAIl8ajh3NEK1ceX846eAAAAAAOgAAAAAIAACAAAAAhTrXFBFdt8F0oginkqPpq9p6UPQBUi0kD2gaS/SdzWpAAAADa2IJTiolAsNvhAZFsY44yIfprQZ8B3tiIAVrVU3WYjY4/DT8EHkV2eOT0JQ05+Lh7eIAFjiIAfCnwkzMTKgzZOnmFDZsQU5dk/CnBH3Eb9McIw8xc+r3UBJ0KKPunrwqzcAnZh5/GhF4mVQXRmG9hR6pzKT+fMwzqoGISCVksagvxq+dUwqK5e7a6VMGD8gZAAAAAORbMpBHSao+9l+0moU+RKK+xGmDMKZ1QU08svXqO1OHrlNbC0RMAqgSaZnnfm2NOW2xRV5Y8DNrrmKkdvbewqw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAH8CF5ZZUcUikWQz5zBbslgAAAAACAAAAAAAQZgAAAAEAACAAAACrBJNdJ0GeyNzv1CR33SxrTI4/4xOWYggXIexjE/aV0QAAAAAOgAAAAAIAACAAAACOCSDl9ih1fLT6TldpSRrmhvp/kXNNbDwRreNT99D/ppAAAAAg3Fm2fSFixL0Hm/PDvuTiYjgmA5+w0kZlXaeOWaQYrafm4mePxmOQs4I6czpEHxAHAHUGxLM9PLWc/kmEhiIW265EvGWzDbRuS1/SSya4YdrfJJ4GCDAD+zz1CNEyg/hJZZxdHGDcjBvLlNdV6W4v7kMB89Y+Gs8BmSUoGcuoIWuQLVS90u5fVh6JtJddypxAAAAAF8WIUS5p5oksQ0/Ivb0BpBj6arkDNr3D8uETMKZjsxVo2pLD+Sjr1rlA/pt7uYedfKRRDZwjAy1iQreYnpHtKg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="Master.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="PreStaging.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="FactEvent.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="DimActor.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="DimensionsFromText.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="DimGeo.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="stgGeoCountryADM1.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="stgGDELT20Event.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="GDELT20Master.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="PreStaging.dtsx" SSIS:EntryPoint="0" />
+          <SSIS:Package SSIS:Name="FactEvent.dtsx" SSIS:EntryPoint="0" />
+          <SSIS:Package SSIS:Name="DimActor.dtsx" SSIS:EntryPoint="0" />
+          <SSIS:Package SSIS:Name="DimensionsFromText.dtsx" SSIS:EntryPoint="0" />
+          <SSIS:Package SSIS:Name="DimGeo.dtsx" SSIS:EntryPoint="0" />
+          <SSIS:Package SSIS:Name="stgGeoCountryADM1.dtsx" SSIS:EntryPoint="0" />
+          <SSIS:Package SSIS:Name="stgGDELT20Event.dtsx" SSIS:EntryPoint="0" />
+          <SSIS:Package SSIS:Name="GDELT20Master.dtsx" SSIS:EntryPoint="0" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="JOSH-PC_JPCSQLSERVER.GDELT.conmgr" />
@@ -135,49 +134,16 @@
             </SSIS:Parameter>
           </SSIS:ProjectConnectionParameters>
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="Master.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{E93AD461-0628-406C-9EAF-CA07868DA293}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Master</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">86</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{471C9628-F3A6-43AE-B880-F445160B103B}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="CM.GDELTSSISLog.txt.txt.ConnectionString">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\GDELT\GDELT_ETL\GDELTSSISLog.txt.txt</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
-            </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="PreStaging.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{72162881-5833-4E90-9F20-D0EAD7211E5D}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">PreStaging</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">159</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">173</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{4D6FFCE5-4EE0-4E75-AEB0-F58F93185B31}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{01135977-2C9E-4E7A-A6EC-EEA9E960E338}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -193,7 +159,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">2015-02-21T19:59:00</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">2015-02-19T07:15:00</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">16</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -220,17 +186,17 @@
                 <SSIS:Property SSIS:Name="Name">FactEvent</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">52</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">54</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{58B2ED83-7C0C-4148-A648-D38CE684B56A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{C78EAAD7-CE1C-4136-9815-0509DA15D082}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="GDELTExportDatetimeString">
+                <SSIS:Parameter SSIS:Name="GDELTExportDatetime">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{E07DE6F8-77C2-4BD7-9BC3-A9EA4BE83BF8}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
@@ -240,8 +206,8 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">20150219000000</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">2015-02-22T09:36:37</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">16</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="MasterPackageID">
@@ -267,17 +233,17 @@
                 <SSIS:Property SSIS:Name="Name">DimActor</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">82</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">85</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{C59510D5-C3D7-4EF9-B29F-611256C674E0}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{4D72AC98-CE3B-4A71-AF8D-7742C96556AC}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="GDELTExportDatetimeString">
+                <SSIS:Parameter SSIS:Name="GDELTExportDatetime">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{A83BBAA6-A5C2-4303-8F56-6559B47BD529}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
@@ -287,8 +253,8 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">20150219000000</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">2015-02-22T09:26:00</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">16</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="MasterPackageID">
@@ -1412,17 +1378,17 @@
                 <SSIS:Property SSIS:Name="Name">DimGeo</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">49</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">51</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{C6339CC5-DE94-43F4-8121-DDF9AC2CC5CE}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{0790260E-717F-4189-BE48-F15FDF04AF72}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="GDELTExportDatetimeString">
+                <SSIS:Parameter SSIS:Name="GDELTExportDatetime">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{D8876E2B-D63D-43E2-9BEC-6D6CDF02B09F}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
@@ -1432,8 +1398,8 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">20150219000000</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">2015-02-22T09:36:19</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">16</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="MasterPackageID">
@@ -1616,8 +1582,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1798,8 +1762,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1841,10 +1803,10 @@
                 <SSIS:Property SSIS:Name="Name">stgGDELT20Event</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">146</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">151</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{728F20F6-22D6-490A-83AB-37BD0CBA3E9B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{607BA66D-2F73-4820-B8A4-C9F67B223849}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1861,7 +1823,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">2015-02-21T20:06:25.494</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">2015-02-21T20:06:25</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">16</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -2066,14 +2028,14 @@
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="GDELT20Master.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{3100E35C-9EA2-42E5-BA5C-B5D344416F53}</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{68FD18B3-0911-4C8F-818F-96B4F6B41DB1}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">GDELT20Master</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">45</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">88</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{50D59F51-1CF2-4570-BD47-2A928811C4E2}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{DF9E9A8E-F8C4-4C5D-8C90-68C50248D5AE}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

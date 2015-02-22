@@ -11,19 +11,19 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="FactEvent"
   DTS:PackageType="5"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{58B2ED83-7C0C-4148-A648-D38CE684B56A}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{C78EAAD7-CE1C-4136-9815-0509DA15D082}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
-      DTS:DataType="8"
+      DTS:DataType="7"
       DTS:DTSID="{E07DE6F8-77C2-4BD7-9BC3-A9EA4BE83BF8}"
-      DTS:ObjectName="GDELTExportDatetimeString">
+      DTS:ObjectName="GDELTExportDatetime">
       <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">20150219000000</DTS:Property>
+        DTS:DataType="7"
+        DTS:Name="ParameterValue">2/22/2015 9:36:37 AM</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -56,17 +56,6 @@
       DTS:ObjectName="RowCount">
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{C06914D7-D7E0-4463-A0FA-68A2615C78F9}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="LEFT( @[$Package::GDELTExportDatetimeString], 4) + &quot;-&quot; + RIGHT(LEFT( @[$Package::GDELTExportDatetimeString], 6),2) + &quot;-&quot; + RIGHT(LEFT( @[$Package::GDELTExportDatetimeString], 8),2) + &quot; &quot; + RIGHT(LEFT( @[$Package::GDELTExportDatetimeString], 10),2) + &quot;:&quot; + RIGHT(LEFT( @[$Package::GDELTExportDatetimeString], 12),2) + &quot;:&quot; + RIGHT(@[$Package::GDELTExportDatetimeString],2)"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="SourceFileDatetime">
-      <DTS:VariableValue
-        DTS:DataType="8">2015-02-19 00:00:00</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -133,9 +122,9 @@
             SQLTask:ParameterSize="-1" />
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="3"
-            SQLTask:DtsVariableName="User::SourceFileDatetime"
+            SQLTask:DtsVariableName="$Package::GDELTExportDatetime"
             SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="130"
+            SQLTask:DataType="7"
             SQLTask:ParameterSize="-1" />
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="4"

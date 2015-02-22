@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0"?>
 <SSIS:Parameters xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
   <SSIS:Parameter
-    SSIS:Name="customEndDate">
+    SSIS:Name="customStopDatetime">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{d5132811-7bdc-46c3-86ab-0c5e23676a21}</SSIS:Property>
       <SSIS:Property
         SSIS:Name="CreationName"></SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Description">If useYesterday=FALSE, used as end date in load</SSIS:Property>
+        SSIS:Name="Description">If useStopLatestExportDatetime=FALSE, used as end date in load</SSIS:Property>
       <SSIS:Property
         SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
       <SSIS:Property
@@ -16,20 +16,20 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">2015-01-11T00:00:00</SSIS:Property>
+        SSIS:Name="Value">2015-02-21T21:45:00</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">16</SSIS:Property>
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="useYesterday">
+    SSIS:Name="useStopLatestExportDatetime">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{852e05e2-576e-401e-b091-ab8b9464385d}</SSIS:Property>
       <SSIS:Property
         SSIS:Name="CreationName"></SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Description">Indicates whether to use yesterday as end date in load</SSIS:Property>
+        SSIS:Name="Description">Indicates whether to use LatestExportDatetime as end in loop</SSIS:Property>
       <SSIS:Property
         SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
       <SSIS:Property
@@ -43,14 +43,14 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="useMaxDATEADDED">
+    SSIS:Name="useStartPrevMaxExportDatetime">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{61fc1773-a01a-4105-a942-d0eeb3036f95}</SSIS:Property>
       <SSIS:Property
         SSIS:Name="CreationName"></SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Description">Indicates whether to use MaxDATEADDED (+1) as start date in load</SSIS:Property>
+        SSIS:Name="Description">Indicates whether to use PrevMaxExportDatetime (+15m) as starting point in loop</SSIS:Property>
       <SSIS:Property
         SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
       <SSIS:Property
@@ -64,14 +64,14 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="customStartDate">
+    SSIS:Name="customStartDatetime">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{cb3243f4-5ae2-4c7b-95ea-d4eaf6cc6008}</SSIS:Property>
       <SSIS:Property
         SSIS:Name="CreationName"></SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Description">If useMaxDATEADDED=FALSE, used as start date in load</SSIS:Property>
+        SSIS:Name="Description">If useStartPrevMaxExportDatetime = FALSE, used as start in loop</SSIS:Property>
       <SSIS:Property
         SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
       <SSIS:Property
@@ -79,7 +79,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">2015-01-11T00:00:00</SSIS:Property>
+        SSIS:Name="Value">2015-02-20T00:15:00</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">16</SSIS:Property>
     </SSIS:Properties>

@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="JOSH-PC"
   DTS:CreatorName="Josh-PC\Josh"
-  DTS:DTSID="{3100E35C-9EA2-42E5-BA5C-B5D344416F53}"
+  DTS:DTSID="{68FD18B3-0911-4C8F-818F-96B4F6B41DB1}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="12.0.2430.0"
   DTS:LocaleID="4105"
   DTS:ObjectName="GDELT20Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{7D34E6CF-E0E2-45A9-B932-244FA4C355C7}">
+  DTS:VersionBuild="88"
+  DTS:VersionGUID="{DF9E9A8E-F8C4-4C5D-8C90-68C50248D5AE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[lastupdate.txt]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{EF8A513E-F911-47FF-89E1-F24EBEA7956E}"
+      DTS:DTSID="{81BED84A-81E5-4293-A246-2CFA81B27261}"
       DTS:ObjectName="lastupdate.txt">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -38,7 +38,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 0"
-              DTS:DTSID="{C5F59694-B765-4F59-853F-A5B48140DBB0}"
+              DTS:DTSID="{623C2A1C-234B-4E19-A709-C6F689B8C06C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -47,7 +47,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 1"
-              DTS:DTSID="{22C3DB74-859E-407D-9233-45BE50F99A53}"
+              DTS:DTSID="{BFC5A8A4-DBFA-493F-9322-4911EBDE3AE7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -56,7 +56,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 2"
-              DTS:DTSID="{B97582B4-31AC-4CD9-876C-D626CBA3B15E}"
+              DTS:DTSID="{C6A2C1DC-20D8-4C8F-9FF3-24825922B506}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -68,7 +68,7 @@
       DTS:ConfigString="JOSH-PC_JPCSQLSERVER.GDELT"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="Writes log entries for events to a SQL Server database"
-      DTS:DTSID="{551F15EC-7C26-449C-9ED1-F792BEB571EE}"
+      DTS:DTSID="{EA065D07-D7D0-4C20-8A9A-120A6B3B114A}"
       DTS:ObjectName="SSIS log provider for SQL Server">
       <DTS:ObjectData>
         <InnerObject />
@@ -78,27 +78,37 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{429A89CA-1710-4DC2-B7FE-657F83020CB0}"
+      DTS:DTSID="{2D786376-2E68-4796-B322-2CFAB0C601A2}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
-      DTS:ObjectName="AddedDatetime">
+      DTS:ObjectName="CurrentExportDatetime">
       <DTS:VariableValue
         DTS:DataType="7">2/21/2015 6:51:00 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{909DEF90-5B5B-4ED5-806B-78882C90853C}"
+      DTS:DTSID="{E74D33AE-76E4-4F60-AD60-CD34DB725094}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="REPLACE(REPLACE(REPLACE(LEFT( (DT_STR, 50, 1252)  @[User::AddedDatetime], 16 ) ,&quot;-&quot;,&quot;&quot;),&quot;:&quot;,&quot;&quot;),&quot; &quot;,&quot;&quot;)+&quot;00&quot;"
+      DTS:Expression="&quot;http://data.gdeltproject.org/gdeltv2/&quot; +  REPLACE(REPLACE(REPLACE((DT_STR, 50, 1252) ((DT_DBTIMESTAMP2, 0) @[User::CurrentExportDatetime]  ),&quot;-&quot;,&quot;&quot;),&quot; &quot;,&quot;&quot;),&quot;:&quot;,&quot;&quot;)  + &quot;.export.CSV.zip&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="AddedDatetimeString">
+      DTS:ObjectName="CurrentExportFile">
       <DTS:VariableValue
-        DTS:DataType="8">20150221065100</DTS:VariableValue>
+        DTS:DataType="8">http://data.gdeltproject.org/gdeltv2/20150221185100.export.CSV.zip</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7017F842-0918-46F6-9B89-CE60B6C561EA}"
+      DTS:DTSID="{DAAE65E1-29FE-4BEF-BA44-54619103617A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentFileExists">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FB3C4D78-C019-48BA-BC5D-C9ADD7F84E7A}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="LatestExportDatetime">
@@ -107,13 +117,44 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{35248090-E639-49EA-A871-D730F340D6AA}"
+      DTS:DTSID="{6638DFBF-E3CD-4127-A62E-23433DFE74E5}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="LatestExportFile">
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{06D5B1CB-7A10-46EC-8A09-485D938B2863}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="PrevMaxExportDatetime">
+      <DTS:VariableValue
+        DTS:DataType="7">2/22/2015 6:50:49 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3DFF1F71-9C48-4136-B324-709F86CDA635}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::useStartPrevMaxExportDatetime]   == TRUE ?  DATEADD( &quot;mi&quot;, 15, @[User::PrevMaxExportDatetime]  )  :   @[$Project::customStartDatetime]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="StartDatetime">
+      <DTS:VariableValue
+        DTS:DataType="7">2/22/2015 7:05:49 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{929B5F87-256F-4FFC-AADE-6F5ABE65A97D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::useStopLatestExportDatetime]    == TRUE ?  @[User::LatestExportDatetime]   :   @[$Project::customStopDatetime]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="StopDatetime">
+      <DTS:VariableValue
+        DTS:DataType="7">2/19/2015 9:45:00 AM</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:LoggingOptions
@@ -142,7 +183,7 @@
     </DTS:Property>
     <DTS:SelectedLogProviders>
       <DTS:SelectedLogProvider
-        DTS:InstanceID="{551F15EC-7C26-449C-9ED1-F792BEB571EE}" />
+        DTS:InstanceID="{EA065D07-D7D0-4C20-8A9A-120A6B3B114A}" />
     </DTS:SelectedLogProviders>
   </DTS:LoggingOptions>
   <DTS:Executables>
@@ -150,7 +191,7 @@
       DTS:refId="Package\Get GDELT 20 lastupdate"
       DTS:CreationName="Microsoft.ExecuteProcess"
       DTS:Description="Execute Process Task"
-      DTS:DTSID="{67e5dd02-50b2-4120-9048-a5516149307c}"
+      DTS:DTSID="{5B671D30-2FCF-4E02-9BF4-692A7F5CAD4E}"
       DTS:ExecutableType="Microsoft.ExecuteProcess"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get GDELT 20 lastupdate"
@@ -166,40 +207,708 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Get Latest Export Values"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{42655E7F-CFAF-49B7-B1B8-FF6101339389}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:refId="Package\Get Latest Update Values"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Gets latest file name and datetime"
+      DTS:DTSID="{8C6FB01D-5078-45FA-8390-1BD419F61AD6}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Get Latest Export Values"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ObjectName="Get Latest Update Values"
       DTS:ThreadHint="0">
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
       <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{9CC49AAD-075B-4350-A1E2-39224DBDA34B}"
-          SQLTask:SqlStatementSource="select&#xA;&#x9;fileurl&#xA;&#x9;,cast(left(right(fileurl,29),4)&#xA;&#x9;+'-'+left(right(fileurl,25),2)&#xA;&#x9;+'-'+left(right(fileurl,23),2)&#xA;&#x9;+' '+left(right(fileurl,21),2)&#xA;&#x9;+':'+left(right(fileurl,19),2) as datetime2(0)) filedatetime&#xA;from SSIS.SourceFileLastUpdate where filetype = 'export'"
-          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ResultBinding
-            SQLTask:ResultName="fileurl"
-            SQLTask:DtsVariableName="User::LatestExportFile" />
-          <SQLTask:ResultBinding
-            SQLTask:ResultName="filedatetime"
-            SQLTask:DtsVariableName="User::LatestExportDatetime" />
-        </SQLTask:SqlTaskData>
+        <ScriptProject
+          Name="ST_bcb51498695a49df99214a649102a58e"
+          VSTAMajorVersion="3"
+          VSTAMinorVersion="0"
+          Language="VisualBasic"
+          ReadWriteVariables="User::LatestExportDatetime,User::LatestExportFile">
+          <ProjectItem
+            Name="ST_bcb51498695a49df99214a649102a58e.vbproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6BCE82B1-5682-4C15-99AD-3064815F209D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>My Project</AppDesignerFolder>
+    <RootNamespace>ST_bcb51498695a49df99214a649102a58e</RootNamespace>
+    <AssemblyName>ST_bcb51498695a49df99214a649102a58e</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="My Project\" />
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScriptMain.vb">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a VB project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="vb" TemplatesPath="" DebugInfoExeName="#HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0\InstallDir#\devenv.exe" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST120</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.vb"
+            Encoding="UTF8"><![CDATA[#Region "Help:  Introduction to the script task"
+'The Script Task allows you to perform virtually any operation that can be accomplished in
+'a .Net application within the context of an Integration Services control flow. 
+
+'Expand the other regions which have "Help" prefixes for examples of specific ways to use
+'Integration Services features within this script task.
+#End Region
+
+
+#Region "Imports"
+Imports System
+Imports System.Data
+Imports System.Math
+Imports Microsoft.SqlServer.Dts.Runtime
+#End Region
+
+'ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+'or parent of this class.
+<Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute()> _
+<System.CLSCompliantAttribute(False)> _
+Partial Public Class ScriptMain
+    Inherits Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+
+#Region "Help:  Using Integration Services variables and parameters in a script"
+    'To use a variable in this script, first ensure that the variable has been added to 
+    'either the list contained in the ReadOnlyVariables property or the list contained in 
+    'the ReadWriteVariables property of this script task, according to whether or not your
+    'code needs to write to the variable.  To add the variable, save this script, close this instance of
+    'Visual Studio, and update the ReadOnlyVariables and 
+    'ReadWriteVariables properties in the Script Transformation Editor window.
+    'To use a parameter in this script, follow the same steps. Parameters are always read-only.
+
+    'Example of reading from a variable:
+    ' startTime = Dts.Variables("System::StartTime").Value
+
+    'Example of writing to a variable:
+    ' Dts.Variables("User::myStringVariable").Value = "new value"
+
+    'Example of reading from a package parameter:
+    ' batchId = Dts.Variables("$Package::batchId").Value
+
+    'Example of reading from a project parameter:
+    ' batchId = Dts.Variables("$Project::batchId").Value
+
+    'Example of reading from a sensitive project parameter:
+    ' batchId = Dts.Variables("$Project::batchId").GetSensitiveValue()
+#End Region
+
+#Region "Help:  Firing Integration Services events from a script"
+    'This script task can fire events for logging purposes.
+
+    'Example of firing an error event:
+    ' Dts.Events.FireError(18, "Process Values", "Bad value", "", 0)
+
+    'Example of firing an information event:
+    ' Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, fireAgain)
+
+    'Example of firing a warning event:
+    ' Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0)
+#End Region
+
+#Region "Help:  Using Integration Services connection managers in a script"
+    'Some types of connection managers can be used in this script task.  See the topic 
+    '"Working with Connection Managers Programatically" for details.
+
+    'Example of using an ADO.Net connection manager:
+    ' Dim rawConnection As Object = Dts.Connections("Sales DB").AcquireConnection(Dts.Transaction)
+    ' Dim myADONETConnection As SqlConnection = CType(rawConnection, SqlConnection)
+    ' <Use the connection in some code here, then release the connection>
+    ' Dts.Connections("Sales DB").ReleaseConnection(rawConnection)
+
+    'Example of using a File connection manager
+    ' Dim rawConnection As Object = Dts.Connections("Prices.zip").AcquireConnection(Dts.Transaction)
+    ' Dim filePath As String = CType(rawConnection, String)
+    ' <Use the connection in some code here, then release the connection>
+    ' Dts.Connections("Prices.zip").ReleaseConnection(rawConnection)
+#End Region
+
+    'This method is called when this script task executes in the control flow.
+    'Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+    'To open Help, press F1.
+
+    Public Sub Main()
+        '
+        Dim sr As IO.StreamReader = New IO.StreamReader("C:\GDELT\SourceFiles\lastupdate.txt") 'Reads lastupdate file
+        Dim lastupdate As String = sr.ReadToEnd() 'Stores lastupdate text in variable
+        Dim pos As Integer = lastupdate.IndexOf("export") 'Finds position of export
+        If pos >= 0 Then
+            'Returns the full file name, assumes it will always have length as example:
+            '"http://data.gdeltproject.org/gdeltv2/20150222011500.export.CSV.zip"
+            Dim LatestExportFile As String = lastupdate.Substring(pos - 52, 66)
+            Dts.Variables("User::LatestExportFile").Value = LatestExportFile
+            Dim LatestDatetimeString As String = Mid(LatestExportFile, 38, 14) 'Finds datetime in expected position given assumed file name structure
+            Dim LatestDatetime As Date = DateTime.ParseExact(LatestDatetimeString, "yyyyMMddHHmmss", Nothing) 'Converts datetime string to datetime
+            Dts.Variables("User::LatestExportDatetime").Value = LatestDatetime 'Returns to SSIS variable
+        End If
+        '
+        Dts.TaskResult = ScriptResults.Success
+    End Sub
+
+#Region "ScriptResults declaration"
+    'This enum provides a convenient shorthand within the scope of this class for setting the
+    'result of the script.
+
+    'This code was generated automatically.
+    Enum ScriptResults
+        Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success
+        Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+    End Enum
+
+#End Region
+
+End Class]]></ProjectItem>
+          <ProjectItem
+            Name="My Project\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="$safeprojectname" GeneratedClassName="MySettings">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="My Project\AssemblyInfo.vb"
+            Encoding="UTF8"><![CDATA[Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("ST_bcb51498695a49df99214a649102a58e")> 
+<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyCompany("Microsoft")> 
+<Assembly: AssemblyProduct("ST_bcb51498695a49df99214a649102a58e")> 
+<Assembly: AssemblyCopyright("Copyright @ Microsoft 2015")> 
+<Assembly: AssemblyTrademark("")> 
+<Assembly: CLSCompliant(True)> 
+
+<Assembly: ComVisible(False)> 
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("d94bb202-a7a9-468d-90f2-b8dfff93afa3")> 
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")>
+
+<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyFileVersion("1.0.0.0")> ]]></ProjectItem>
+          <ProjectItem
+            Name="My Project\Settings.Designer.vb"
+            Encoding="UTF8"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+
+Partial Friend NotInheritable Class MySettings
+    Inherits System.Configuration.ApplicationSettingsBase
+
+    Private Shared m_Value As MySettings
+
+    Private Shared m_SyncObject As Object = New Object
+
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Public Shared ReadOnly Property Value() As MySettings
+        Get
+            If (MySettings.m_Value Is Nothing) Then
+                System.Threading.Monitor.Enter(MySettings.m_SyncObject)
+                If (MySettings.m_Value Is Nothing) Then
+                    Try
+                        MySettings.m_Value = New MySettings
+                    Finally
+                        System.Threading.Monitor.Exit(MySettings.m_SyncObject)
+                    End Try
+                End If
+            End If
+            Return MySettings.m_Value
+        End Get
+    End Property
+End Class]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:CodeName>ST_bcb51498695a49df99214a649102a58e</msb:CodeName>
+		<msb:Language>msBuild</msb:Language>
+		<msb:DisplayName>ST_bcb51498695a49df99214a649102a58e</msb:DisplayName>
+		<msb:ProjectId>{597C963E-BFDE-4C20-9DFB-192948728463}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="ST_bcb51498695a49df99214a649102a58e.vbproj"/>
+		<msb:File Include="My Project\AssemblyInfo.vb"/>
+		<msb:File Include="My Project\Resources.resx"/>
+		<msb:File Include="ScriptMain.vb"/>
+		<msb:File Include="My Project\Resources.Designer.vb"/>
+		<msb:File Include="My Project\Settings.settings"/>
+		<msb:File Include="My Project\Settings.Designer.vb"/>
+	</msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="My Project\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="My Project\Resources.Designer.vb"
+            Encoding="UTF8"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+Namespace My.Resources
+    
+    '''<summary>
+    '''   A strongly-typed resource class, for looking up localized strings, etc.
+    '''</summary>
+    'This class was auto-generated by the Strongly Typed Resource Builder
+    'class via a tool like ResGen or Visual Studio.NET.
+    'To add or remove a member, edit your .ResX file then rerun ResGen
+    'with the /str option, or rebuild your VS project.
+    Class MyResources
+        
+        Private Shared _resMgr As System.Resources.ResourceManager
+        
+        Private Shared _resCulture As System.Globalization.CultureInfo
+        
+        Friend Sub New()
+            MyBase.New
+        End Sub
+        
+        '''<summary>
+        '''   Returns the cached ResourceManager instance used by this class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared ReadOnly Property ResourceManager() As System.Resources.ResourceManager
+            Get
+                If (_resMgr Is Nothing) Then
+                    Dim temp As System.Resources.ResourceManager = New System.Resources.ResourceManager("My.Resources.MyResources", GetType(MyResources).Assembly)
+                    _resMgr = temp
+                End If
+                Return _resMgr
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Overrides the current thread's CurrentUICulture property for all
+        '''   resource lookups using this strongly typed resource class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared Property Culture() As System.Globalization.CultureInfo
+            Get
+                Return _resCulture
+            End Get
+            Set
+                _resCulture = value
+            End Set
+        End Property
+    End Class
+End Namespace]]></ProjectItem>
+          <BinaryItem
+            Name="ST_bcb51498695a49df99214a649102a58e.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAPfN6VQAAAAAAAAAAOAAAiELAQsAABwAAAAIAAAAAAAAPjsA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACAAAAAAgAAAAAAAAIAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAOQ6AABXAAAAAEAAACAEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAARBsAAAAgAAAAHAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAACAEAAAAQAAAAAYAAAAeAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAJAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAg
+OwAAAAAAAEgAAAACAAUACCQAANwWAAABAAAAAAAAAFAjAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKAEAAAoqHgIoBAAACiqmcwYAAAqAAQAABHMHAAAKgAIA
+AARzCAAACoADAAAEcwkAAAqABAAABCoAABMwAQALAAAAAQAAEX4BAAAEbwoAAAoqABMwAQALAAAA
+AgAAEX4CAAAEbwsAAAoqABMwAQALAAAAAwAAEX4DAAAEbwwAAAoqABMwAQALAAAABAAAEX4EAAAE
+bw0AAAoqABMwAgANAAAABQAAEQIDKBEAAAooEgAACioAAAATMAEABwAAAAYAABECKBMAAAoqABMw
+AQALAAAABwAAEdAFAAACKBQAAAoqABMwAQAHAAAACAAAEQIoFQAACioAEzABABAAAAAJAAARAowB
+AAAbLQYoAQAAKyoCKhMwAgAQAAAACgAAEQMSAP4VAgAAGwaBAgAAGyoeAigXAAAKKhMwAgAoAAAA
+CwAAEQJ7GQAACm8aAAAKCweMAwAAGy0SKAIAACsLAnsZAAAKB28bAAAKBypKAigXAAAKAnMcAAAK
+fRkAAAoqAB4CKBcAAAoqEzACAC0AAAAMAAARfgYAAAQtIHIBAABw0AcAAAIoFAAACm8eAAAKcx8A
+AAoLB4AGAAAEfgYAAAQqAAAAEzABAAYAAAANAAARfgcAAAQqAAAeAoAHAAAEKkJzFwAACigRAAAK
+gAkAAAQqAAAAHgIoIAAACiobMAEAPwAAAA4AABF+CAAABC0yfgkAAAQoEQAACighAAAKfggAAAQt
+HHMWAAAGgAgAAATeEH4JAAAEKBEAAAooIgAACtx+CAAABCoAARAAAAIAHQAMKQAQAAAAAB4CKCQA
+AAoqEzADAJQAAAAPAAARcjMAAHBzJQAACgwIbyYAAAoKBnJ7AABwbycAAAoLBxYyZQYHHzTaH0Jv
+KAAAChMFAm8pAAAKbyoAAApyiQAAcG8rAAAKEQVvLAAAChEFHyYfDigtAAAKEwQRBHK3AABwFCgu
+AAAKDQJvKQAACm8qAAAKctUAAHBvKwAACgmMHAAAAW8sAAAKAm8pAAAKFm8vAAAKKrQAAADOyu++
+AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNp
+b249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRl
+MDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFE
+ULQAAABCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAADoBwAAI34AAFQIAACgCQAA
+I1N0cmluZ3MAAAAA9BEAAAwBAAAjVVMAABMAABAAAAAjR1VJRAAAABATAADMAwAAI0Jsb2IAAAAA
+AAAAAgAAAVcdogkJDwAAAPolMwAWAAABAAAALwAAAAoAAAAMAAAAGQAAAAQAAAA8AAAAAgAAADYA
+AAAPAAAABAAAAAgAAAAJAAAACQAAAAEAAAAFAAAAAQAAAAMAAAADAAAAAgAAAAAAdQkBAAAAAAAK
+AEsBIQEKAH8BYQEGAI8BiAEKAOcBIQEGAGUCiAEKAOcCvQIGAB0DDAMGAEoDNQMOALEDnAMSADAE
+BwQGAFEEiAEOAIQEbgQOAJ0EbgQOAMoEsgQGAPQE4QQKADMFDAUKAEsFEwAOAIAFYwUGALUFlQUG
+ANMFiAEGAPcFiAEKABAGEwAGAFQGNQYGAHoGaAYGAKEGkAYGALQG4QQGANsG0QYGAOgGiAEGAPsG
+iAESABQHBwQWAG0HTQcWAIUHTQcKAJcHEwAGAKMHiAEGAM0HiAESAOMHBwQGAD0IlQUGAF0IlQUG
+AJUIewgGAK4IaAYGAMsINQYGANkIaAYGAPQIaAYGAA8JaAYGACgJaAYGAEEJaAYGAF4JaAYAAAAA
+AQAAAAAAAQABAAAAAAApADcABQABAAEAAAAAAF4ANwAJAAEAAgAAARAAaQA3AA0AAQADAAUBAABz
+AAAADQAFAAgABQEAAIEAAAANAAUADwAAAAAAnACoAA0ABgARAAABEADZAOQAJQAIABUAAQAAAAgB
+5AApAAoAGAACAQAAEwEAAC0ACgAaADEAqgEgADEA0wEtADEA9QE6ADEAGgJHACEA9gKQABEALQOd
+ABEAVgOhABEAyQO/ABEA0QPDAAYGVgTZAFaAXgTcAFaAZgTcAFAgAAAAAAYYWwETAAEAWCAAAAAA
+BhhbARMAAQBgIAAAAAARGJYBFwABAIwgAAAAABMInQEbAAEApCAAAAAAEwjDASgAAQC8IAAAAAAT
+COwBNQABANQgAAAAABMICgJCAAEA7CAAAAAARgJQAmMAAQAIIQAAAABGAlkCaAACABwhAAAAAIMA
+agJsAAIANCEAAAAARgJyAnEAAgBIIQAAAAARAHsCeAACAGQhAAAAAAEAmQKAAAMAgCEAAAAABhhb
+ARMABACIIQAAAAADCK0CiwAEALwhAAAAAAYYWwETAAQA0CEAAAAAAxhbARMABADYIQAAAAAWCGID
+pQAEABQiAAAAABYIdgOqAAQAKCIAAAAAFgiCA68ABAAwIgAAAAARGJYBFwAFAEQiAAAAAAYYWwET
+AAUATCIAAAAAFgjeA8YABQCoIgAAAAAGGFsBEwAFALAiAAAAAAYATAQTAAUAAAABAFcCAAABAJAC
+AAABAJACAAABAI4DCQBbARMAYQBbAeoAcQBbAfkAEQBbARMAeQBbARMAJABbARMALABbARMANABb
+ARMAPABbARMAJACtAosALACtAosANACtAosAPACtAosAgQBbARMAiQBbARMAkQBbAUgBmQDEBZMB
+GQBQAmMAGQBZAmgAKQDlBaABGQByAnEAqQABBrABGQBbARMAsQBbAcABRAD2ApAATADeA4sATAAr
+Bj0CTABbARMAuQBbAUwCKQCDBlcCOQBbAVwCSQBbARMAyQCpBngCyQCvBngC0QBbARMAUQBbARMA
+2QBbAUgB2QDxBnEA6QACB4IC6QAKB4cCUQAmB40C8QB3B5IC+QCOB5cCAQErBp4CCQGfB6MC4QCz
+B6oC8QC+B7QCGQFbAUwCIQFbARMAKQFbAbQCMQFbARMAOQFbAUgBQQFbAUgBSQFbAUgBUQFbAUgB
+WQFbAUgBYQFbAUgBaQFbAUgBcQFbAUgBeQFbAUgBCAAsAOAACAAwAOUAKQCDAHUBLgDLAZEDLgDj
+AZEDLgDDAXEDLgCbAc0CLgCjAewCLgC7AVECLgDbAVECLgCTAcQCLgDTAboDLgCrATQDLgCzAUED
+LgDrAFECLgCDAWsDQAArAOUAQAATAPAAQwATAPAAQwAbAP8ASQCDAGEBYwATAPAAYwAbAP8AaQCD
+AIYBgAArAOUAgwBzAOUAgwB7AOUAgwAbAP8AiQCDAE0BoAArAOUAowDDAMgBowATAPAAwAArAOUA
+wwATAPAAwwDrAFECyQATAG8C4AArAOUA6QATAG8CAAErAOUAAAETAPAACQEbAeUAIAErAOUAIAET
+APAAIwGLAeUAIwGDAVECQAErAOUAQAETAPAAYAETAPAAYAErAOUAgAErAOUAoAErAOUAwAErAOUA
+wAETAPAA4AErAOUAAAITAPAAAAIrAOUANAE5AT4BQwGYAZwBpwGsAbsBuwFDAmMCagJ9ArkCBAAB
+AAYABQAHAAYACAAIAAAAfwFPAAAAOAJUAAAA5wFZAAAARAJeAAAAAAOYAAAAHQO1AAAAlAO6AAAA
+jgPLAAIABAADAAIABQAFAAIABgAHAAIABwAJAAIADwALAAIAEgANAAIAEwAPAAEAFAAPAAIAFwAR
+AHUAdQCIABgBHwEmAS0BKgIxAgSAAAABAAAAAAAAAAAAAAAAAOQAAAAEAAAAAAAAAAAAAAABAAoA
+AAAAAAoAAAAAAAAAAAAAAAoAEwAAAAAABAAAAAAAAAAAAAAAAQCIAQAAAAAMAAAAAAAAAAAAAADQ
+AOgDAAAAAAwAAAAAAAAAAAAAANAALgcAAAAAAAAAAAEAAAAFCAAABQAEAAYABAAKAAkAAAAQAAwA
+jgIAABAAGQCOAgAAAAAbAI4CLQC2AS0AOAIAAAA8TW9kdWxlPgBtc2NvcmxpYgBNaWNyb3NvZnQu
+VmlzdWFsQmFzaWMATXlBcHBsaWNhdGlvbgBTVF9iY2I1MTQ5ODY5NWE0OWRmOTkyMTRhNjQ5MTAy
+YTU4ZS5NeQBNeUNvbXB1dGVyAE15UHJvamVjdABNeVdlYlNlcnZpY2VzAFRocmVhZFNhZmVPYmpl
+Y3RQcm92aWRlcmAxAE15UmVzb3VyY2VzAFNUX2JjYjUxNDk4Njk1YTQ5ZGY5OTIxNGE2NDkxMDJh
+NThlLk15LlJlc291cmNlcwBNeVNldHRpbmdzAFNUX2JjYjUxNDk4Njk1YTQ5ZGY5OTIxNGE2NDkx
+MDJhNThlAFNjcmlwdE1haW4AU2NyaXB0UmVzdWx0cwBNaWNyb3NvZnQuVmlzdWFsQmFzaWMuQXBw
+bGljYXRpb25TZXJ2aWNlcwBBcHBsaWNhdGlvbkJhc2UALmN0b3IATWljcm9zb2Z0LlZpc3VhbEJh
+c2ljLkRldmljZXMAQ29tcHV0ZXIAU3lzdGVtAE9iamVjdAAuY2N0b3IAZ2V0X0NvbXB1dGVyAG1f
+Q29tcHV0ZXJPYmplY3RQcm92aWRlcgBnZXRfQXBwbGljYXRpb24AbV9BcHBPYmplY3RQcm92aWRl
+cgBVc2VyAGdldF9Vc2VyAG1fVXNlck9iamVjdFByb3ZpZGVyAGdldF9XZWJTZXJ2aWNlcwBtX015
+V2ViU2VydmljZXNPYmplY3RQcm92aWRlcgBBcHBsaWNhdGlvbgBXZWJTZXJ2aWNlcwBFcXVhbHMA
+bwBHZXRIYXNoQ29kZQBUeXBlAEdldFR5cGUAVG9TdHJpbmcAQ3JlYXRlX19JbnN0YW5jZV9fAFQA
+aW5zdGFuY2UARGlzcG9zZV9fSW5zdGFuY2VfXwBnZXRfR2V0SW5zdGFuY2UATWljcm9zb2Z0LlZp
+c3VhbEJhc2ljLk15U2VydmljZXMuSW50ZXJuYWwAQ29udGV4dFZhbHVlYDEAbV9Db250ZXh0AEdl
+dEluc3RhbmNlAFN5c3RlbS5SZXNvdXJjZXMAUmVzb3VyY2VNYW5hZ2VyAF9yZXNNZ3IAU3lzdGVt
+Lkdsb2JhbGl6YXRpb24AQ3VsdHVyZUluZm8AX3Jlc0N1bHR1cmUAZ2V0X1Jlc291cmNlTWFuYWdl
+cgBnZXRfQ3VsdHVyZQBzZXRfQ3VsdHVyZQBWYWx1ZQBDdWx0dXJlAFN5c3RlbS5Db25maWd1cmF0
+aW9uAEFwcGxpY2F0aW9uU2V0dGluZ3NCYXNlAG1fVmFsdWUAbV9TeW5jT2JqZWN0AGdldF9WYWx1
+ZQBNaWNyb3NvZnQuU3FsU2VydmVyLlNjcmlwdFRhc2sATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMu
+VGFza3MuU2NyaXB0VGFzawBWU1RBUlRTY3JpcHRPYmplY3RNb2RlbEJhc2UATWFpbgBFbnVtAHZh
+bHVlX18AU3VjY2VzcwBGYWlsdXJlAFN5c3RlbS5Db21wb25lbnRNb2RlbABFZGl0b3JCcm93c2Fi
+bGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlU3RhdGUAU3lzdGVtLkNvZGVEb20uQ29tcGlsZXIA
+R2VuZXJhdGVkQ29kZUF0dHJpYnV0ZQBTeXN0ZW0uRGlhZ25vc3RpY3MARGVidWdnZXJIaWRkZW5B
+dHRyaWJ1dGUATWljcm9zb2Z0LlZpc3VhbEJhc2ljLkNvbXBpbGVyU2VydmljZXMAU3RhbmRhcmRN
+b2R1bGVBdHRyaWJ1dGUASGlkZU1vZHVsZU5hbWVBdHRyaWJ1dGUAU3lzdGVtLkNvbXBvbmVudE1v
+ZGVsLkRlc2lnbgBIZWxwS2V5d29yZEF0dHJpYnV0ZQBTeXN0ZW0uUnVudGltZS5Db21waWxlclNl
+cnZpY2VzAFJ1bnRpbWVIZWxwZXJzAEdldE9iamVjdFZhbHVlAFJ1bnRpbWVUeXBlSGFuZGxlAEdl
+dFR5cGVGcm9tSGFuZGxlAEFjdGl2YXRvcgBDcmVhdGVJbnN0YW5jZQBNeUdyb3VwQ29sbGVjdGlv
+bkF0dHJpYnV0ZQBzZXRfVmFsdWUAU3lzdGVtLlJ1bnRpbWUuSW50ZXJvcFNlcnZpY2VzAENvbVZp
+c2libGVBdHRyaWJ1dGUAU3lzdGVtLlJlZmxlY3Rpb24AQXNzZW1ibHkAZ2V0X0Fzc2VtYmx5AFN5
+c3RlbS5UaHJlYWRpbmcATW9uaXRvcgBFbnRlcgBFeGl0AERlYnVnZ2VyTm9uVXNlckNvZGVBdHRy
+aWJ1dGUAU3lzdGVtLklPAFN0cmVhbVJlYWRlcgBEYXRlVGltZQBSZWFkVG9FbmQAU3RyaW5nAElu
+ZGV4T2YAU3Vic3RyaW5nAFNjcmlwdE9iamVjdE1vZGVsAGdldF9EdHMATWljcm9zb2Z0LlNxbFNl
+cnZlci5NYW5hZ2VkRFRTAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlJ1bnRpbWUAVmFyaWFibGVz
+AGdldF9WYXJpYWJsZXMAVmFyaWFibGUAZ2V0X0l0ZW0AU3RyaW5ncwBNaWQASUZvcm1hdFByb3Zp
+ZGVyAFBhcnNlRXhhY3QAc2V0X1Rhc2tSZXN1bHQAQ0xTQ29tcGxpYW50QXR0cmlidXRlAFNTSVNT
+Y3JpcHRUYXNrRW50cnlQb2ludEF0dHJpYnV0ZQBTVF9iY2I1MTQ5ODY5NWE0OWRmOTkyMTRhNjQ5
+MTAyYTU4ZS5SZXNvdXJjZXMucmVzb3VyY2VzAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1
+dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAU3lzdGVtLlJ1bnRpbWUuVmVyc2lvbmlu
+ZwBUYXJnZXRGcmFtZXdvcmtBdHRyaWJ1dGUAQXNzZW1ibHlGaWxlVmVyc2lvbkF0dHJpYnV0ZQBH
+dWlkQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0
+QXR0cmlidXRlAEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1
+dGUAQXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAFNU
+X2JjYjUxNDk4Njk1YTQ5ZGY5OTIxNGE2NDkxMDJhNThlLmRsbAAAAAAAMU0AeQAuAFIAZQBzAG8A
+dQByAGMAZQBzAC4ATQB5AFIAZQBzAG8AdQByAGMAZQBzAABHQwA6AFwARwBEAEUATABUAFwAUwBv
+AHUAcgBjAGUARgBpAGwAZQBzAFwAbABhAHMAdAB1AHAAZABhAHQAZQAuAHQAeAB0AAANZQB4AHAA
+bwByAHQAAC1VAHMAZQByADoAOgBMAGEAdABlAHMAdABFAHgAcABvAHIAdABGAGkAbABlAAAdeQB5
+AHkAeQBNAE0AZABkAEgASABtAG0AcwBzAAA1VQBzAGUAcgA6ADoATABhAHQAZQBzAHQARQB4AHAA
+bwByAHQARABhAHQAZQB0AGkAbQBlAAAAfqF8ln6qcE2J2+qfGt6wjgAIt3pcVhk04IkIsD9ffxHV
+CjoDIAABAwAAAQQAABIMBwYVEhgBEgwEAAASCAcGFRIYARIIBAAAEhEHBhUSGAESEQQAABIUBwYV
+EhgBEhQECAASDAQIABIIBAgAEhEECAASFAQgAQIcAyAACAQgABIVAyAADgIeAAcQAQEeAB4ABzAB
+AQEQHgACEwAEIAATAAcGFRIZARMABCgAEwADBhIdAwYSIQQAABIdBAAAEiEFAAEBEiEECAASHQQI
+ABIhAwYSIAIGHAQAABIgBAgAEiAIiYRdzYCAzJECBggDBhEoBAAAAAAEAQAAAAUgAQERNQgBAAEA
+AAAAAAUgAgEODhgBAApNeVRlbXBsYXRlCDEwLjAuMC4wAAAGFRIYARIMBhUSGAESCAYVEhgBEhEG
+FRIYARIUBAcBEgwEBwESCAQHARIRBAcBEhQEIAEBDhMBAA5NeS5XZWJTZXJ2aWNlcwAAEwEADk15
+LkFwcGxpY2F0aW9uAAAQAQALTXkuQ29tcHV0ZXIAAAwBAAdNeS5Vc2VyAAAEAAEcHAMHAQIDBwEI
+BgABEhURUQQHARIVAwcBDgUQAQAeAAQKAR4ABAcBHgAHIAQBDg4ODmEBADRTeXN0ZW0uV2ViLlNl
+cnZpY2VzLlByb3RvY29scy5Tb2FwSHR0cENsaWVudFByb3RvY29sEkNyZWF0ZV9fSW5zdGFuY2Vf
+XxNEaXNwb3NlX19JbnN0YW5jZV9fAAAABhUSGAETAAYVEhkBEwAECgETAAUgAQETAAgHAxMAEwAT
+AAQgAQECBQEAAAAABCAAEmEGIAIBDhJhBgcCEh0SHQQHARIhCAEAAgAAAAAABAABARwEBwESIAQg
+AQgOBSACDggIBCAAEnkEIAASfQYgARKAgRwEIAEBHAYAAw4OCAgJAAMRcQ4OEoCJBCABAQgKBwYO
+CBJtEXEODggBAAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwFHAQAaLk5FVEZy
+YW1ld29yayxWZXJzaW9uPXY0LjABAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEC5ORVQgRnJhbWV3
+b3JrIDQMAQAHMS4wLjAuMAAAKQEAJGQ5NGJiMjAyLWE3YTktNDY4ZC05MGYyLWI4ZGZmZjkzYWZh
+MwAABQEAAQAAHwEAGkNvcHlyaWdodCBAIE1pY3Jvc29mdCAyMDE1AAAoAQAjU1RfYmNiNTE0OTg2
+OTVhNDlkZjk5MjE0YTY0OTEwMmE1OGUAAA4BAAlNaWNyb3NvZnQAAAAAAAw7AAAAAAAAAAAAAC47
+AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgOwAAAAAAAAAAAAAAAAAAAAAAAAAAX0NvckRsbE1h
+aW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB
+ABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAAAABIAAAA
+WEAAAMgDAAAAAAAAAAAAAMgDNAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBPAAAAAAC9
+BO/+AAABAAAAAQAAAAAAAAABAAAAAAA/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAARAAAAAEA
+VgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBvAG4AAAAA
+AAAAsAQoAwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAAAEAwAAAQAwADAAMAAwADAA
+NABiADAAAAA0AAoAAQBDAG8AbQBwAGEAbgB5AE4AYQBtAGUAAAAAAE0AaQBjAHIAbwBzAG8AZgB0
+AAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AAAAAAFMAVABfAGIAYwBiADUA
+MQA0ADkAOAA2ADkANQBhADQAOQBkAGYAOQA5ADIAMQA0AGEANgA0ADkAMQAwADIAYQA1ADgAZQAA
+ADAACAABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAALgAwAC4AMAAAAHAAKAABAEkA
+bgB0AGUAcgBuAGEAbABOAGEAbQBlAAAAUwBUAF8AYgBjAGIANQAxADQAOQA4ADYAOQA1AGEANAA5
+AGQAZgA5ADkAMgAxADQAYQA2ADQAOQAxADAAMgBhADUAOABlAC4AZABsAGwAAABcABsAAQBMAGUA
+ZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQAAABDAG8AcAB5AHIAaQBnAGgAdAAgAEAAIABNAGkAYwBy
+AG8AcwBvAGYAdAAgADIAMAAxADUAAAAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4A
+YQBtAGUAAABTAFQAXwBiAGMAYgA1ADEANAA5ADgANgA5ADUAYQA0ADkAZABmADkAOQAyADEANABh
+ADYANAA5ADEAMAAyAGEANQA4AGUALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0A
+ZQAAAAAAUwBUAF8AYgBjAGIANQAxADQAOQA4ADYAOQA1AGEANAA5AGQAZgA5ADkAMgAxADQAYQA2
+ADQAOQAxADAAMgBhADUAOABlAAAANAAIAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAA
+MQAuADAALgAwAC4AMAAAADgACAABAEEAcwBzAGUAbQBiAGwAeQAgAFYAZQByAHMAaQBvAG4AAAAx
+AC4AMAAuADAALgAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAwAAABAOwAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
+        </ScriptProject>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Get Max AddedDatetime"
+      DTS:refId="Package\Get Previous Max ExportDatetime"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Gets maximum AddedDateKey from FactEvent in database"
-      DTS:DTSID="{e052819d-c795-4ae6-add2-d67f664b8999}"
+      DTS:Description="Gets the previous maximum added datetime from the datetime"
+      DTS:DTSID="{73FAC5C3-CA70-4585-BF22-9BC520D7A0DA}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Get Max AddedDatetime"
+      DTS:ObjectName="Get Previous Max ExportDatetime"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -209,25 +918,26 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{9CC49AAD-075B-4350-A1E2-39224DBDA34B}"
-          SQLTask:SqlStatementSource="select max(SourceDatetimeAdded) from ssis.etlhistory"
+          SQLTask:SqlStatementSource="select isnull(max(SourceDatetimeAdded),'2015-02-18 21:45:00') --Use first file minus 15m if null&#xA;from ssis.etlhistory where PackageName = 'FactEvent' "
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
-            SQLTask:DtsVariableName="User::AddedDatetime" />
+            SQLTask:DtsVariableName="User::PrevMaxExportDatetime" />
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Repeat for Each AddedDatetime"
-      DTS:AssignExpression="@[User::AddedDatetime] = DATEADD( &quot;mi&quot;, 15, @[User::AddedDatetime]  )"
+      DTS:refId="Package\Repeat for each export datetime"
+      DTS:AssignExpression="@[User::CurrentExportDatetime] = DATEADD( &quot;mi&quot;, 15, @[User::CurrentExportDatetime]  )"
       DTS:CreationName="STOCK:FORLOOP"
-      DTS:Description="Processes files and loads data for each GDELT export date in range"
-      DTS:DTSID="{3c95b76e-af46-4cc7-b80d-4f82ff647c23}"
-      DTS:EvalExpression="@[User::AddedDatetime] &lt;=  @[User::LatestExportDatetime]"
+      DTS:Description="Processes files and loads data for each GDELT export datetime in range (every 15 min)"
+      DTS:DTSID="{C9711CC1-4373-430E-86B6-73B03D650543}"
+      DTS:EvalExpression="@[User::CurrentExportDatetime] &lt;=  @[User::StopDatetime]"
       DTS:ExecutableType="STOCK:FORLOOP"
+      DTS:InitExpression="@[User::CurrentExportDatetime] = @[User::StartDatetime]"
       DTS:LocaleID="-1"
       DTS:MaxConcurrent="1"
-      DTS:ObjectName="Repeat for Each AddedDatetime">
+      DTS:ObjectName="Repeat for each export datetime">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0"
@@ -256,10 +966,108 @@
       </DTS:LoggingOptions>
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Repeat for Each AddedDatetime\PreStaging"
+          DTS:refId="Package\Repeat for each export datetime\Check if Current File Exists"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{1a8fa68f-8432-4165-9ea9-0efb73904287}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Check if Current File Exists"
+          DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:PropertyExpression
+            DTS:Name="Arguments">"--fail --head " +  @[User::CurrentExportFile]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\GDELT\Programs\curl.exe"
+              Arguments="--fail --head http://data.gdeltproject.org/gdeltv2/20150221185100.export.CSV.zip"
+              FailTaskIfReturnCodeIsNotSuccessValue="False"
+              StandardErrorVariable="User::CurrentFileExists" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Repeat for each export datetime\DimActor"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{57ECB63F-1BDE-4C76-A861-9BAF4B2832A4}"
+          DTS:DTSID="{1984A6FA-E526-4669-86EF-829FF48E23D2}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DimActor"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>DimActor.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>MasterPackageID</ParameterName>
+                <BindedVariableOrParameterName>System::PackageID</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>GDELTExportDatetime</ParameterName>
+                <BindedVariableOrParameterName>User::CurrentExportDatetime</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Repeat for each export datetime\DimGeo"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{D58184D3-E46C-486B-BDDC-940A837BCE9C}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DimGeo"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>DimGeo.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>GDELTExportDatetime</ParameterName>
+                <BindedVariableOrParameterName>User::CurrentExportDatetime</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>MasterPackageID</ParameterName>
+                <BindedVariableOrParameterName>System::PackageID</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Repeat for each export datetime\FactEvent"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{953C64CB-6D15-41C4-A533-908B1B431B23}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FactEvent"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>FactEvent.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>GDELTExportDatetime</ParameterName>
+                <BindedVariableOrParameterName>User::CurrentExportDatetime</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>MasterPackageID</ParameterName>
+                <BindedVariableOrParameterName>System::PackageID</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Repeat for each export datetime\PreStaging"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{621DF850-EDEC-41CC-A4E0-5B724C38EAE2}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="PreStaging"
@@ -271,16 +1079,16 @@
               <PackageName>PreStaging.dtsx</PackageName>
               <ParameterAssignment>
                 <ParameterName>GDELTExportDatetime</ParameterName>
-                <BindedVariableOrParameterName>User::AddedDatetime</BindedVariableOrParameterName>
+                <BindedVariableOrParameterName>User::CurrentExportDatetime</BindedVariableOrParameterName>
               </ParameterAssignment>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Repeat for Each AddedDatetime\stgGDELT20Event"
+          DTS:refId="Package\Repeat for each export datetime\stgGDELT20Event"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{43475F7C-FF1F-4954-8D1A-0E186D24CF97}"
+          DTS:DTSID="{A2EF6AFA-8B75-4694-910A-E4A7CF2C269A}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="stgGDELT20Event"
@@ -292,7 +1100,7 @@
               <PackageName>stgGDELT20Event.dtsx</PackageName>
               <ParameterAssignment>
                 <ParameterName>GDELTExportDatetime</ParameterName>
-                <BindedVariableOrParameterName>User::AddedDatetime</BindedVariableOrParameterName>
+                <BindedVariableOrParameterName>User::CurrentExportDatetime</BindedVariableOrParameterName>
               </ParameterAssignment>
               <ParameterAssignment>
                 <ParameterName>MasterPackageID</ParameterName>
@@ -304,498 +1112,75 @@
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Repeat for Each AddedDatetime.PrecedenceConstraints[Constraint]"
+          DTS:refId="Package\Repeat for each export datetime.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{1D1B0BDF-E6C4-4F69-874C-B3ED04130F16}"
-          DTS:From="Package\Repeat for Each AddedDatetime\PreStaging"
+          DTS:DTSID="{C847E81F-6F13-4335-94BA-3F8638AF909F}"
+          DTS:From="Package\Repeat for each export datetime\PreStaging"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Repeat for Each AddedDatetime\stgGDELT20Event" />
+          DTS:To="Package\Repeat for each export datetime\stgGDELT20Event" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Repeat for each export datetime.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{9E814A06-0350-423A-8107-DC21AF4CA1E8}"
+          DTS:EvalOp="3"
+          DTS:Expression="FINDSTRING( @[User::CurrentFileExists] ,&quot;(23)&quot; , 1) &gt; 0"
+          DTS:From="Package\Repeat for each export datetime\Check if Current File Exists"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Repeat for each export datetime\PreStaging" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Repeat for each export datetime.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{F2C023A5-89A1-4F1C-ADFD-95EF22BD72DB}"
+          DTS:From="Package\Repeat for each export datetime\stgGDELT20Event"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Repeat for each export datetime\DimActor" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Repeat for each export datetime.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{4B54D94E-E59E-4DA5-8669-F0541BA4E6F5}"
+          DTS:From="Package\Repeat for each export datetime\DimActor"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Repeat for each export datetime\DimGeo" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Repeat for each export datetime.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{E1FB9CB5-0D88-495A-94AF-625BB7DF0240}"
+          DTS:From="Package\Repeat for each export datetime\DimGeo"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Repeat for each export datetime\FactEvent" />
       </DTS:PrecedenceConstraints>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Truncate SourceFileLastUpdate"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{4A69CD90-A4EF-4B0E-8CBC-CE2FD831E24F}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate SourceFileLastUpdate"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{9CC49AAD-075B-4350-A1E2-39224DBDA34B}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE SSIS.SourceFileLastUpdate" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Update GDELT lastupdate"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{400D51B5-04AD-4C65-86AB-F556AE03A724}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Update GDELT lastupdate"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Update GDELT lastupdate\lastupdate source"
-              componentClassID="Microsoft.FlatFileSource"
-              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Flat File Source"
-              localeId="4105"
-              name="lastupdate source"
-              usesDispositions="true"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether zero-length columns are treated as null."
-                  name="RetainNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
-                  name="FileNameColumnName"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Update GDELT lastupdate\lastupdate source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[lastupdate.txt]"
-                  connectionManagerRefId="Package.ConnectionManagers[lastupdate.txt]"
-                  name="FlatFileConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output]"
-                  name="Flat File Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].Columns[Column 0]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
-                      length="255"
-                      lineageId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].Columns[Column 0]"
-                      name="Column 0"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].Columns[Column 1]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
-                      length="50"
-                      lineageId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].Columns[Column 1]"
-                      name="Column 1"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].Columns[Column 2]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].ExternalColumns[Column 2]"
-                      length="255"
-                      lineageId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].Columns[Column 2]"
-                      name="Column 2"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Column 0" />
-                    <externalMetadataColumn
-                      refId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Column 1" />
-                    <externalMetadataColumn
-                      refId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].ExternalColumns[Column 2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="Column 2" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Error Output]"
-                  isErrorOut="true"
-                  name="Flat File Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      codePage="1252"
-                      dataType="text"
-                      description="Flat File Source Error Output Column"
-                      lineageId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      name="Flat File Source Error Output Column" />
-                    <outputColumn
-                      refId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="SourceFileLastUpdate destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[SSIS].[SourceFileLastUpdate]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Connections[OleDbConnection]"
-                  connectionManagerID="{9CC49AAD-075B-4350-A1E2-39224DBDA34B}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[JOSH-PC_JPCSQLSERVER.GDELT]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input].Columns[filetype]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="filetype"
-                      externalMetadataColumnId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input].ExternalColumns[FileType]"
-                      lineageId="Package\Update GDELT lastupdate\type derived column.Outputs[Derived Column Output].Columns[filetype]" />
-                    <inputColumn
-                      refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input].Columns[Column 0]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Column 0"
-                      externalMetadataColumnId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input].ExternalColumns[FileIDNumber]"
-                      lineageId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].Columns[Column 0]" />
-                    <inputColumn
-                      refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input].Columns[Column 1]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Column 1"
-                      externalMetadataColumnId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input].ExternalColumns[FileIDString]"
-                      lineageId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].Columns[Column 1]" />
-                    <inputColumn
-                      refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input].Columns[Column 2]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Column 2"
-                      externalMetadataColumnId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input].ExternalColumns[FileURL]"
-                      lineageId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].Columns[Column 2]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input].ExternalColumns[FileIDNumber]"
-                      dataType="i4"
-                      name="FileIDNumber" />
-                    <externalMetadataColumn
-                      refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input].ExternalColumns[FileIDString]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="FileIDString" />
-                    <externalMetadataColumn
-                      refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input].ExternalColumns[FileURL]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="FileURL" />
-                    <externalMetadataColumn
-                      refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input].ExternalColumns[FileType]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="FileType" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Update GDELT lastupdate\type derived column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="type derived column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Update GDELT lastupdate\type derived column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Update GDELT lastupdate\type derived column.Inputs[Derived Column Input].Columns[Column 2]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Column 2"
-                      lineageId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].Columns[Column 2]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Update GDELT lastupdate\type derived column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Update GDELT lastupdate\type derived column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update GDELT lastupdate\type derived column.Outputs[Derived Column Output].Columns[filetype]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\Update GDELT lastupdate\type derived column.Outputs[Derived Column Output].Columns[filetype]"
-                      name="filetype"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_STR,50,1252)[TOKEN](#{Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output].Columns[Column 2]},".",4)</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,50,1252)TOKEN([Column 2],".",4)</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update GDELT lastupdate\type derived column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Update GDELT lastupdate\type derived column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update GDELT lastupdate\type derived column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Update GDELT lastupdate\type derived column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Update GDELT lastupdate\type derived column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Update GDELT lastupdate\type derived column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Update GDELT lastupdate.Paths[Derived Column Output]"
-              endId="Package\Update GDELT lastupdate\SourceFileLastUpdate destination.Inputs[OLE DB Destination Input]"
-              name="Derived Column Output"
-              startId="Package\Update GDELT lastupdate\type derived column.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Update GDELT lastupdate.Paths[Flat File Source Output]"
-              endId="Package\Update GDELT lastupdate\type derived column.Inputs[Derived Column Input]"
-              name="Flat File Source Output"
-              startId="Package\Update GDELT lastupdate\lastupdate source.Outputs[Flat File Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{7D1FD1AF-031D-456D-9C0F-86772DDA10D5}"
+      DTS:DTSID="{76F96DE2-81D4-43A0-9DFF-7AE36B3C9326}"
       DTS:From="Package\Get GDELT 20 lastupdate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Update GDELT lastupdate" />
+      DTS:To="Package\Get Latest Update Values" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{3E90BFCE-BB04-4418-9F72-5E6216F86749}"
-      DTS:From="Package\Truncate SourceFileLastUpdate"
+      DTS:DTSID="{083B78A7-2AEC-44A0-AD65-B82ABF1A5DB4}"
+      DTS:From="Package\Get Latest Update Values"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Get GDELT 20 lastupdate" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{965D8C10-9693-448E-9682-1B00C2294207}"
-      DTS:From="Package\Update GDELT lastupdate"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 2"
-      DTS:To="Package\Get Latest Export Values" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
-      DTS:CreationName=""
-      DTS:DTSID="{9F223DE5-2974-48EB-973F-1BBBE8591DA7}"
-      DTS:From="Package\Get Latest Export Values"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 3"
-      DTS:To="Package\Get Max AddedDatetime" />
+      DTS:To="Package\Get Previous Max ExportDatetime" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
-      DTS:DTSID="{F291624A-6B03-4801-9079-8423A72D0A36}"
-      DTS:From="Package\Get Max AddedDatetime"
+      DTS:DTSID="{CB739488-7E64-4287-8C1A-C46DE8963034}"
+      DTS:From="Package\Get Previous Max ExportDatetime"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
-      DTS:To="Package\Repeat for Each AddedDatetime" />
+      DTS:To="Package\Repeat for each export datetime" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -808,173 +1193,183 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="200,42"
           Id="Package\Get GDELT 20 lastupdate"
-          TopLeft="345,337.285714285714" />
+          TopLeft="67,41.285714285714" />
         <NodeLayout
-          Size="202,42"
-          Id="Package\Update GDELT lastupdate"
-          TopLeft="66,424.285714285714" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="445,379.285714285714">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-278,45"
-              Start="0,0"
-              End="-278,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.5"
-                    Point2="0,22.5"
-                    Point3="-4,22.5" />
-                  <mssgle:LineSegment
-                    End="-274,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-274,22.5"
-                    Point2="-278,22.5"
-                    Point3="-278,26.5" />
-                  <mssgle:LineSegment
-                    End="-278,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="200,42"
+          Id="Package\Get Latest Update Values"
+          TopLeft="89,138" />
         <NodeLayout
-          Size="227,42"
-          Id="Package\Truncate SourceFileLastUpdate"
-          TopLeft="70,335.285714285714" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="297,357.285714285714">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="48,0"
-              Start="0,0"
-              End="40.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="40.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="197,42"
-          Id="Package\Get Latest Export Values"
-          TopLeft="335,418.285714285714" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="268,442.285714285714">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="67,0"
-              Start="0,0"
-              End="59.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="59.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="195,42"
-          Id="Package\Get Max AddedDatetime"
-          TopLeft="62,519.285714285714" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="433.5,460.285714285714">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-274,59"
-              Start="0,0"
-              End="-274,51.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.5"
-                    Point2="0,29.5"
-                    Point3="-4,29.5" />
-                  <mssgle:LineSegment
-                    End="-270,29.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-270,29.5"
-                    Point2="-274,29.5"
-                    Point3="-274,33.5" />
-                  <mssgle:LineSegment
-                    End="-274,51.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="239,42"
+          Id="Package\Get Previous Max ExportDatetime"
+          TopLeft="85,232.285714285714" />
         <NodeLayout
           Size="132,42"
-          Id="Package\Repeat for Each AddedDatetime\PreStaging"
-          TopLeft="56,20.1428571428571" />
+          Id="Package\Repeat for each export datetime\PreStaging"
+          TopLeft="57,79.1428571428571" />
         <NodeLayout
           Size="165,42"
-          Id="Package\Repeat for Each AddedDatetime\stgGDELT20Event"
-          TopLeft="73.1428571428571,93" />
+          Id="Package\Repeat for each export datetime\stgGDELT20Event"
+          TopLeft="54.1428571428571,155" />
         <EdgeLayout
-          Id="Package\Repeat for Each AddedDatetime.PrecedenceConstraints[Constraint]"
-          TopLeft="122,62.1428571428571">
+          Id="Package\Repeat for each export datetime.PrecedenceConstraints[Constraint]"
+          TopLeft="123,121.142857142857">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="33.6428571428571,30.8571428571429"
+              EndConnector="13.6428571428571,33.8571428571429"
               Start="0,0"
-              End="33.6428571428571,23.3571428571429">
+              End="13.6428571428571,26.3571428571429">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.4285714285714" />
+                    End="0,12.9285714285714" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,11.4285714285714"
-                    Point2="0,15.4285714285714"
-                    Point3="4,15.4285714285714" />
+                    Point1="0,12.9285714285714"
+                    Point2="0,16.9285714285714"
+                    Point3="4,16.9285714285714" />
                   <mssgle:LineSegment
-                    End="29.6428571428571,15.4285714285714" />
+                    End="9.64285714285711,16.9285714285714" />
                   <mssgle:CubicBezierSegment
-                    Point1="29.6428571428571,15.4285714285714"
-                    Point2="33.6428571428571,15.4285714285714"
-                    Point3="33.6428571428571,19.4285714285714" />
+                    Point1="9.64285714285711,16.9285714285714"
+                    Point2="13.6428571428571,16.9285714285714"
+                    Point3="13.6428571428571,20.9285714285714" />
                   <mssgle:LineSegment
-                    End="33.6428571428571,23.3571428571429" />
+                    End="13.6428571428571,26.3571428571429" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Repeat for each export datetime\Check if Current File Exists"
+          TopLeft="17,8" />
+        <EdgeLayout
+          Id="Package\Repeat for each export datetime.PrecedenceConstraints[Constraint 1]"
+          TopLeft="121.5,50">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.1428571428571"
+              Start="0,0"
+              End="0,21.6428571428571">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.6428571428571" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,2.82142857142856,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Repeat for each export datetime\DimActor"
+          TopLeft="53,229" />
+        <EdgeLayout
+          Id="Package\Repeat for each export datetime.PrecedenceConstraints[Constraint 2]"
+          TopLeft="136.642857142857,197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.6428571428571,32"
+              Start="0,0"
+              End="-21.6428571428571,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="-4,16" />
+                  <mssgle:LineSegment
+                    End="-17.6428571428571,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.6428571428571,16"
+                    Point2="-21.6428571428571,16"
+                    Point3="-21.6428571428571,20" />
+                  <mssgle:LineSegment
+                    End="-21.6428571428571,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Repeat for each export datetime\DimGeo"
+          TopLeft="67,301" />
+        <EdgeLayout
+          Id="Package\Repeat for each export datetime.PrecedenceConstraints[Constraint 3]"
+          TopLeft="115,271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11,30"
+              Start="0,0"
+              End="11,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
+                  <mssgle:LineSegment
+                    End="7,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7,15"
+                    Point2="11,15"
+                    Point3="11,19" />
+                  <mssgle:LineSegment
+                    End="11,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Repeat for each export datetime\FactEvent"
+          TopLeft="69,386" />
+        <EdgeLayout
+          Id="Package\Repeat for each export datetime.PrecedenceConstraints[Constraint 4]"
+          TopLeft="129.25,343">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -986,36 +1381,104 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="288,211"
-          Size="288,254"
-          Id="Package\Repeat for Each AddedDatetime"
-          TopLeft="64,613.785714285714" />
+          PanelSize="285,483"
+          Size="285,526"
+          Id="Package\Repeat for each export datetime"
+          TopLeft="81,348.785714285714" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="159.5,561.285714285714">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="167,83.285714285714">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="48.5,52.5"
+              EndConnector="22,54.714285714286"
               Start="0,0"
-              End="48.5,45">
+              End="22,47.214285714286">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.25" />
+                    End="0,23.357142857143" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,22.25"
-                    Point2="0,26.25"
-                    Point3="4,26.25" />
+                    Point1="0,23.357142857143"
+                    Point2="0,27.357142857143"
+                    Point3="4,27.357142857143" />
                   <mssgle:LineSegment
-                    End="44.5,26.25" />
+                    End="18,27.357142857143" />
                   <mssgle:CubicBezierSegment
-                    Point1="44.5,26.25"
-                    Point2="48.5,26.25"
-                    Point3="48.5,30.25" />
+                    Point1="18,27.357142857143"
+                    Point2="22,27.357142857143"
+                    Point3="22,31.357142857143" />
                   <mssgle:LineSegment
-                    End="48.5,45" />
+                    End="22,47.214285714286" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="189,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.5,52.285714285714"
+              Start="0,0"
+              End="15.5,44.785714285714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.142857142857" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.142857142857"
+                    Point2="0,26.142857142857"
+                    Point3="4,26.142857142857" />
+                  <mssgle:LineSegment
+                    End="11.5,26.142857142857" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.5,26.142857142857"
+                    Point2="15.5,26.142857142857"
+                    Point3="15.5,30.142857142857" />
+                  <mssgle:LineSegment
+                    End="15.5,44.785714285714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="204.5,274.285714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19,74.4999999999998"
+              Start="0,0"
+              End="19,66.9999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.2499999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.2499999999999"
+                    Point2="0,37.2499999999999"
+                    Point3="4,37.2499999999999" />
+                  <mssgle:LineSegment
+                    End="15,37.2499999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15,37.2499999999999"
+                    Point2="19,37.2499999999999"
+                    Point3="19,41.2499999999999" />
+                  <mssgle:LineSegment
+                    End="19,66.9999999999998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1027,106 +1490,5 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\Update GDELT lastupdate">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Update GDELT lastupdate\type derived column"
-          TopLeft="107,133" />
-        <NodeLayout
-          Size="237,42"
-          Id="Package\Update GDELT lastupdate\SourceFileLastUpdate destination"
-          TopLeft="95,214" />
-        <NodeLayout
-          Size="164,42"
-          Id="Package\Update GDELT lastupdate\lastupdate source"
-          TopLeft="100,50" />
-        <EdgeLayout
-          Id="Package\Update GDELT lastupdate.Paths[Flat File Source Output]"
-          TopLeft="182,92">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="13.5,41"
-              Start="0,0"
-              End="13.5,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5"
-                    Point2="0,20.5"
-                    Point3="4,20.5" />
-                  <mssgle:LineSegment
-                    End="9.5,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="9.5,20.5"
-                    Point2="13.5,20.5"
-                    Point3="13.5,24.5" />
-                  <mssgle:LineSegment
-                    End="13.5,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update GDELT lastupdate.Paths[Derived Column Output]"
-          TopLeft="195.5,175">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="18,39"
-              Start="0,0"
-              End="18,31.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.5"
-                    Point2="0,19.5"
-                    Point3="4,19.5" />
-                  <mssgle:LineSegment
-                    End="14,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="14,19.5"
-                    Point2="18,19.5"
-                    Point3="18,23.5" />
-                  <mssgle:LineSegment
-                    End="18,31.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Update GDELT lastupdate\SourceFileLastUpdate destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

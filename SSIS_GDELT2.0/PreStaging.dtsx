@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="PreStaging"
   DTS:PackageType="5"
-  DTS:VersionBuild="159"
-  DTS:VersionGUID="{4D6FFCE5-4EE0-4E75-AEB0-F58F93185B31}">
+  DTS:VersionBuild="173"
+  DTS:VersionGUID="{01135977-2C9E-4E7A-A6EC-EEA9E960E338}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -47,18 +47,20 @@
       DTS:ObjectName="GDELTExportDatetime">
       <DTS:Property
         DTS:DataType="7"
-        DTS:Name="ParameterValue">2/21/2015 7:59:00 PM</DTS:Property>
+        DTS:Name="ParameterValue">2/19/2015 7:15:00 AM</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{B63CFA99-CA3A-4968-9E89-06E4EB44522B}"
-      DTS:IncludeInDebugDump="6789"
+      DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="zipFileExists">
+      DTS:ObjectName="FileExists"
+      DTS:RaiseChangedEvent="True">
       <DTS:VariableValue
-        DTS:DataType="11">0</DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -70,7 +72,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="zipFilePath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\GDELT\SourceFiles\20150221195900.export.CSV.zip</DTS:VariableValue>
+        DTS:DataType="8">C:\GDELT\SourceFiles\20150219071500.export.CSV.zip</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -81,7 +83,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="zipURL">
       <DTS:VariableValue
-        DTS:DataType="8">http://data.gdeltproject.org/gdeltv2/20150221195900.export.CSV.zip</DTS:VariableValue>
+        DTS:DataType="8">http://data.gdeltproject.org/gdeltv2/20150219071500.export.CSV.zip</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:LoggingOptions
@@ -169,7 +171,9 @@
       <DTS:ObjectData>
         <ExecuteProcessData
           Executable="C:\GDELT\Programs\curl.exe"
-          Arguments="--fail -o C:\GDELT\SourceFiles\20150221195900.export.CSV.zip http://data.gdeltproject.org/gdeltv2/20150221195900.export.CSV.zip" />
+          Arguments="--fail -o C:\GDELT\SourceFiles\20150219071500.export.CSV.zip http://data.gdeltproject.org/gdeltv2/20150219071500.export.CSV.zip"
+          FailTaskIfReturnCodeIsNotSuccessValue="False"
+          StandardErrorVariable="User::FileExists" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -190,7 +194,7 @@
       <DTS:ObjectData>
         <ExecuteProcessData
           Executable="C:\GDELT\Programs\7za.exe"
-          Arguments="e C:\GDELT\SourceFiles\20150221195900.export.CSV.zip -oC:\GDELT\SourceFiles -y" />
+          Arguments="e C:\GDELT\SourceFiles\20150219071500.export.CSV.zip -oC:\GDELT\SourceFiles -y" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
