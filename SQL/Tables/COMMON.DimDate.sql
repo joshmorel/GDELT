@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  Table [dbo].[DimDate]    Script Date: 2015-02-14 07:13:33 AM ******/
+/****** Object:  Table [COMMON].[DimDate]    Script Date: 2015-03-15 11:41:49 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,7 +11,7 @@ GO
 SET ANSI_PADDING ON
 GO
 
-CREATE TABLE [dbo].[DimDate](
+CREATE TABLE [COMMON].[DimDate](
 	[DATE_KEY] [int] NOT NULL,
 	[FULL_DATE] [datetime2](0) NOT NULL,
 	[DATE_YYYYMMDD] [varchar](10) NULL,

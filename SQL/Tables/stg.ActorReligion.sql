@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  Table [stg].[ActorReligion]    Script Date: 31/01/2015 11:09:13 AM ******/
+/****** Object:  Table [stg].[ActorReligion]    Script Date: 2015-03-15 11:43:57 AM ******/
 SET ANSI_NULLS ON
 GO
 

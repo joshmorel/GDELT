@@ -4,7 +4,7 @@ GO
 USE [GDELT]
 GO
 
-/****** Object:  Sequence [dbo].[SeqGeoKey]    Script Date: 01/02/2015 11:46:26 AM ******/
+/****** Object:  Sequence [dbo].[SeqGeoKey]    Script Date: 2015-03-15 11:47:32 AM ******/
 CREATE SEQUENCE [dbo].[SeqGeoKey] 
  AS [int]
  START WITH 1

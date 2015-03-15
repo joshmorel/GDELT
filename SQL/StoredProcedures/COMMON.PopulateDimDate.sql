@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[PopulateDimDate]    Script Date: 2015-02-14 07:13:48 AM ******/
+/****** Object:  StoredProcedure [COMMON].[PopulateDimDate]    Script Date: 2015-03-15 11:45:17 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -15,18 +15,20 @@ GO
 
 
 
+
+
 -- =============================================
 -- Author:		Josh Morel
 -- Create date: 2015-02-01
 -- Description:	Insert geography dimension with transactional data
 -- =============================================
-CREATE PROCEDURE [dbo].[PopulateDimDate]
+CREATE PROCEDURE [COMMON].[PopulateDimDate]
 
 AS
 BEGIN
 SET NOCOUNT ON;
 
-truncate table dbo.DimDate;
+truncate table COMMON.DimDate;
 
 --Purpose: To populate the DIM_DATE table
 
@@ -72,12 +74,12 @@ DECLARE @DIM_DATE TABLE (
 );
 
 --Step 3: Populate date table with days from 1950 to 2050
-DECLARE @DATECTR DATETIME2(0) = '1950-01-01 00:00';
+DECLARE @DATECTR DATETIME2(0) = '2000-01-01 00:00';
 
-WHILE @DATECTR <= '2050-12-31'
+WHILE @DATECTR <= '2016-12-31'
 
 BEGIN
-INSERT INTO dbo.DimDate
+INSERT INTO COMMON.DimDate
 VALUES(
 	CAST(CONVERT(CHAR(8),@DATECTR,112) AS INT) --Date Key
 	,@DATECTR --Date in Date Format
@@ -133,7 +135,7 @@ END
 
 
 --Step 5: Insert unknown date record
-INSERT INTO dbo.DimDate
+INSERT INTO COMMON.DimDate
 VALUES
 (
 	30001231
@@ -173,6 +175,8 @@ VALUES
 
 
 END
+
+
 
 
 

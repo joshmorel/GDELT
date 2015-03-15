@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  Table [dbo].[DimEventCode]    Script Date: 13/01/2015 6:54:17 PM ******/
+/****** Object:  Table [GDELT20].[DimEventCode]    Script Date: 2015-03-15 11:42:21 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,7 +11,7 @@ GO
 SET ANSI_PADDING ON
 GO
 
-CREATE TABLE [dbo].[DimEventCode](
+CREATE TABLE [GDELT20].[DimEventCode](
 	[EventCodeKey] [int] NOT NULL,
 	[EventCode] [varchar](10) NOT NULL,
 	[EventDescription] [varchar](255) NOT NULL,

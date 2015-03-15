@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  Table [SSIS].[ErrorLog]    Script Date: 13/01/2015 6:55:26 PM ******/
+/****** Object:  Table [SSIS].[ErrorLog]    Script Date: 2015-03-15 11:43:01 AM ******/
 SET ANSI_NULLS ON
 GO
 

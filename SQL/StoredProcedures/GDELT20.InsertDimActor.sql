@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[InsertDimActor]    Script Date: 31/01/2015 12:44:28 PM ******/
+/****** Object:  StoredProcedure [GDELT20].[InsertDimActor]    Script Date: 2015-03-15 11:45:29 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -9,20 +9,12 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-
-
-
-
-
-
-
-
 -- =============================================
 -- Author:		Josh Morel
 -- Create date: 2014-12-24
 -- Description:	Insert actor dimension from transactional data with all attributes
 -- =============================================
-CREATE PROCEDURE [dbo].[InsertDimActor] (@DateAdded int, @RowsInserted int output)
+CREATE PROCEDURE [GDELT20].[InsertDimActor] (@RowsInserted int output)
 	-- Add the parameters for the stored procedure here
 AS
 BEGIN
@@ -46,11 +38,10 @@ select
 	,a1.Actor1Type1Code ActorType1Code
 	,a1.Actor1Type2Code ActorType2Code
 	,a1.Actor1Type3Code ActorType3Code
-from stg.DailyEvent a1
-where 
-a1.DATEADDED = @DateAdded and a1.Actor1Name is not null
+from stg.GDELT20DailyEvent a1
+where a1.Actor1Name is not null
 union all
-select distinct
+select 
 	a2.Actor2Name
 	,a2.Actor2Code
 	,a2.Actor2CountryCode
@@ -61,8 +52,8 @@ select distinct
 	,a2.Actor2Type1Code
 	,a2.Actor2Type2Code
 	,a2.Actor2Type3Code
-from stg.DailyEvent a2
-where a2.DATEADDED = @DateAdded and a2.Actor2Name is not null
+from stg.GDELT20DailyEvent a2
+where a2.Actor2Name is not null
 ) sq ;
 
 --Next, get lookup values for descriptions and insert into staging table
@@ -108,7 +99,7 @@ from #actor a
 --Finally, use merge statement to update or insert into production table on combination of unique columns (ActorCode is combination of three actor types)
 	--ActorName,ActorCode,ActorCountryCode,ActorKnownGroupCode,ActorEthnicCode,ActorReligion1Code,ActorReligion2Code
 
-merge dbo.DimActor as t1
+merge GDELT20.DimActor as t1
 using stg.DimActor as t2 
 on t1.ActorName = t2.ActorName
 	and t1.ActorCode = t2.ActorCode
@@ -163,6 +154,9 @@ SELECT @RowsInserted = @@ROWCOUNT;
 drop table #actor
 
 END
+
+
+
 
 
 

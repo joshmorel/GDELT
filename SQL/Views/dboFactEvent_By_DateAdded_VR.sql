@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  View [dbo].[FactEvent_By_DateAdded_VR]    Script Date: 13/01/2015 6:57:23 PM ******/
+/****** Object:  View [GDELT20].[FactEvent_By_DateAdded_VR]    Script Date: 2015-03-15 11:34:24 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,24 +11,35 @@ GO
 
 
 
-CREATE VIEW [dbo].[FactEvent_By_DateAdded_VR]
+
+
+
+
+
+create VIEW [GDELT20].[FactEvent_By_DateAdded_VR]
 AS
-SELECT 
-     
-	 AD.Date AS AddedDate
-	 ,AD.Year AS AddedYear
-	 ,AD.Month AS AddedMonth
-	 ,AD.DayName as [DayOfWeek]
+SELECT
+	 AD.FULL_DATE AS AddedDate
+	 ,AD.CALENDAR_YEAR AS AddedYear
+	 ,AD.MONTH_NAME AS AddedMonth
+	 ,AD.DAY_OF_WEEK_NAME as [DayOfWeek]
+	 ,F.AddedTimeKey AS AddedTime
 	,COUNT(*) AS RecordCount
-    
-  FROM dbo.FactEvent F
-	INNER JOIN dbo.DimDate AD
-		on F.AddedDateKey = AD.DateKey
+
+  FROM GDELT20.FactEvent F
+	INNER JOIN COMMON.DimDate AD
+		on F.AddedDateKey = AD.DATE_KEY
 GROUP BY
-	 AD.Date
-	 ,AD.Year
-	 ,Ad.Month
-	 ,AD.DayName
+	 AD.FULL_DATE
+	 ,AD.CALENDAR_YEAR
+	 ,AD.MONTH_NAME
+	 ,F.AddedTimeKey
+	 ,AD.DAY_OF_WEEK_NAME
+
+
+
+
+
 
 
 

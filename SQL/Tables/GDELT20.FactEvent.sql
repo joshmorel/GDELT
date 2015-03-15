@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  Table [dbo].[FactEvent]    Script Date: 01/02/2015 11:51:08 AM ******/
+/****** Object:  Table [GDELT20].[FactEvent]    Script Date: 2015-03-15 11:42:53 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,10 +11,11 @@ GO
 SET ANSI_PADDING ON
 GO
 
-CREATE TABLE [dbo].[FactEvent](
+CREATE TABLE [GDELT20].[FactEvent](
 	[FactEventKey] [int] NOT NULL,
 	[OccurrenceDateKey] [int] NULL,
 	[AddedDateKey] [int] NOT NULL,
+	[AddedTimeKey] [int] NULL,
 	[QuadClassKey] [int] NOT NULL,
 	[Actor1Key] [int] NOT NULL,
 	[Actor2Key] [int] NOT NULL,
@@ -29,6 +30,7 @@ CREATE TABLE [dbo].[FactEvent](
 	[NumArticles] [int] NULL,
 	[AvgTone] [float] NULL,
 	[SourceURL] [varchar](255) NULL,
+	[SourceLanguage] [tinyint] NULL,
  CONSTRAINT [PK_FactEvent] PRIMARY KEY CLUSTERED 
 (
 	[FactEventKey] ASC

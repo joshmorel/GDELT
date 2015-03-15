@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="DimActor"
   DTS:PackageType="5"
-  DTS:VersionBuild="85"
-  DTS:VersionGUID="{4D72AC98-CE3B-4A71-AF8D-7742C96556AC}">
+  DTS:VersionBuild="89"
+  DTS:VersionGUID="{BF841C3D-A28D-4D15-BFB5-787754A00DD6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -164,7 +164,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{9CC49AAD-075B-4350-A1E2-39224DBDA34B}"
-          SQLTask:SqlStatementSource="INSERT INTO SSIS.ETLHistory&#xA;(MasterPackageID&#xA;      ,PackageID&#xA;      ,PackageName&#xA;      ,SourceDatetimeAdded&#xA;      ,NewRecordCount&#xA;      ,ModifiedRecordCount&#xA;)&#xA;VALUES&#xA;(?&#xA;,?&#xA;,?&#xA;,?&#xA;,?&#xA;,0)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="INSERT INTO SSIS.ETLHistory&#xA;(MasterPackageID&#xA;      ,PackageID&#xA;      ,PackageName&#xA;      ,NewRecordCount&#xA;      ,ModifiedRecordCount&#xA;)&#xA;VALUES&#xA;(?&#xA;,?&#xA;,?&#xA;,?&#xA;,0)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::computedPackageID"
@@ -185,12 +185,6 @@
             SQLTask:ParameterSize="-1" />
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="3"
-            SQLTask:DtsVariableName="$Package::GDELTExportDatetime"
-            SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="7"
-            SQLTask:ParameterSize="-1" />
-          <SQLTask:ParameterBinding
-            SQLTask:ParameterName="4"
             SQLTask:DtsVariableName="User::RowCount"
             SQLTask:ParameterDirection="Input"
             SQLTask:DataType="3"

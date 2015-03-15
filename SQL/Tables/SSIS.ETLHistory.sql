@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  Table [SSIS].[ETLHistory]    Script Date: 13/01/2015 6:55:34 PM ******/
+/****** Object:  Table [SSIS].[ETLHistory]    Script Date: 2015-03-15 11:43:08 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -14,9 +14,8 @@ GO
 CREATE TABLE [SSIS].[ETLHistory](
 	[MasterPackageID] [uniqueidentifier] NOT NULL,
 	[PackageID] [uniqueidentifier] NOT NULL,
-	[RunTime] [datetime] NOT NULL,
+	[RunTime] [datetime2](0) NOT NULL CONSTRAINT [DFT_ETLHistory_RunTime]  DEFAULT (getdate()),
 	[PackageName] [varchar](255) NOT NULL,
-	[SourceDateAdded] [date] NOT NULL,
 	[NewRecordCount] [int] NOT NULL,
 	[ModifiedRecordCount] [int] NOT NULL,
  CONSTRAINT [PK_ETLHistory] PRIMARY KEY CLUSTERED 
@@ -29,8 +28,5 @@ CREATE TABLE [SSIS].[ETLHistory](
 GO
 
 SET ANSI_PADDING OFF
-GO
-
-ALTER TABLE [SSIS].[ETLHistory] ADD  CONSTRAINT [DFT_ETLHistory_RunTime]  DEFAULT (getdate()) FOR [RunTime]
 GO
 

@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  Table [dbo].[DimActor]    Script Date: 31/01/2015 12:42:46 PM ******/
+/****** Object:  Table [stg].[DimActor]    Script Date: 2015-03-15 11:44:09 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,8 +11,7 @@ GO
 SET ANSI_PADDING ON
 GO
 
-CREATE TABLE [dbo].[DimActor](
-	[ActorKey] [int] NOT NULL,
+CREATE TABLE [stg].[DimActor](
 	[ActorName] [varchar](255) NOT NULL,
 	[ActorCode] [varchar](50) NOT NULL,
 	[ActorCountryCode] [varchar](50) NULL,
@@ -30,18 +29,11 @@ CREATE TABLE [dbo].[DimActor](
 	[ActorType2Code] [varchar](50) NULL,
 	[ActorType2Desc] [varchar](255) NULL,
 	[ActorType3Code] [varchar](50) NULL,
-	[ActorType3Desc] [varchar](255) NULL,
- CONSTRAINT [PK_DimActorFull] PRIMARY KEY CLUSTERED 
-(
-	[ActorKey] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	[ActorType3Desc] [varchar](255) NULL
 ) ON [PRIMARY]
 
 GO
 
 SET ANSI_PADDING OFF
-GO
-
-ALTER TABLE [dbo].[DimActor] ADD  CONSTRAINT [DFT_DimActorFull_ActorKey]  DEFAULT (NEXT VALUE FOR [dbo].[SeqActorFullKey]) FOR [ActorKey]
 GO
 

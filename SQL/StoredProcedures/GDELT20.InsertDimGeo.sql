@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[InsertDimGeo]    Script Date: 01/02/2015 11:47:03 AM ******/
+/****** Object:  StoredProcedure [GDELT20].[InsertDimGeo]    Script Date: 2015-03-15 11:45:38 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -13,12 +13,14 @@ GO
 
 
 
+
+
 -- =============================================
 -- Author:		Josh Morel
 -- Create date: 2015-02-01
 -- Description:	Insert geography dimension with transactional data
 -- =============================================
-CREATE PROCEDURE [dbo].[InsertDimGeo] (@DateAdded int, @RowsInserted int output)
+CREATE PROCEDURE [GDELT20].[InsertDimGeo] (@RowsInserted int output)
 
 AS
 BEGIN
@@ -37,36 +39,36 @@ select
     ,Actor1Geo_Fullname GeoFullname
     ,Actor1Geo_CountryCode GeoCountryCode
     ,Actor1Geo_ADM1Code GeoADM1Code
+	,Actor1Geo_ADM2Code GeoADM2Code
     ,Actor1Geo_Lat GeoLat
     ,Actor1Geo_Long GeoLong
     ,Actor1Geo_FeatureID GeoFeatureID
-from stg.DailyEvent
-where DATEADDED = @DateAdded
-and Actor1Geo_type <> 0 
+from stg.GDELT20DailyEvent
+where Actor1Geo_type <> 0 
 union all
 select
 	Actor2Geo_Type GeoType
     ,Actor2Geo_Fullname GeoFullname
     ,Actor2Geo_CountryCode GeoCountryCode
     ,Actor2Geo_ADM1Code GeoADM1Code
+	,Actor2Geo_ADM2Code GeoADM2Code
     ,Actor2Geo_Lat GeoLat
     ,Actor2Geo_Long GeoLong
     ,Actor2Geo_FeatureID GeoFeatureID
-from stg.DailyEvent	
-where DATEADDED = @DateAdded
-and Actor2Geo_type <> 0
+from stg.GDELT20DailyEvent	
+where Actor2Geo_type <> 0
 union all
 select
 	ActionGeo_Type GeoType
     ,ActionGeo_Fullname GeoFullname
     ,ActionGeo_CountryCode GeoCountryCode
     ,ActionGeo_ADM1Code GeoADM1Code
+	,ActionGeo_ADM2Code GeoADM2Code
     ,ActionGeo_Lat GeoLat
     ,ActionGeo_Long GeoLong
     ,ActionGeo_FeatureID GeoFeatureID
-from stg.DailyEvent
-where DATEADDED = @DateAdded
-and ActionGeo_Type <> 0
+from stg.GDELT20DailyEvent
+where ActionGeo_Type <> 0
 ) sq ;
 
 --Next, get lookup values for descriptions and insert into staging table
@@ -79,6 +81,7 @@ select
 	,case when G.GeoType = 1 then 'Not Applicable, Geo Is Country Type'
 		else isnull(gca.GeoADM1Desc,'ADM1 Description Not Available')
 	end GeoADM1Desc
+	,isnull(g.GeoADM2Code,'n/a') GeoADM2Code
 	,g.GeoFeatureID
 	,g.GeoLat
 	,g.GeoLong
@@ -96,11 +99,12 @@ from #geo g
 --Finally, use merge statement to update or insert into production table on combination of unique columns
 	--GeoFeatureID, GeoFullname, GeoLat, GeoLong, GeoADM1Code
 
-merge dbo.DimGeo as t1
+merge GDELT20.DimGeo as t1
 using stg.DimGeo as t2 
 on t1.GeoFeatureID = t2.GeoFeatureID
 	and t1.GeoFullname = t2.GeoFullname
 	and t1.GeoADM1Code = t2.GeoADM1Code
+	and t1.GeoADM2Code = t2.GeoADM2Code 
 	and isnull(t1.GeoLat,0) = isnull(t2.GeoLat,0)
 	and isnull(t1.GeoLong,0) = isnull(t2.GeoLong,0)
 
@@ -111,6 +115,7 @@ on t1.GeoFeatureID = t2.GeoFeatureID
 		,GeoCountryDesc
 		,GeoADM1Code
 		,GeoADM1Desc
+		,GeoADM2Code
 		,GeoFeatureID
 		,GeoLat
 		,GeoLong
@@ -122,6 +127,7 @@ on t1.GeoFeatureID = t2.GeoFeatureID
 		,GeoCountryDesc
 		,GeoADM1Code
 		,GeoADM1Desc
+		,GeoADM2Code
 		,GeoFeatureID
 		,GeoLat
 		,GeoLong
@@ -133,6 +139,8 @@ SELECT @RowsInserted = @@ROWCOUNT;
 drop table #geo
 
 END
+
+
 
 
 

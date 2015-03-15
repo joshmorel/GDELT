@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  Table [dbo].[DimQuadClass]    Script Date: 13/01/2015 6:55:02 PM ******/
+/****** Object:  Table [GDELT20].[DimQuadClass]    Script Date: 2015-03-15 11:42:43 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,7 +11,7 @@ GO
 SET ANSI_PADDING ON
 GO
 
-CREATE TABLE [dbo].[DimQuadClass](
+CREATE TABLE [GDELT20].[DimQuadClass](
 	[QuadClassKey] [int] NOT NULL,
 	[QuadClassCode] [char](1) NOT NULL,
 	[QuadClassDescription] [varchar](255) NOT NULL,

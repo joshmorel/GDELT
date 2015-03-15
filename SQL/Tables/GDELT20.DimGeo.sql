@@ -1,7 +1,7 @@
 USE [GDELT]
 GO
 
-/****** Object:  Table [dbo].[DimGeo]    Script Date: 01/02/2015 11:50:55 AM ******/
+/****** Object:  Table [GDELT20].[DimGeo]    Script Date: 2015-03-15 11:42:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,13 +11,14 @@ GO
 SET ANSI_PADDING ON
 GO
 
-CREATE TABLE [dbo].[DimGeo](
-	[GeoKey] [int] NOT NULL,
+CREATE TABLE [GDELT20].[DimGeo](
+	[GeoKey] [int] NOT NULL CONSTRAINT [DFT_DimGeo_GeoKey]  DEFAULT (NEXT VALUE FOR [dbo].[SeqGeoKey]),
 	[GeoFullname] [varchar](255) NULL,
 	[GeoCountryCode] [varchar](4) NULL,
 	[GeoCountryDesc] [varchar](255) NULL,
 	[GeoADM1Code] [varchar](4) NULL,
 	[GeoADM1Desc] [varchar](255) NULL,
+	[GeoADM2Code] [varchar](255) NULL,
 	[GeoFeatureID] [varchar](255) NULL,
 	[GeoLat] [decimal](9, 6) NULL,
 	[GeoLong] [decimal](9, 6) NULL,
@@ -32,8 +33,5 @@ CREATE TABLE [dbo].[DimGeo](
 GO
 
 SET ANSI_PADDING OFF
-GO
-
-ALTER TABLE [dbo].[DimGeo] ADD  CONSTRAINT [DFT_DimGeo_GeoKey]  DEFAULT (NEXT VALUE FOR [dbo].[SeqGeoKey]) FOR [GeoKey]
 GO
 
