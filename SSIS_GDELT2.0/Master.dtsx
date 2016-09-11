@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{DBA9DED2-A989-44B8-BD6E-5231C5E081F2}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{44662BEC-5161-4678-8F16-BBF90A4D6432}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -54,7 +54,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="PrevMaxExportDatetime">
       <DTS:VariableValue
-        DTS:DataType="7">3/14/2015 12:53:27 PM</DTS:VariableValue>
+        DTS:DataType="7">3/14/2015 12:53:00 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -261,13 +261,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="124,42"
+          Id="Package\DimActor"
+          TopLeft="48,122" />
+        <NodeLayout
           Size="118,42"
           Id="Package\DimGeo"
           TopLeft="62,194" />
         <NodeLayout
-          Size="124,42"
-          Id="Package\DimActor"
-          TopLeft="48,122" />
+          Size="127,42"
+          Id="Package\FactEvent"
+          TopLeft="66,282" />
         <NodeLayout
           Size="165,42"
           Id="Package\stgGDELT20Event"
@@ -340,10 +344,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="127,42"
-          Id="Package\FactEvent"
-          TopLeft="66,282" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="121,236">
